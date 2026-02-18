@@ -1,0 +1,61 @@
+\chapter{Peralatan AI Praktis (The AI Toolbox)}
+\label{chap:tools}
+
+Setelah memahami teori dan dasar prompting, saatnya kita berkenalan dengan "senjata" yang akan Anda gunakan sehari-hari.
+
+\section{ChatGPT (OpenAI)}
+
+ChatGPT adalah pelopor yang memulai revolusi AI generatif. Kekuatan utamanya adalah penalaran umum, kreativitas, dan integrasi dengan berbagai plugin (seperti DALL-E untuk gambar dan Advanced Data Analysis).
+
+\begin{tipbox}
+\textbf{Kapan Menggunakan ChatGPT:}
+\begin{itemize}
+    \item Ideasi kreatif (brainstorming).
+    \item Menulis draf awal.
+    \item Belajar hal baru dengan penjelasan sederhana.
+    \item Menganalisis data sederhana.
+\end{itemize}
+\end{tipbox}
+
+\section{Claude (Anthropic)}
+
+Claude dikenal dengan "Context Window" yang sangat besar (bisa membaca satu buku novel sekaligus) dan gaya penulisan yang lebih natural dan kurang "robotik" dibandingkan GPT.
+
+\begin{tipbox}
+\textbf{Kapan Menggunakan Claude:}
+\begin{itemize}
+    \item Meringkas dokumen panjang (PDF 100+ halaman).
+    \item Coding (Claude 3.5 Sonnet sangat kuat di sini).
+    \item Menulis konten yang membutuhkan nuansa emosional.
+\end{itemize}
+\end{tipbox}
+
+\section{Midjourney \& DALL-E 3}
+
+Ini adalah dua raksasa dalam generasi gambar.
+
+\subsection{Midjourney}
+Midjourney menghasilkan gambar paling artistik dan fotorealistik saat ini, tetapi penggunaannya agak rumit karena harus melalui Discord.
+
+\begin{codeblock}[title=Contoh Prompt Midjourney]
+/imagine prompt: futuristic Jakarta city skyline at night, cyberpunk style, neon lights, rain reflections, 8k resolution, cinematic lighting --ar 16:9 --v 6.0
+\end{codeblock}
+
+\subsection{DALL-E 3}
+DALL-E 3 terintegrasi langsung di ChatGPT. Keunggulannya adalah ia sangat patuh pada instruksi prompt, bahkan untuk teks di dalam gambar.
+
+\section{Studi Kasus: Membuat Presentasi Pitch Deck}
+
+Mari kita gabungkan tools ini untuk membuat pitch deck startup.
+
+\begin{enumerate}
+    \item \textbf{Ideasi (ChatGPT):} "Saya ingin membuat aplikasi pelacak kesehatan mental untuk Gen Z. Berikan 5 ide fitur unik yang belum ada di pasaran."
+    \item \textbf{Struktur Slide (Claude):} "Buatkan outline 10 slide pitch deck untuk ide nomor 2 di atas. Sertakan poin kunci untuk setiap slide."
+    \item \textbf{Visual (Midjourney):} "Generate gambar ilustrasi untuk slide 'Problem': seorang remaja yang merasa cemas menatap layar HP di kamar gelap, gaya ilustrasi flat design modern."
+    \item \textbf{Refinement (ChatGPT):} "Kritik struktur slide ini seolah-olah kamu adalah investor ventura yang skeptis."
+\end{enumerate}
+
+\begin{exercisebox}
+\textbf{Tantangan Mingguan:}
+Pilih satu masalah di pekerjaan atau studi Anda. Coba selesaikan menggunakan minimal 2 tool AI berbeda. Catat hasilnya dan bandingkan mana yang lebih efektif.
+\end{exercisebox}

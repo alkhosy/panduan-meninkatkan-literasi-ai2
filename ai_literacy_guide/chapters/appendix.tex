@@ -1,0 +1,133 @@
+\chapter{Appendix A: Glosarium Istilah AI}
+\label{chap:appendix_a}
+
+\begin{description}
+    \item[AI (Artificial Intelligence)] Kemampuan mesin untuk meniru fungsi kognitif manusia.
+    \item[AGI (Artificial General Intelligence)] AI yang memiliki kecerdasan setara manusia di segala bidang.
+    \item[Alignment] Proses memastikan AI bertindak sesuai dengan nilai-nilai manusia.
+    \item[Bias] Prasangka atau kesalahan sistematis dalam data yang menyebabkan keputusan AI tidak adil.
+    \item[Chatbot] Program komputer yang mensimulasikan percakapan manusia.
+    \item[Chunking] Memecah teks panjang menjadi bagian-bagian kecil agar muat dalam Context Window.
+    \item[Context Window] Batas memori jangka pendek LLM, diukur dalam token.
+    \item[Deep Learning] Subset ML yang menggunakan jaringan saraf tiruan berlapis-lapis.
+    \item[Embedding] Representasi numerik (vector) dari kata atau kalimat.
+    \item[Fine-Tuning] Melatih ulang model AI yang sudah jadi dengan data spesifik untuk tugas tertentu.
+    \item[Generative AI] AI yang bisa menciptakan konten baru (teks, gambar, audio).
+    \item[Hallucination] Fenomena ketika AI memberikan informasi yang salah dengan sangat percaya diri.
+    \item[Inference] Proses menjalankan model AI yang sudah dilatih untuk membuat prediksi.
+    \item[LLM (Large Language Model)] Model AI yang dilatih dengan data teks dalam jumlah sangat besar.
+    \item[Machine Learning] Kemampuan komputer belajar dari data tanpa diprogram eksplisit.
+    \item[Multimodal] Kemampuan AI memproses berbagai jenis input (teks, gambar, suara) sekaligus.
+    \item[NLP (Natural Language Processing)] Cabang AI yang berurusan dengan bahasa manusia.
+    \item[Parameter] Variabel internal model yang dipelajari selama pelatihan (GPT-4 punya triliunan).
+    \item[Pre-Training] Tahap awal pelatihan model dengan data mentah yang sangat besar.
+    \item[Prompt] Input teks yang diberikan user kepada AI.
+    \item[Prompt Engineering] Seni merancang prompt untuk mendapatkan output terbaik.
+    \item[RAG (Retrieval Augmented Generation)] Teknik menggabungkan LLM dengan database eksternal untuk akurasi.
+    \item[RLHF (Reinforcement Learning from Human Feedback)] Metode melatih AI dengan feedback manusia agar lebih aman dan bermanfaat.
+    \item[Temperature] Parameter yang mengatur kreativitas/keacakan output AI (0.0 = deterministik, 1.0 = kreatif).
+    \item[Token] Unit dasar teks yang diproses oleh LLM (bisa berupa kata atau bagian kata).
+    \item[Transformer] Arsitektur neural network di balik semua LLM modern.
+    \item[Vector Database] Database khusus untuk menyimpan embedding vector.
+    \item[Zero-Shot] Meminta AI melakukan tugas tanpa memberikan contoh sebelumnya.
+\end{description}
+
+\chapter{Appendix B: Workbook Proyek AI (75+ Templat)}
+\label{chap:appendix_b}
+
+Bagian ini berisi kumpulan lembar kerja (worksheet) kosong yang dirancang untuk dicetak dan diisi. Gunakan untuk berbagai proyek AI Anda.
+
+\foreach \n in {1,...,75}{
+    \newpage
+    \section*{AI Project Canvas - Proyek \#\n}
+
+    \begin{tcolorbox}[colback=white, colframe=black, height=9cm, title=Identifikasi Masalah]
+        \textbf{Masalah apa yang ingin diselesaikan?}
+        \vspace{2cm}
+
+        \textbf{Siapa pengguna utamanya?}
+        \vspace{2cm}
+    \end{tcolorbox}
+
+    \begin{tcolorbox}[colback=white, colframe=black, height=9cm, title=Solusi AI]
+        \textbf{Jenis AI apa yang dibutuhkan?}
+        \vspace{2cm}
+
+        \textbf{Data apa yang diperlukan?}
+        \vspace{2cm}
+    \end{tcolorbox}
+
+    \newpage
+    \section*{Log Eksperimen Prompt - Proyek \#\n}
+
+    \begin{tcolorbox}[colback=white, colframe=black, height=18cm, title=Catatan Iterasi Prompt]
+        \textbf{Versi 1:}
+        \vspace{3cm}
+
+        \textbf{Versi 2:}
+        \vspace{3cm}
+
+        \textbf{Versi 3 (Final):}
+        \vspace{3cm}
+    \end{tcolorbox}
+}
+
+\chapter{Appendix C: Log Eksperimen Prompt}
+\label{chap:appendix_c}
+
+Gunakan tabel ini untuk mencatat iterasi prompt Anda. Ingat, prompt yang baik lahir dari revisi berulang-ulang.
+
+\newpage
+\section*{Log Iterasi Prompt}
+
+\begin{center}
+\begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
+\hline
+\textbf{Versi} & \textbf{Prompt} & \textbf{Skor (1-10)} \\
+\hline
+v1.0 & & \\[2cm]
+\hline
+v1.1 & & \\[2cm]
+\hline
+v1.2 & & \\[2cm]
+\hline
+v1.3 & & \\[2cm]
+\hline
+v2.0 & & \\[2cm]
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+\begin{tabular}{|p{3cm}|p{8cm}|p{3cm}|}
+\hline
+\textbf{Versi} & \textbf{Prompt} & \textbf{Skor (1-10)} \\
+\hline
+v1.0 & & \\[2cm]
+\hline
+v1.1 & & \\[2cm]
+\hline
+v1.2 & & \\[2cm]
+\hline
+v1.3 & & \\[2cm]
+\hline
+v2.0 & & \\[2cm]
+\hline
+\end{tabular}
+\end{center}
+
+\chapter{Appendix D: Cheat Sheet Pola Prompt}
+\label{chap:appendix_d}
+
+\begin{itemize}
+    \item \textbf{Persona Pattern:} "Bertindaklah sebagai [Peran]..."
+    \item \textbf{Audience Persona Pattern:} "Jelaskan ini kepada [Audiens]..."
+    \item \textbf{Flipped Interaction Pattern:} "Tanyakan saya pertanyaan tentang [Topik] sampai Anda memiliki cukup informasi untuk melakukan [Tugas]."
+    \item \textbf{Recipe Pattern:} "Saya ingin mencapai [Tujuan]. Saya tahu saya perlu melakukan [Langkah 1], [Langkah 2]. Tolong lengkapi langkah-langkahnya."
+    \item \textbf{Alternative Approaches Pattern:} "Berikan 3 alternatif solusi untuk masalah ini dan bandingkan pro-kontranya."
+    \item \textbf{Refinement Pattern:} "Kritik jawaban Anda sendiri dan berikan versi yang lebih baik."
+\end{itemize}
+
+\endinput

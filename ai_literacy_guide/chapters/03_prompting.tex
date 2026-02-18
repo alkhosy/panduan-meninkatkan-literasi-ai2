@@ -1,0 +1,108 @@
+\chapter{Dasar-dasar Prompt Engineering}
+\label{chap:prompting}
+
+Prompt Engineering sering disebut sebagai "bahasa pemrograman baru" (The New Coding). Jika Anda bisa berbicara bahasa manusia dengan jelas, Anda bisa memprogram AI.
+
+Namun, tidak semua prompt diciptakan sama. Perbedaan antara prompt "tolong buatkan artikel" dengan prompt yang terstruktur bisa menghasilkan output yang sangat berbeda kualitasnya.
+
+\section{Anatomi Prompt yang Baik}
+
+Sebuah prompt yang efektif biasanya memiliki komponen-komponen berikut:
+
+\begin{enumerate}
+    \item \textbf{Role (Peran):} Siapa AI dalam konteks ini? (Misal: Guru, Editor, Ahli Gizi).
+    \item \textbf{Context (Konteks):} Informasi latar belakang yang relevan.
+    \item \textbf{Instruction (Instruksi):} Apa yang harus dilakukan AI secara spesifik.
+    \item \textbf{Constraint (Batasan):} Apa yang tidak boleh dilakukan, atau format output yang diinginkan.
+    \item \textbf{Few-Shot Examples (Contoh):} Contoh input dan output yang diharapkan.
+\end{enumerate}
+
+\begin{promptbox}[title=Contoh Prompt Terstruktur]
+\textbf{Role:} Bertindaklah sebagai editor senior di koran nasional.
+
+\textbf{Context:} Saya memiliki draf artikel tentang "Bahaya Plastik" yang ditulis dengan gaya bahasa terlalu santai.
+
+\textbf{Instruction:} Tulis ulang artikel tersebut agar bernada formal, persuasif, dan mendesak.
+
+\textbf{Constraint:} Jangan gunakan jargon teknis yang sulit dipahami orang awam. Maksimal 300 kata. Gunakan format bullet points untuk poin utama.
+
+\textbf{Input:} [Artikel asli saya...]
+\end{promptbox}
+
+\section{Zero-Shot vs. Few-Shot Prompting}
+
+\subsection{Zero-Shot}
+Ini adalah saat Anda langsung meminta AI melakukan sesuatu tanpa memberikan contoh.
+\begin{codeblock}
+Prompt: Terjemahkan kalimat ini ke bahasa Jepang: "Saya suka makan nasi goreng."
+\end{codeblock}
+
+\subsection{Few-Shot (Pemberian Contoh)}
+Teknik ini sangat ampuh untuk tugas yang kompleks atau membutuhkan format spesifik. Anda memberikan 1-3 contoh cara mengerjakannya.
+
+\begin{promptbox}[title=Few-Shot Example]
+Konversikan data mentah menjadi format JSON.
+
+Input: Budi, 25 tahun, Jakarta
+Output: {"nama": "Budi", "usia": 25, "kota": "Jakarta"}
+
+Input: Siti, 30 tahun, Surabaya
+Output: {"nama": "Siti", "usia": 30, "kota": "Surabaya"}
+
+Input: Andi, 22 tahun, Bandung
+Output:
+\end{promptbox}
+
+Dengan memberikan contoh, AI "mengerti" pola yang Anda inginkan tanpa perlu penjelasan panjang lebar.
+
+\section{Chain of Thought (CoT)}
+
+Chain of Thought adalah teknik meminta AI untuk "berpikir langkah demi langkah" sebelum memberikan jawaban akhir. Ini terbukti meningkatkan akurasi dalam soal matematika atau logika.
+
+\begin{tipbox}
+Tambahkan kalimat ajaib ini di akhir prompt Anda:
+\textbf{"Let's think step by step."} (Mari berpikir langkah demi langkah).
+\end{tipbox}
+
+\begin{promptbox}[title=Perbandingan CoT]
+\textbf{Tanpa CoT:}
+Q: Jika saya punya 5 apel, makan 2, lalu beli 3 lagi, dan membagikan setengah dari totalnya ke teman, berapa sisa apel saya?
+A: 3 apel. (Salah!)
+
+\textbf{Dengan CoT:}
+Q: Jika saya punya 5 apel, makan 2, lalu beli 3 lagi, dan membagikan setengah dari totalnya ke teman, berapa sisa apel saya? Mari berpikir langkah demi langkah.
+A:
+1. Awalnya ada 5 apel.
+2. Dimakan 2, sisa 5 - 2 = 3.
+3. Beli 3 lagi, jadi 3 + 3 = 6.
+4. Membagikan setengahnya (6 / 2 = 3).
+5. Sisa apel Anda adalah 3. (Benar!)
+\end{promptbox}
+
+\section{Teknik ReAct (Reason + Act)}
+
+ReAct menggabungkan penalaran (Reasoning) dengan tindakan (Acting), biasanya digunakan ketika AI memiliki akses ke tools (seperti pencarian internet).
+
+Pola: \textbf{Thought $\rightarrow$ Action $\rightarrow$ Observation}
+
+\begin{itemize}
+    \item \textbf{Thought:} Saya perlu mencari tahu siapa presiden Indonesia saat ini.
+    \item \textbf{Action:} Search("Presiden Indonesia 2024").
+    \item \textbf{Observation:} Hasil pencarian menunjukkan Joko Widodo (sampai Oktober) dan Prabowo Subianto (terpilih).
+    \item \textbf{Thought:} Saya harus menjawab berdasarkan tanggal hari ini.
+\end{itemize}
+
+\section{Workshop: Memperbaiki Prompt}
+
+\begin{exercisebox}
+\textbf{Kasus:} Anda ingin membuat email penawaran jasa desain grafis.
+
+\textbf{Prompt Buruk:}
+"Buatkan email penawaran jasa desain."
+
+\textbf{Tugas Anda:}
+Ubah prompt di atas menjadi prompt yang menggunakan rumus \textbf{R-C-I-C} (Role, Context, Instruction, Constraint).
+
+\vspace{2cm} % Space for writing
+(Tulis jawaban Anda di sini...)
+\end{exercisebox}

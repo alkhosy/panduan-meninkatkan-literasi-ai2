@@ -1,0 +1,88 @@
+\chapter{AI untuk Produktivitas (Studi Kasus)}
+\label{chap:productivity}
+
+Produktivitas bukanlah tentang bekerja lebih cepat, tetapi bekerja lebih cerdas.
+
+\section{Studi Kasus 1: Asisten Penulisan (Writing Assistant)}
+
+AI adalah partner brainstorming terbaik Anda, bukan sekadar penulis otomatis.
+
+\subsection{1. Brainstorming Ide Konten}
+
+\begin{promptbox}[title=Prompt Kreatif]
+Berikan 10 ide judul artikel tentang "Produktivitas Kerja Jarak Jauh" yang memancing rasa ingin tahu, tapi tidak clickbait. Target pembaca adalah manajer milenial.
+\end{promptbox}
+
+\subsection{2. Membuat Outline Struktur}
+
+Jangan minta AI menulis artikel utuh sekaligus. Minta outline dulu.
+\begin{codeblock}
+Prompt: Buatkan outline detail untuk judul nomor 3. Sertakan sub-poin dan contoh nyata di setiap bagian.
+\end{codeblock}
+
+\subsection{3. Drafting dan Editing}
+
+Gunakan teknik "Rewrite for Clarity".
+\begin{promptbox}[title=Editing Prompt]
+Tulis ulang paragraf berikut agar lebih ringkas, padat, dan menggunakan kalimat aktif. Hapus kata-kata pengisi yang tidak perlu.
+
+[Paste tulisan kasar Anda di sini]
+\end{promptbox}
+
+\section{Studi Kasus 2: Coding Assistant (Untuk Non-Programmer)}
+
+Anda tidak perlu menjadi programmer ahli untuk membuat script sederhana.
+
+\begin{tipbox}
+\textbf{Tips Coding dengan AI:}
+Jelaskan tujuan Anda dalam bahasa manusia yang sangat spesifik.
+\end{tipbox}
+
+\begin{codeblock}[title=Prompt Python Script]
+Saya punya folder berisi ratusan file foto dengan nama acak (IMG_001.jpg, dst).
+Tolong buatkan script Python untuk me-rename semua file tersebut berdasarkan tanggal pengambilan foto (YYYY-MM-DD_OriginalName.jpg).
+Jelaskan cara menjalankannya di Windows.
+\end{codeblock}
+
+AI tidak hanya akan memberikan kodenya, tetapi juga langkah-langkah instalasi Python jika Anda memintanya.
+
+\section{Studi Kasus 3: Analisis Data Instan}
+
+Jika Anda punya akses ke ChatGPT Plus (Advanced Data Analysis) atau Claude, Anda bisa mengupload file Excel/CSV.
+
+\begin{promptbox}[title=Analisis Data]
+(Upload file penjualan.csv)
+
+Tolong analisis tren penjualan bulanan dari data ini.
+1. Produk apa yang paling laris?
+2. Kapan terjadi lonjakan penjualan tertinggi?
+3. Buatkan grafik batang untuk memvisualisasikannya.
+\end{promptbox}
+
+\section{Cheat Sheet Produktivitas}
+
+Simpan tabel ini di dekat meja kerja Anda.
+
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Masalah} & \textbf{Solusi AI} & \textbf{Contoh Prompt Kunci} \\
+\hline
+Writer's Block & Ideasi & "Berikan 10 alternatif ide untuk..." \\
+\hline
+Email Sulit & Drafting & "Balas email ini dengan nada sopan tapi tegas menolak..." \\
+\hline
+Rapat Panjang & Summarizing & "Ringkas transkrip rapat ini menjadi 5 poin aksi..." \\
+\hline
+Data Berantakan & Formatting & "Ubah teks ini menjadi tabel CSV..." \\
+\hline
+Bug Coding & Debugging & "Jelaskan kenapa kode ini error dan perbaiki..." \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{exercisebox}
+\textbf{Latihan Produktivitas:}
+Pilih satu tugas rutin yang membosankan (misal: membalas email pelanggan, membuat laporan mingguan).
+Coba buat satu "Mega Prompt" yang bisa menyelesaikan 80\% dari tugas tersebut secara otomatis. Simpan prompt itu di aplikasi catatan Anda.
+\end{exercisebox}

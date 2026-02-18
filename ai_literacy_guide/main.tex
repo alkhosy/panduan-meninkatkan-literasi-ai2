@@ -1,0 +1,46 @@
+\documentclass[12pt, a4paper]{book}
+
+\usepackage{ai_literacy_guide/styles/custom}
+
+% --- Document Properties ---
+\title{\textbf{Panduan Literasi AI}\\ \large{Teknikal \& Praktikal}}
+\author{Tim Riset \& Pengembangan}
+\date{\today}
+
+% --- Main Document ---
+\begin{document}
+
+\frontmatter
+\maketitle
+\tableofcontents
+
+\chapter*{Kata Pengantar}
+Buku ini dirancang untuk membimbing Anda dari pemula hingga mahir dalam memahami dan menggunakan kecerdasan buatan. Kami menggunakan pendekatan praktis, memprioritaskan "learning by doing".
+
+\mainmatter
+
+% --- Bagian I: Fondasi ---
+\part{Fondasi AI}
+\include{ai_literacy_guide/chapters/01_intro}
+\include{ai_literacy_guide/chapters/02_how_it_works}
+
+% --- Bagian II: Prompt Engineering ---
+\part{Prompt Engineering Praktis}
+\include{ai_literacy_guide/chapters/03_prompting}
+\include{ai_literacy_guide/chapters/04_tools}
+\include{ai_literacy_guide/chapters/05_productivity}
+
+% --- Bagian III: Implementasi Teknis ---
+\part{Implementasi Teknis \& Coding}
+\include{ai_literacy_guide/chapters/06_python_setup}
+\include{ai_literacy_guide/chapters/07_apis}
+\include{ai_literacy_guide/chapters/08_rag_basics}
+
+% --- Bagian IV: Lanjutan & Etika ---
+\part{Advanced \& Etika}
+\include{ai_literacy_guide/chapters/09_ethics}
+
+\appendix
+\include{ai_literacy_guide/chapters/appendix}
+
+\end{document}

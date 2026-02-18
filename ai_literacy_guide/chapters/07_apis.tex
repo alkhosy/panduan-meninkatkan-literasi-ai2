@@ -1,0 +1,113 @@
+\chapter{Berinteraksi dengan API}
+\label{chap:apis}
+
+API (Application Programming Interface) adalah jembatan yang menghubungkan kode Anda dengan model AI raksasa di server OpenAI.
+
+\section{Mendapatkan API Key}
+
+\begin{enumerate}
+    \item Kunjungi \url{https://platform.openai.com/api-keys}.
+    \item Buat akun dan login.
+    \item Klik "Create new secret key".
+    \item Beri nama kunci, misal "BelajarAI".
+    \item \textbf{SALIN DAN SIMPAN SEKARANG JUGA.} Anda tidak akan bisa melihat kunci ini lagi setelah jendela ditutup.
+\end{enumerate}
+
+\begin{tipbox}
+\textbf{Keamanan API Key:}
+Jangan pernah bagikan kunci ini ke orang lain atau upload ke GitHub publik. Kunci ini terhubung ke kartu kredit Anda.
+\end{tipbox}
+
+\section{Struktur Request JSON}
+
+Secara teknis, Anda mengirim data dalam format JSON ke server OpenAI.
+
+\begin{codeblock}[title=Contoh Request JSON]
+{
+  "model": "gpt-4-turbo",
+  "messages": [
+    {"role": "system", "content": "You are a helpful assistant."},
+    {"role": "user", "content": "Hello!"}
+  ],
+  "temperature": 0.7
+}
+\end{codeblock}
+
+\section{Membuat Chatbot Sederhana dengan Python}
+
+Mari kita buat chatbot CLI (Command Line Interface) yang bisa ngobrol dengan Anda.
+
+\subsection{1. Simpan API Key}
+Buat file bernama `.env` di folder proyek Anda (tanpa nama, hanya ekstensi).
+
+\begin{codeblock}
+OPENAI_API_KEY=sk-proj-xxxxxxxxxxxxxxxxxxxxxxxx
+\end{codeblock}
+
+\subsection{2. Tulis Kode Chatbot}
+
+Buat file `chatbot.py`.
+
+\begin{codeblock}[language=Python]
+import os
+from dotenv import load_dotenv
+from openai import OpenAI
+
+# 1. Load API Key
+load_dotenv()
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+# 2. Fungsi Chat
+def chat_dengan_ai():
+    print("AI Chatbot (Ketik 'keluar' untuk berhenti)")
+    conversation_history = [
+        {"role": "system", "content": "Kamu adalah asisten AI yang sopan dan pintar."}
+    ]
+
+    while True:
+        user_input = input("\nAnda: ")
+
+        if user_input.lower() == "keluar":
+            break
+
+        # Tambahkan input user ke history
+        conversation_history.append({"role": "user", "content": user_input})
+
+        # Kirim ke OpenAI
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=conversation_history,
+            temperature=0.7
+        )
+
+        # Ambil jawaban AI
+        ai_reply = response.choices[0].message.content
+        print(f"AI: {ai_reply}")
+
+        # Simpan jawaban AI ke history agar konteks terjaga
+        conversation_history.append({"role": "assistant", "content": ai_reply})
+
+if __name__ == "__main__":
+    chat_dengan_ai()
+\end{codeblock}
+
+\section{Streaming Responses}
+
+Pernah lihat di web ChatGPT, tulisannya muncul satu per satu seperti diketik? Itu namanya "Streaming".
+Untuk melakukannya, tambahkan parameter `stream=True` di `client.chat.completions.create`.
+
+\section{Cost Management (Menghitung Token)}
+
+Setiap kali Anda mengirim request, Anda membayar per token.
+
+\begin{itemize}
+    \item Input (Prompt): Lebih murah.
+    \item Output (Completion): Lebih mahal.
+\end{itemize}
+
+Model GPT-4 jauh lebih mahal daripada GPT-3.5. Hati-hati dengan loop `while True` yang tidak terkontrol!
+
+\begin{exercisebox}
+\textbf{Tugas Coding:}
+Modifikasi skrip `chatbot.py` di atas agar AI berperan sebagai "Guru Bahasa Inggris yang Galak". Jika grammar user salah, AI harus memarahinya sebelum memperbaikinya.
+\end{exercisebox}
