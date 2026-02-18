@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.18)  18 FEB 2026 15:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.18)  18 FEB 2026 16:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -921,7 +921,7 @@ Package hyperref Info: Link coloring ON on input line 20.
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-<images/python-logo.png, id=1783, 214.77423pt x 72.27pt>
+<images/python-logo.png, id=1868, 214.77423pt x 72.27pt>
 File: images/python-logo.png Graphic file (type png)
 <use images/python-logo.png>
 Package pdftex.def Info: images/python-logo.png  used on input line 24.
@@ -1027,18 +1027,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [6]
-! Misplaced alignment tab character &.
-<argument> ...linkstart {IX\hspace {1em}Lampiran &
-                                                   Referensi}\Hy@toclinkend
-l.241 ...e {1em}Lampiran & Referensi}{115}{part.9}
-                                                  %
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1049,9 +1037,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [7]
 ! Misplaced alignment tab character &.
+<argument> ...linkstart {IX\hspace {1em}Lampiran &
+                                                   Referensi}\Hy@toclinkend
+l.262 ...e {1em}Lampiran & Referensi}{125}{part.9}
+                                                  %
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
 <argument> ...start {\numberline {B.4}Matplotlib &
                                                    Seaborn}\Hy@toclinkend
-l.251 ...4}Matplotlib & Seaborn}{133}{section.B.4}
+l.272 ...4}Matplotlib & Seaborn}{143}{section.B.4}
                                                   %
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1063,7 +1063,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 <argument> ...nkstart {\numberline {B.5.5}Saving &
                                                    Loading Models}\Hy@toclin...
-l.257 ... & Loading Models}{135}{subsection.B.5.5}
+l.278 ... & Loading Models}{145}{subsection.B.5.5}
                                                   %
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1075,7 +1075,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 <argument> ...kstart {\numberline {B.5.6}Dataset &
                                                    DataLoader}\Hy@toclinkend
-l.258 ...aset & DataLoader}{136}{subsection.B.5.6}
+l.279 ...aset & DataLoader}{146}{subsection.B.5.6}
                                                   %
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1087,19 +1087,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 <argument> ...rt {\numberline {B.6}Common Errors &
                                                    Solusi}\Hy@toclinkend
-l.259 ...Common Errors & Solusi}{136}{section.B.6}
-                                                  %
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-<argument> ...ine {E.5}Isu Hak Cipta (Copyright) &
-                                                   AI}\Hy@toclinkend
-l.293 ...Cipta (Copyright) & AI}{150}{section.E.5}
+l.280 ...Common Errors & Solusi}{146}{section.B.6}
                                                   %
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1118,9 +1106,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [8]
 ! Misplaced alignment tab character &.
+<argument> ...ine {E.5}Isu Hak Cipta (Copyright) &
+                                                   AI}\Hy@toclinkend
+l.314 ...Cipta (Copyright) & AI}{160}{section.E.5}
+                                                  %
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
 <argument> ...oclinkstart {\numberline {E.6}GDPR &
                                                    AI (Eropa)}\Hy@toclinkend
-l.296 ...{E.6}GDPR & AI (Eropa)}{151}{section.E.6}
+l.317 ...{E.6}GDPR & AI (Eropa)}{161}{section.E.6}
                                                   %
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1132,67 +1132,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 <argument> ... {\numberline {G.2}Content Writing &
                                                    Copywriting}\Hy@toclinkend
-l.316 ... Writing & Copywriting}{158}{section.G.2}
-                                                  %
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-<argument> ... {G.2.3}8. Memperbaiki Tata Bahasa &
-                                                   Gaya (Editing)}\Hy@toclin...
-l.319 ... & Gaya (Editing)}{159}{subsection.G.2.3}
-                                                  %
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-<argument> ...linkstart {\numberline {G.3}Bisnis &
-                                                   Produktivitas}\Hy@toclink...
-l.322 ...Bisnis & Produktivitas}{160}{section.G.3}
-                                                  %
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-<argument> ...start {\numberline {G.4}Pendidikan &
-                                                   Belajar}\Hy@toclinkend
-l.328 ...4}Pendidikan & Belajar}{161}{section.G.4}
-                                                  %
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-<argument> ...rt {\numberline {G.5}Data Analysis &
-                                                   Excel}\Hy@toclinkend
-l.334 ...}Data Analysis & Excel}{162}{section.G.5}
-                                                  %
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-<argument> ...kstart {\numberline {G.6}Marketing &
-                                                   Sales}\Hy@toclinkend
-l.340 ...{G.6}Marketing & Sales}{163}{section.G.6}
+l.337 ... Writing & Copywriting}{168}{section.G.2}
                                                   %
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1211,9 +1151,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [9]
 ! Misplaced alignment tab character &.
-<argument> ...numberline {G.8}Personal Assistant &
-                                                   Life Hacking}\Hy@toclinkend
-l.352 ...sistant & Life Hacking}{165}{section.G.8}
+<argument> ... {G.2.3}8. Memperbaiki Tata Bahasa &
+                                                   Gaya (Editing)}\Hy@toclin...
+l.340 ... & Gaya (Editing)}{169}{subsection.G.2.3}
                                                   %
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1222,17 +1162,65 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
+! Misplaced alignment tab character &.
+<argument> ...linkstart {\numberline {G.3}Bisnis &
+                                                   Produktivitas}\Hy@toclink...
+l.343 ...Bisnis & Produktivitas}{170}{section.G.3}
+                                                  %
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-Overfull \hbox (32.92264pt too wide) in paragraph at lines 366--366
- [][] [][][]\T1/lmr/m/n/12 1. Apa perbedaan antara Supervised, Unsupervised, da
-n Reinforcement
- []
+! Misplaced alignment tab character &.
+<argument> ...start {\numberline {G.4}Pendidikan &
+                                                   Belajar}\Hy@toclinkend
+l.349 ...4}Pendidikan & Belajar}{171}{section.G.4}
+                                                  %
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
+! Misplaced alignment tab character &.
+<argument> ...rt {\numberline {G.5}Data Analysis &
+                                                   Excel}\Hy@toclinkend
+l.355 ...}Data Analysis & Excel}{172}{section.G.5}
+                                                  %
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-Overfull \hbox (13.27632pt too wide) in paragraph at lines 377--377
- [][] [][][]\T1/lmr/m/n/12 11. Apa itu Activation Function dan mengapa kita mem
-butuhkannya?[][] []
- []
+! Misplaced alignment tab character &.
+<argument> ...kstart {\numberline {G.6}Marketing &
+                                                   Sales}\Hy@toclinkend
+l.361 ...{G.6}Marketing & Sales}{173}{section.G.6}
+                                                  %
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+<argument> ...numberline {G.8}Personal Assistant &
+                                                   Life Hacking}\Hy@toclinkend
+l.373 ...sistant & Life Hacking}{175}{section.G.8}
+                                                  %
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt):
@@ -1243,10 +1231,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [10]
+Overfull \hbox (32.92264pt too wide) in paragraph at lines 387--387
+ [][] [][][]\T1/lmr/m/n/12 1. Apa perbedaan antara Supervised, Unsupervised, da
+n Reinforcement
+ []
+
+
+Overfull \hbox (13.27632pt too wide) in paragraph at lines 398--398
+ [][] [][][]\T1/lmr/m/n/12 11. Apa itu Activation Function dan mengapa kita mem
+butuhkannya?[][] []
+ []
+
 ! Misplaced alignment tab character &.
 <argument> ...toclinkstart {\numberline {H.3}LLM &
                                                    Generative AI}\Hy@toclink...
-l.387 ....3}LLM & Generative AI}{173}{section.H.3}
+l.408 ....3}LLM & Generative AI}{183}{section.H.3}
                                                   %
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1258,7 +1257,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 <argument> ...rt {\numberline {H.4}System Design &
                                                    MLOps}\Hy@toclinkend
-l.398 ...}System Design & MLOps}{175}{section.H.4}
+l.419 ...}System Design & MLOps}{185}{section.H.4}
                                                   %
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1270,7 +1269,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 <argument> ...linkstart {\numberline {H.5}Python &
                                                    Coding}\Hy@toclinkend
-l.404 ...e {H.5}Python & Coding}{176}{section.H.5}
+l.425 ...e {H.5}Python & Coding}{186}{section.H.5}
                                                   %
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1280,15 +1279,10 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
-09.
+30.
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Overfull \hbox (9.10158pt too wide) in paragraph at lines 418--418
- [][] [][][]\T1/lmr/m/n/12 47. Bagaimana mendeteksi penipuan kartu kredit (Frau
-d Detection)?[][] []
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1297,7 +1291,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[11])
+[11]
+Overfull \hbox (9.10158pt too wide) in paragraph at lines 439--439
+ [][] [][][]\T1/lmr/m/n/12 47. Bagaimana mendeteksi penipuan kartu kredit (Frau
+d Detection)?[][] []
+ []
+
+)
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
@@ -1359,22 +1359,11 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
 (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-
-LaTeX Warning: File `ai_literacy_guide/images/turing_test.png' not found on inp
-ut line 23.
-
-
-! Package pdftex.def Error: File `ai_literacy_guide/images/turing_test.png' not
- found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...
-
-l.23 ...{ai_literacy_guide/images/turing_test.png}
-
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+<images/turing_test.png, id=2414, 250.9375pt x 321.2pt>
+File: images/turing_test.png Graphic file (type png)
+<use images/turing_test.png>
+Package pdftex.def Info: images/turing_test.png  used on input line 23.
+(pdftex.def)             Requested size: 264.61333pt x 338.7452pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1396,7 +1385,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[3]
+[3 <./images/turing_test.png>]
 Overfull \hbox (40.42136pt too wide) in paragraph at lines 55--55
 |[]\T1/lmr/bx/n/17.28 Machine Learning vs. Deep Learning vs. Generative
  []
@@ -1407,23 +1396,11 @@ Overfull \hbox (1.64536pt too wide) in paragraph at lines 71--72
 ingan Saraf Tiruan" (Neural
  []
 
-
-LaTeX Warning: File `ai_literacy_guide/images/neural_network.png' not found on
-input line 77.
-
-
-! Package pdftex.def Error: File `ai_literacy_guide/images/neural_network.png'
-not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...
-
-l.77 ..._literacy_guide/images/neural_network.png}
-
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
+<images/neural_network.png, id=2425, 963.6pt x 861.2175pt>
+File: images/neural_network.png Graphic file (type png)
+<use images/neural_network.png>
+Package pdftex.def Info: images/neural_network.png  used on input line 77.
+(pdftex.def)             Requested size: 220.50887pt x 197.07713pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -1445,29 +1422,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[5{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}]
+[5{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc} <./images/neural_network.
+png>]
 \openout2 = `chapters/02_how_it_works.aux'.
 
-
-(./chapters/02_how_it_works.tex
+ (./chapters/02_how_it_works.tex
 Chapter 2.
-
-LaTeX Warning: File `ai_literacy_guide/images/computer_vision.png' not found on
- input line 24.
-
-
-! Package pdftex.def Error: File `ai_literacy_guide/images/computer_vision.png'
- not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...
-
-l.24 ...literacy_guide/images/computer_vision.png}
-
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
+<images/computer_vision.png, id=2440, 596.2275pt x 362.35374pt>
+File: images/computer_vision.png Graphic file (type png)
+<use images/computer_vision.png>
+Package pdftex.def Info: images/computer_vision.png  used on input line 24.
+(pdftex.def)             Requested size: 352.81552pt x 214.4227pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -1494,6 +1459,12 @@ Overfull \hbox (26.67015pt too wide) in paragraph at lines 46--46
  []
 
 
+Overfull \hbox (14.70665pt too wide) in paragraph at lines 67--68
+[]\T1/lmr/m/n/12 Jika Anda bertanya tentang "Raja Indonesia tahun 1990", AI mun
+gkin akan mengarang
+ []
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\headheight}{14.49998pt}.
@@ -1501,13 +1472,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[7]
-Overfull \hbox (14.70665pt too wide) in paragraph at lines 67--68
-[]\T1/lmr/m/n/12 Jika Anda bertanya tentang "Raja Indonesia tahun 1990", AI mun
-gkin akan mengarang
- []
-
-
+[7 <./images/computer_vision.png>]
 Underfull \hbox (badness 1824) in paragraph at lines 72--74
 []\T1/lmr/m/n/12 Coba tanyakan pada ChatGPT pertanyaan berikut (atau yang serup
 a):
@@ -1699,23 +1664,10 @@ Overfull \hbox (48.14679pt too wide) in paragraph at lines 1--1
 |\T1/lmr/bx/n/24.88 Menyiapkan Lingkungan Pengembangan
  []
 
-
-LaTeX Warning: File `ai_literacy_guide/images/python-logo.png' not found on inp
-ut line 9.
-
-
-! Package pdftex.def Error: File `ai_literacy_guide/images/python-logo.png' not
- found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...
-
-l.9 ...]{ai_literacy_guide/images/python-logo.png}
-
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
+File: images/python-logo.png Graphic file (type png)
+<use images/python-logo.png>
+Package pdftex.def Info: images/python-logo.png  used on input line 9.
+(pdftex.def)             Requested size: 176.40439pt x 59.36101pt.
 [19
 
 
@@ -1786,35 +1738,17 @@ Overfull \hbox (50.07805pt too wide) in paragraph at lines 1--1
 |\T1/lmr/bx/n/24.88 Retrieval Augmented Generation (RAG)
  []
 
-
-LaTeX Warning: File `ai_literacy_guide/images/rag_diagram.png' not found on inp
-ut line 19.
-
-
-! Package pdftex.def Error: File `ai_literacy_guide/images/rag_diagram.png' not
- found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...
-
-l.19 ...{ai_literacy_guide/images/rag_diagram.png}
-
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [25
+<images/rag_diagram.png, id=2645, 867.24pt x 433.62pt>
+File: images/rag_diagram.png Graphic file (type png)
+<use images/rag_diagram.png>
+Package pdftex.def Info: images/rag_diagram.png  used on input line 19.
+(pdftex.def)             Requested size: 441.01773pt x 220.50809pt.
+[25
 
 
 
 
-]
-Underfull \vbox (badness 1033) has occurred while \output is active []
-
-
+ <./images/rag_diagram.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -5203,293 +5137,32 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: F93018FF557951DD373A69351A72CF83;102274.
 
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 9F804F1D722D08D354AA83539F67441A;96793
-(rerunfilecheck)             After:  F93018FF557951DD373A69351A72CF83;102274.
  )
 Here is how much of TeX's memory you used:
- 32939 strings out of 476182
- 616503 string characters out of 5795595
+ 32774 strings out of 476182
+ 609033 string characters out of 5795595
  2491975 words of memory out of 5000000
- 51557 multiletter control sequences out of 15000+600000
+ 51456 multiletter control sequences out of 15000+600000
  637500 words of font info for 92 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 98i,12n,101p,662b,2195s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{section.24.10} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.24.9} has been referenced but does not exis
-t, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.24.8} has been referenced but does not exis
-t, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.24.7} has been referenced but does not exis
-t, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.24.6} has been referenced but does not exis
-t, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.24.3.1} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.24.2.4} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.24.2.3} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.24.2.2} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.24.2.1} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.23.4.3} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.23.4.2} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.23.1.3} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.22.7} has been referenced but does not exis
-t, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.22.5.3} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.21.6} has been referenced but does not exis
-t, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.21.5.2} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.21.5.1} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.21.4.3} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.20.4.2} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.20.4.1} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.20.3.3} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.20.3.2} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.20.3.1} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.20.2.2} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.20.2.1} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.20.1.3} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.20.1.2} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.20.1.1} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.37} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.36} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.35} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.34} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.33} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.32} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.31} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.30} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.29} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.28} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.27} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.26} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.25} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.24} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.23} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.22} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.21} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.20} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.19} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.18} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.17} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.16} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.15} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.14} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.13} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.12} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.11} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.10} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.9} has been referenced but does not exis
-t, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.8} has been referenced but does not exis
-t, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.7} has been referenced but does not exis
-t, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.6} has been referenced but does not exis
-t, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.5} has been referenced but does not exis
-t, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.4} has been referenced but does not exis
-t, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.19.3} has been referenced but does not exis
-t, replaced by a fixed one
-
-</usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type
-1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr
-/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/publ
-ic/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/t
-exmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lm
-r8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fon
-ts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb
-></usr/share/texmf/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf/fonts/typ
-e1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb></us
-r/share/texmf/fonts/type1/public/lm/lmtti10.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (211 pages, 933706 bytes).
+ 98i,12n,101p,662b,2104s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/ty
+pe1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></u
+sr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/pu
+blic/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share
+/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/
+lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/f
+onts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.p
+fb></usr/share/texmf/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf/fonts/t
+ype1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb></
+usr/share/texmf/fonts/type1/public/lm/lmtti10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (211 pages, 1170343 bytes).
 PDF statistics:
- 5894 PDF objects out of 6186 (max. 8388607)
- 5588 compressed objects within 56 object streams
- 2709 named destinations out of 2984 (max. 500000)
- 3554 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 5909 PDF objects out of 6186 (max. 8388607)
+ 5596 compressed objects within 56 object streams
+ 2645 named destinations out of 2984 (max. 500000)
+ 3742 words of extra memory for PDF output out of 10000 (max. 10000000)
