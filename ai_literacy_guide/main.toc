@@ -1,0 +1,464 @@
+\babel@toc {nil}{}\relax
+\contentsline {part}{I\hspace {1em}Fondasi AI}{1}{part.1}%
+\contentsline {chapter}{\numberline {1}Pengantar Kecerdasan Buatan}{2}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Apa Itu Kecerdasan Buatan?}{2}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Sejarah Singkat AI}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Tiga Tipe AI}{3}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}1. Artificial Narrow Intelligence (ANI)}{3}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}2. Artificial General Intelligence (AGI)}{3}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}3. Artificial Super Intelligence (ASI)}{4}{subsection.1.3.3}%
+\contentsline {section}{\numberline {1.4}Machine Learning vs. Deep Learning vs. Generative AI}{4}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Latihan Praktis 1: Audit AI Harian Anda}{5}{section.1.5}%
+\contentsline {chapter}{\numberline {2}Bagaimana LLM Bekerja?}{6}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Analogi Burung Beo Probabilistik}{6}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Tokenisasi: Cara AI Membaca}{6}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Prediksi Kata Berikutnya (Next Token Prediction)}{7}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Halusinasi: Ketika AI Berbohong}{8}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Training Data}{8}{section.2.5}%
+\contentsline {part}{II\hspace {1em}Prompt Engineering Praktis}{9}{part.2}%
+\contentsline {chapter}{\numberline {3}Dasar-dasar Prompt Engineering}{10}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Anatomi Prompt yang Baik}{10}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Zero-Shot vs. Few-Shot Prompting}{11}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Zero-Shot}{11}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Few-Shot (Pemberian Contoh)}{11}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Chain of Thought (CoT)}{11}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Teknik ReAct (Reason + Act)}{12}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Workshop: Memperbaiki Prompt}{12}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Advanced Prompting Cheat Sheet}{12}{section.3.6}%
+\contentsline {chapter}{\numberline {4}Peralatan AI Praktis (The AI Toolbox)}{13}{chapter.4}%
+\contentsline {section}{\numberline {4.1}ChatGPT (OpenAI)}{13}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Claude (Anthropic)}{13}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Midjourney \& DALL-E 3}{14}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Midjourney}{14}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}DALL-E 3}{14}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}Studi Kasus: Membuat Presentasi Pitch Deck}{14}{section.4.4}%
+\contentsline {chapter}{\numberline {5}AI untuk Produktivitas (Studi Kasus)}{15}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Studi Kasus 1: Asisten Penulisan (Writing Assistant)}{15}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}1. Brainstorming Ide Konten}{15}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}2. Membuat Outline Struktur}{15}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}3. Drafting dan Editing}{15}{subsection.5.1.3}%
+\contentsline {section}{\numberline {5.2}Studi Kasus 2: Coding Assistant (Untuk Non-Programmer)}{16}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Studi Kasus 3: Analisis Data Instan}{16}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Cheat Sheet Produktivitas}{16}{section.5.4}%
+\contentsline {part}{III\hspace {1em}Implementasi Teknis \& Coding}{18}{part.3}%
+\contentsline {chapter}{\numberline {6}Menyiapkan Lingkungan Pengembangan (Dev Environment)}{19}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Langkah 1: Instalasi Python}{19}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Langkah 2: Instalasi VS Code}{19}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Langkah 3: Virtual Environment (Venv)}{20}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Langkah 4: Menginstall Library AI}{20}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Hello World: Skrip AI Pertama Anda}{20}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Common Errors \& Solutions}{21}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}ModuleNotFoundError}{21}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}APIConnectionError}{21}{subsection.6.6.2}%
+\contentsline {subsection}{\numberline {6.6.3}RateLimitError}{21}{subsection.6.6.3}%
+\contentsline {subsection}{\numberline {6.6.4}AuthenticationError}{21}{subsection.6.6.4}%
+\contentsline {chapter}{\numberline {7}Berinteraksi dengan API}{22}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Mendapatkan API Key}{22}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Struktur Request JSON}{22}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Membuat Chatbot Sederhana dengan Python}{23}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}1. Simpan API Key}{23}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}2. Tulis Kode Chatbot}{23}{subsection.7.3.2}%
+\contentsline {section}{\numberline {7.4}Streaming Responses}{24}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Cost Management (Menghitung Token)}{24}{section.7.5}%
+\contentsline {chapter}{\numberline {8}Retrieval Augmented Generation (RAG) Dasar}{25}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Konsep Dasar RAG}{25}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Vector Embeddings: Bahasa Mesin}{26}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Membangun "Chat with your PDF" Sederhana}{27}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Proyek Akhir Bagian III: Bot Customer Service}{27}{section.8.4}%
+\contentsline {part}{IV\hspace {1em}Topik Lanjutan (Advanced)}{28}{part.4}%
+\contentsline {chapter}{\numberline {9}Deep Dive: Computer Vision}{29}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Convolutional Neural Networks (CNN)}{29}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Object Detection: YOLO}{29}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Image Segmentation}{29}{section.9.3}%
+\contentsline {section}{\numberline {9.4}Penerapan di Industri}{30}{section.9.4}%
+\contentsline {chapter}{\numberline {10}NLP Lanjutan: Di Balik Layar LLM}{31}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Evolusi NLP: RNN vs Transformer}{31}{section.10.1}%
+\contentsline {subsection}{\numberline {10.1.1}RNN (Recurrent Neural Networks)}{31}{subsection.10.1.1}%
+\contentsline {subsection}{\numberline {10.1.2}Transformer (Attention Mechanism)}{31}{subsection.10.1.2}%
+\contentsline {section}{\numberline {10.2}BERT vs GPT}{31}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Fine-Tuning vs RAG}{31}{section.10.3}%
+\contentsline {chapter}{\numberline {11}Generative Media: Gambar, Video, \& Audio}{33}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Diffusion Models (Stable Diffusion)}{33}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Video Generation (Sora, Runway)}{33}{section.11.2}%
+\contentsline {section}{\numberline {11.3}Audio & Voice Cloning Voice Cloning}{33}{section.11.3}%
+\contentsline {section}{\numberline {11.4}Tutorial: Menggunakan OpenAI Whisper (Speech-to-Text)}{33}{section.11.4}%
+\contentsline {part}{V\hspace {1em}Strategi \& Masa Depan}{35}{part.5}%
+\contentsline {chapter}{\numberline {12}Strategi AI untuk Bisnis}{36}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Framework Adopsi AI}{36}{section.12.1}%
+\contentsline {section}{\numberline {12.2}Menghitung ROI AI}{36}{section.12.2}%
+\contentsline {section}{\numberline {12.3}Studi Kasus Sektoral}{36}{section.12.3}%
+\contentsline {subsection}{\numberline {12.3.1}Kesehatan}{36}{subsection.12.3.1}%
+\contentsline {subsection}{\numberline {12.3.2}Keuangan}{36}{subsection.12.3.2}%
+\contentsline {subsection}{\numberline {12.3.3}E-Commerce}{36}{subsection.12.3.3}%
+\contentsline {section}{\numberline {12.4}Risiko Shadow AI}{37}{section.12.4}%
+\contentsline {chapter}{\numberline {13}Masa Depan: Quantum AI \& AGI}{38}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Quantum Computing \& AI}{38}{section.13.1}%
+\contentsline {section}{\numberline {13.2}Menuju AGI (Artificial General Intelligence)}{38}{section.13.2}%
+\contentsline {section}{\numberline {13.3}Regulasi AI (EU AI Act)}{38}{section.13.3}%
+\contentsline {section}{\numberline {13.4}Penutup: Peran Manusia}{39}{section.13.4}%
+\contentsline {chapter}{\numberline {14}Etika, Keamanan, dan Masa Depan}{40}{chapter.14}%
+\contentsline {section}{\numberline {14.1}Bias dan Fairness}{40}{section.14.1}%
+\contentsline {section}{\numberline {14.2}Privasi Data: Jangan Upload Rahasia!}{40}{section.14.2}%
+\contentsline {section}{\numberline {14.3}Deepfakes dan Misinformasi}{40}{section.14.3}%
+\contentsline {section}{\numberline {14.4}Prompt Injection Attacks}{41}{section.14.4}%
+\contentsline {section}{\numberline {14.5}Masa Depan Pekerjaan}{41}{section.14.5}%
+\contentsline {section}{\numberline {14.6}Skill Baru yang Dibutuhkan}{41}{section.14.6}%
+\contentsline {part}{VI\hspace {1em}Laboratorium Praktik AI (Hands-On Labs)}{42}{part.6}%
+\contentsline {chapter}{\numberline {15}Lab 1: Membangun Aplikasi RAG Full-Stack}{43}{chapter.15}%
+\contentsline {section}{\numberline {15.1}Arsitektur Sistem}{43}{section.15.1}%
+\contentsline {section}{\numberline {15.2}Persiapan Environment}{43}{section.15.2}%
+\contentsline {section}{\numberline {15.3}Kode Utama: app.py}{44}{section.15.3}%
+\contentsline {section}{\numberline {15.4}Cara Menjalankan}{46}{section.15.4}%
+\contentsline {chapter}{\numberline {16}Lab 2: Fine-Tuning LLM (QLoRA)}{47}{chapter.16}%
+\contentsline {section}{\numberline {16.1}Persiapan Dataset}{47}{section.16.1}%
+\contentsline {section}{\numberline {16.2}Kode Notebook (Google Colab)}{47}{section.16.2}%
+\contentsline {subsection}{\numberline {16.2.1}1. Install Libraries}{47}{subsection.16.2.1}%
+\contentsline {subsection}{\numberline {16.2.2}2. Load Model \& Tokenizer}{47}{subsection.16.2.2}%
+\contentsline {subsection}{\numberline {16.2.3}3. Setup LoRA Config}{48}{subsection.16.2.3}%
+\contentsline {subsection}{\numberline {16.2.4}4. Training Loop}{48}{subsection.16.2.4}%
+\contentsline {chapter}{\numberline {17}Lab 3: Membangun AI Agent dari Nol}{50}{chapter.17}%
+\contentsline {section}{\numberline {17.1}Logika ReAct (Reason + Act)}{50}{section.17.1}%
+\contentsline {section}{\numberline {17.2}Menjalankan Loop}{51}{section.17.2}%
+\contentsline {chapter}{\numberline {18}Lab 4: Computer Vision Pipeline}{53}{chapter.18}%
+\contentsline {section}{\numberline {18.1}Persiapan}{53}{section.18.1}%
+\contentsline {section}{\numberline {18.2}Kode Pendeteksi Wajah}{53}{section.18.2}%
+\contentsline {chapter}{\numberline {19}Lab 5: Voice Assistant (J.A.R.V.I.S Mini)}{55}{chapter.19}%
+\contentsline {section}{\numberline {19.1}Arsitektur}{55}{section.19.1}%
+\contentsline {section}{\numberline {19.2}Kode Implementasi}{55}{section.19.2}%
+\contentsline {chapter}{\numberline {20}Cookbook: Resep Praktis AI}{57}{chapter.20}%
+\contentsline {section}{\numberline {20.1}Resep 1: Setup OpenAI Client}{57}{section.20.1}%
+\contentsline {section}{\numberline {20.2}Resep 2: Simple Chat Completion}{57}{section.20.2}%
+\contentsline {section}{\numberline {20.3}Resep 3: Menghitung Token (Tiktoken)}{58}{section.20.3}%
+\contentsline {section}{\numberline {20.4}Resep 4: Streaming Response (Efek Mesik Ketik)}{58}{section.20.4}%
+\contentsline {section}{\numberline {20.5}Resep 5: JSON Mode (Structured Output)}{59}{section.20.5}%
+\contentsline {section}{\numberline {20.6}Resep 6: Few-Shot Prompting}{59}{section.20.6}%
+\contentsline {section}{\numberline {20.7}Resep 7: Handling API Errors (Retry Logic)}{60}{section.20.7}%
+\contentsline {section}{\numberline {20.8}Resep 8: Embedding Text}{60}{section.20.8}%
+\contentsline {section}{\numberline {20.9}Resep 9: Cosine Similarity (Membandingkan 2 Teks)}{61}{section.20.9}%
+\contentsline {section}{\numberline {20.10}Resep 10: Simple RAG (Retrieval-Augmented Generation)}{61}{section.20.10}%
+\contentsline {section}{\numberline {20.11}Resep 11: Chunking Text (Memecah Dokumen Panjang)}{62}{section.20.11}%
+\contentsline {section}{\numberline {20.12}Resep 12: Menyimpan Vektor ke ChromaDB}{62}{section.20.12}%
+\contentsline {section}{\numberline {20.13}Resep 13: Query ChromaDB}{63}{section.20.13}%
+\contentsline {section}{\numberline {20.14}Resep 14: Klasifikasi Teks dengan LLM}{63}{section.20.14}%
+\contentsline {section}{\numberline {20.15}Resep 15: Summarization (Meringkas Teks)}{64}{section.20.15}%
+\contentsline {section}{\numberline {20.16}Resep 16: Translation (Penerjemah Universal)}{64}{section.20.16}%
+\contentsline {section}{\numberline {20.17}Resep 17: Memperbaiki Grammar (Proofreading)}{65}{section.20.17}%
+\contentsline {section}{\numberline {20.18}Resep 18: Generate Data Dummy (Faker)}{65}{section.20.18}%
+\contentsline {section}{\numberline {20.19}Resep 19: Sentiment Analysis Batch}{65}{section.20.19}%
+\contentsline {section}{\numberline {20.20}Resep 20: Moderasi Konten (Safety)}{66}{section.20.20}%
+\contentsline {section}{\numberline {20.21}Resep 21: Image Generation dengan DALL-E 3}{67}{section.20.21}%
+\contentsline {section}{\numberline {20.22}Resep 22: Vision API (Analisis Gambar)}{68}{section.20.22}%
+\contentsline {section}{\numberline {20.23}Resep 23: Text-to-Speech (TTS)}{69}{section.20.23}%
+\contentsline {section}{\numberline {20.24}Resep 24: Speech-to-Text (Transkripsi)}{70}{section.20.24}%
+\contentsline {section}{\numberline {20.25}Resep 25: Batch Processing API (Hemat 50\%)}{71}{section.20.25}%
+\contentsline {section}{\numberline {20.26}Resep 26: Hybrid Search (Keyword + Vector)}{72}{section.20.26}%
+\contentsline {section}{\numberline {20.27}Resep 27: Parent Document Retriever}{73}{section.20.27}%
+\contentsline {section}{\numberline {20.28}Resep 28: Multi-Query Retriever}{74}{section.20.28}%
+\contentsline {section}{\numberline {20.29}Resep 29: Self-Querying Retriever}{75}{section.20.29}%
+\contentsline {section}{\numberline {20.30}Resep 30: Contextual Compression}{76}{section.20.30}%
+\contentsline {section}{\numberline {20.31}Resep 31: LangSmith Evaluation}{77}{section.20.31}%
+\contentsline {section}{\numberline {20.32}Resep 32: Guardrails (Input Validation)}{78}{section.20.32}%
+\contentsline {section}{\numberline {20.33}Resep 33: Structured Output dengan Pydantic}{79}{section.20.33}%
+\contentsline {section}{\numberline {20.34}Resep 34: Custom Knowledge Base dengan LlamaIndex}{80}{section.20.34}%
+\contentsline {section}{\numberline {20.35}Resep 35: Deploy Model Lokal dengan Ollama}{81}{section.20.35}%
+\contentsline {section}{\numberline {20.36}Resep 36: Summarization Panjang (Map-Reduce)}{82}{section.20.36}%
+\contentsline {section}{\numberline {20.37}Resep 37: Chat Memory Sederhana}{83}{section.20.37}%
+\contentsline {section}{\numberline {20.38}Resep 38: Chat Memory Hemat Token (Summary)}{84}{section.20.38}%
+\contentsline {section}{\numberline {20.39}Resep 39: Analisis Sentimen Terstruktur}{85}{section.20.39}%
+\contentsline {section}{\numberline {20.40}Resep 40: Ekstraksi Entitas (NER)}{86}{section.20.40}%
+\contentsline {section}{\numberline {20.41}Resep 41: Self-Correcting Code Generator}{87}{section.20.41}%
+\contentsline {section}{\numberline {20.42}Resep 42: Text-to-SQL (Chat dengan Database)}{88}{section.20.42}%
+\contentsline {section}{\numberline {20.43}Resep 43: Analisis CSV dengan Pandas Agent}{89}{section.20.43}%
+\contentsline {section}{\numberline {20.44}Resep 44: Chat dengan PDF (PyPDFLoader)}{90}{section.20.44}%
+\contentsline {section}{\numberline {20.45}Resep 45: YouTube Summarizer}{91}{section.20.45}%
+\contentsline {section}{\numberline {20.46}Resep 46: Web Scraping Agent}{92}{section.20.46}%
+\contentsline {section}{\numberline {20.47}Resep 47: Multi-Modal (Gambar + Teks)}{93}{section.20.47}%
+\contentsline {section}{\numberline {20.48}Resep 48: Function Calling (Cuaca)}{94}{section.20.48}%
+\contentsline {section}{\numberline {20.49}Resep 49: Custom Tool (Kalkulator)}{95}{section.20.49}%
+\contentsline {section}{\numberline {20.50}Resep 50: ReAct Agent (Reason + Act)}{96}{section.20.50}%
+\contentsline {section}{\numberline {20.51}Resep 51: Prompt Chaining (Step-by-Step)}{97}{section.20.51}%
+\contentsline {section}{\numberline {20.52}Resep 52: Few-Shot Prompting Dinamis}{98}{section.20.52}%
+\contentsline {section}{\numberline {20.53}Resep 53: Klasifikasi Zero-Shot dengan Embedding}{99}{section.20.53}%
+\contentsline {section}{\numberline {20.54}Resep 54: Semantic Clustering}{100}{section.20.54}%
+\contentsline {section}{\numberline {20.55}Resep 55: Anomaly Detection (Outlier)}{101}{section.20.55}%
+\contentsline {chapter}{\numberline {21}Deployment \& Production: Dari Laptop ke Cloud}{102}{chapter.21}%
+\contentsline {section}{\numberline {21.1}Membangun API dengan FastAPI}{102}{section.21.1}%
+\contentsline {subsection}{\numberline {21.1.1}1. Struktur Project}{102}{subsection.21.1.1}%
+\contentsline {subsection}{\numberline {21.1.2}2. Code: main.py}{102}{subsection.21.1.2}%
+\contentsline {subsection}{\numberline {21.1.3}3. Menjalankan Server}{103}{subsection.21.1.3}%
+\contentsline {section}{\numberline {21.2}Containerization dengan Docker}{103}{section.21.2}%
+\contentsline {subsection}{\numberline {21.2.1}1. Dockerfile}{103}{subsection.21.2.1}%
+\contentsline {subsection}{\numberline {21.2.2}2. Build \& Run}{104}{subsection.21.2.2}%
+\contentsline {section}{\numberline {21.3}Deployment ke Cloud}{104}{section.21.3}%
+\contentsline {subsection}{\numberline {21.3.1}Opsi 1: Hugging Face Spaces (Gratis/Mudah)}{104}{subsection.21.3.1}%
+\contentsline {subsection}{\numberline {21.3.2}Opsi 2: Railway / Render (PaaS)}{104}{subsection.21.3.2}%
+\contentsline {subsection}{\numberline {21.3.3}Opsi 3: AWS EC2 (Manual/Enterprise)}{105}{subsection.21.3.3}%
+\contentsline {section}{\numberline {21.4}Monitoring \& Observability}{105}{section.21.4}%
+\contentsline {subsection}{\numberline {21.4.1}LangSmith (by LangChain)}{105}{subsection.21.4.1}%
+\contentsline {subsection}{\numberline {21.4.2}Logging Sederhana}{105}{subsection.21.4.2}%
+\contentsline {section}{\numberline {21.5}Security Checklist untuk Produksi}{105}{section.21.5}%
+\contentsline {part}{VII\hspace {1em}Teori Mendalam (Theoretical Deep Dive)}{106}{part.7}%
+\contentsline {chapter}{\numberline {22}The Mathematics of Deep Learning}{107}{chapter.22}%
+\contentsline {section}{\numberline {22.1}Linear Algebra: The Language of Data}{107}{section.22.1}%
+\contentsline {subsection}{\numberline {22.1.1}Tensors and Dimensions}{107}{subsection.22.1.1}%
+\contentsline {subsection}{\numberline {22.1.2}Matrix Multiplication (Dot Product)}{107}{subsection.22.1.2}%
+\contentsline {section}{\numberline {22.2}Calculus: The Engine of Learning}{108}{section.22.2}%
+\contentsline {subsection}{\numberline {22.2.1}The Gradient}{108}{subsection.22.2.1}%
+\contentsline {subsection}{\numberline {22.2.2}The Chain Rule and Backpropagation}{108}{subsection.22.2.2}%
+\contentsline {section}{\numberline {22.3}Optimization Algorithms}{108}{section.22.3}%
+\contentsline {subsection}{\numberline {22.3.1}Stochastic Gradient Descent (SGD)}{108}{subsection.22.3.1}%
+\contentsline {subsection}{\numberline {22.3.2}Adam (Adaptive Moment Estimation)}{109}{subsection.22.3.2}%
+\contentsline {section}{\numberline {22.4}Activation Functions}{109}{section.22.4}%
+\contentsline {subsection}{\numberline {22.4.1}Sigmoid and Tanh}{109}{subsection.22.4.1}%
+\contentsline {subsection}{\numberline {22.4.2}ReLU (Rectified Linear Unit)}{109}{subsection.22.4.2}%
+\contentsline {subsection}{\numberline {22.4.3}GeLU (Gaussian Error Linear Unit)}{109}{subsection.22.4.3}%
+\contentsline {section}{\numberline {22.5}Loss Functions}{109}{section.22.5}%
+\contentsline {subsection}{\numberline {22.5.1}Mean Squared Error (MSE)}{110}{subsection.22.5.1}%
+\contentsline {subsection}{\numberline {22.5.2}Cross-Entropy Loss}{110}{subsection.22.5.2}%
+\contentsline {section}{\numberline {22.6}Conclusion}{110}{section.22.6}%
+\contentsline {chapter}{\numberline {23}Transformer Architecture Deep Dive}{111}{chapter.23}%
+\contentsline {section}{\numberline {23.1}The Core Mechanism: Self-Attention}{111}{section.23.1}%
+\contentsline {subsection}{\numberline {23.1.1}Query, Key, and Value}{111}{subsection.23.1.1}%
+\contentsline {subsection}{\numberline {23.1.2}Scaled Dot-Product Attention}{111}{subsection.23.1.2}%
+\contentsline {section}{\numberline {23.2}Multi-Head Attention}{112}{section.23.2}%
+\contentsline {section}{\numberline {23.3}Positional Encodings}{112}{section.23.3}%
+\contentsline {section}{\numberline {23.4}The Architecture Blocks}{112}{section.23.4}%
+\contentsline {subsection}{\numberline {23.4.1}Feed-Forward Network}{112}{subsection.23.4.1}%
+\contentsline {section}{\numberline {23.5}Encoder vs. Decoder Architectures}{113}{section.23.5}%
+\contentsline {subsection}{\numberline {23.5.1}Encoder-Only (BERT)}{113}{subsection.23.5.1}%
+\contentsline {subsection}{\numberline {23.5.2}Decoder-Only (GPT)}{113}{subsection.23.5.2}%
+\contentsline {subsection}{\numberline {23.5.3}Encoder-Decoder (T5, BART)}{113}{subsection.23.5.3}%
+\contentsline {section}{\numberline {23.6}Vision Transformers (ViT)}{113}{section.23.6}%
+\contentsline {section}{\numberline {23.7}Conclusion}{113}{section.23.7}%
+\contentsline {chapter}{\numberline {24}Reinforcement Learning from Human Feedback (RLHF)}{114}{chapter.24}%
+\contentsline {section}{\numberline {24.1}The Three Steps of RLHF}{114}{section.24.1}%
+\contentsline {subsection}{\numberline {24.1.1}Step 1: Supervised Fine-Tuning (SFT)}{114}{subsection.24.1.1}%
+\contentsline {subsection}{\numberline {24.1.2}Step 2: Reward Modeling (RM)}{114}{subsection.24.1.2}%
+\contentsline {subsection}{\numberline {24.1.3}Step 3: Reinforcement Learning (PPO)}{115}{subsection.24.1.3}%
+\contentsline {section}{\numberline {24.2}Direct Preference Optimization (DPO)}{115}{section.24.2}%
+\contentsline {section}{\numberline {24.3}Constitutional AI}{115}{section.24.3}%
+\contentsline {section}{\numberline {24.4}Challenges and Limitations}{116}{section.24.4}%
+\contentsline {subsection}{\numberline {24.4.1}Reward Hacking}{116}{subsection.24.4.1}%
+\contentsline {subsection}{\numberline {24.4.2}Alignment Tax}{116}{subsection.24.4.2}%
+\contentsline {subsection}{\numberline {24.4.3}Who Watches the Watchmen?}{116}{subsection.24.4.3}%
+\contentsline {section}{\numberline {24.5}Conclusion}{116}{section.24.5}%
+\contentsline {part}{VIII\hspace {1em}Implementasi Tingkat Lanjut}{117}{part.8}%
+\contentsline {chapter}{\numberline {25}Coding a Transformer from Scratch}{118}{chapter.25}%
+\contentsline {section}{\numberline {25.1}Prerequisites}{118}{section.25.1}%
+\contentsline {section}{\numberline {25.2}Data Preparation \& Tokenization}{118}{section.25.2}%
+\contentsline {subsection}{\numberline {25.2.1}The Dataset}{118}{subsection.25.2.1}%
+\contentsline {subsection}{\numberline {25.2.2}Character-Level Tokenizer}{118}{subsection.25.2.2}%
+\contentsline {subsection}{\numberline {25.2.3}Byte Pair Encoding (BPE)}{119}{subsection.25.2.3}%
+\contentsline {subsection}{\numberline {25.2.4}Train/Val Split}{119}{subsection.25.2.4}%
+\contentsline {section}{\numberline {25.3}The Architecture Components}{120}{section.25.3}%
+\contentsline {subsection}{\numberline {25.3.1}Imports and Hyperparameters}{120}{subsection.25.3.1}%
+\contentsline {section}{\numberline {25.4}Self-Attention Head}{120}{section.25.4}%
+\contentsline {section}{\numberline {25.5}Multi-Head Attention}{121}{section.25.5}%
+\contentsline {section}{\numberline {25.6}Feed-Forward Network}{121}{section.25.6}%
+\contentsline {section}{\numberline {25.7}Transformer Block}{122}{section.25.7}%
+\contentsline {section}{\numberline {25.8}The GPT Model}{122}{section.25.8}%
+\contentsline {section}{\numberline {25.9}Training Loop}{123}{section.25.9}%
+\contentsline {section}{\numberline {25.10}Conclusion}{124}{section.25.10}%
+\contentsline {part}{IX\hspace {1em}Lampiran & Referensi}{125}{part.9}%
+\contentsline {chapter}{\numberline {A}Glosarium Istilah AI (A-Z)}{126}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Referensi Cepat Python \& PyTorch}{140}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Python Dasar untuk Data Science}{140}{section.B.1}%
+\contentsline {subsection}{\numberline {B.1.1}List Comprehension}{140}{subsection.B.1.1}%
+\contentsline {subsection}{\numberline {B.1.2}Lambda Functions}{140}{subsection.B.1.2}%
+\contentsline {subsection}{\numberline {B.1.3}Dictionary Comprehension}{140}{subsection.B.1.3}%
+\contentsline {subsection}{\numberline {B.1.4}args dan kwargs}{141}{subsection.B.1.4}%
+\contentsline {section}{\numberline {B.2}NumPy Cheat Sheet}{141}{section.B.2}%
+\contentsline {section}{\numberline {B.3}Pandas Cheat Sheet}{142}{section.B.3}%
+\contentsline {section}{\numberline {B.4}Matplotlib & Seaborn}{143}{section.B.4}%
+\contentsline {section}{\numberline {B.5}PyTorch Cheat Sheet}{143}{section.B.5}%
+\contentsline {subsection}{\numberline {B.5.1}Tensor Basics}{143}{subsection.B.5.1}%
+\contentsline {subsection}{\numberline {B.5.2}Autograd (Automatic Differentiation)}{144}{subsection.B.5.2}%
+\contentsline {subsection}{\numberline {B.5.3}Neural Network Modules (torch.nn)}{144}{subsection.B.5.3}%
+\contentsline {subsection}{\numberline {B.5.4}Training Loop Template}{145}{subsection.B.5.4}%
+\contentsline {subsection}{\numberline {B.5.5}Saving & Loading Models}{145}{subsection.B.5.5}%
+\contentsline {subsection}{\numberline {B.5.6}Dataset & DataLoader}{146}{subsection.B.5.6}%
+\contentsline {section}{\numberline {B.6}Common Errors & Solusi}{146}{section.B.6}%
+\contentsline {chapter}{\numberline {C}Direktori 100+ AI Tools \& Resources}{148}{appendix.C}%
+\contentsline {section}{\numberline {C.1}LLM \& Chatbots}{148}{section.C.1}%
+\contentsline {section}{\numberline {C.2}Coding Assistants}{149}{section.C.2}%
+\contentsline {section}{\numberline {C.3}Generative Art \& Image}{149}{section.C.3}%
+\contentsline {section}{\numberline {C.4}Video Generation \& Editing}{150}{section.C.4}%
+\contentsline {section}{\numberline {C.5}Audio \& Voice Cloning}{150}{section.C.5}%
+\contentsline {section}{\numberline {C.6}Productivity \& Writing}{151}{section.C.6}%
+\contentsline {section}{\numberline {C.7}Research \& Data Analysis}{151}{section.C.7}%
+\contentsline {section}{\numberline {C.8}Developer Tools \& Infrastructure}{152}{section.C.8}%
+\contentsline {section}{\numberline {C.9}3D \& Gaming}{152}{section.C.9}%
+\contentsline {section}{\numberline {C.10}Lain-lain (Niche \& Unik)}{153}{section.C.10}%
+\contentsline {chapter}{\numberline {D}Direktori Dataset AI Utama}{154}{appendix.D}%
+\contentsline {section}{\numberline {D.1}Natural Language Processing (NLP)}{154}{section.D.1}%
+\contentsline {subsection}{\numberline {D.1.1}General Pre-training Corpora}{154}{subsection.D.1.1}%
+\contentsline {subsection}{\numberline {D.1.2}Fine-Tuning \& Instruction Datasets}{154}{subsection.D.1.2}%
+\contentsline {subsection}{\numberline {D.1.3}Code Datasets}{155}{subsection.D.1.3}%
+\contentsline {section}{\numberline {D.2}Computer Vision}{155}{section.D.2}%
+\contentsline {subsection}{\numberline {D.2.1}Image Classification}{155}{subsection.D.2.1}%
+\contentsline {subsection}{\numberline {D.2.2}Object Detection \& Segmentation}{155}{subsection.D.2.2}%
+\contentsline {subsection}{\numberline {D.2.3}Image Generation (Text-to-Image)}{155}{subsection.D.2.3}%
+\contentsline {section}{\numberline {D.3}Audio \& Speech}{156}{section.D.3}%
+\contentsline {section}{\numberline {D.4}Reinforcement Learning}{156}{section.D.4}%
+\contentsline {section}{\numberline {D.5}Recommendation Systems}{156}{section.D.5}%
+\contentsline {section}{\numberline {D.6}Medical \& Scientific}{156}{section.D.6}%
+\contentsline {chapter}{\numberline {E}Regulasi, Etika, \& Kebijakan AI Global}{158}{appendix.E}%
+\contentsline {section}{\numberline {E.1}Uni Eropa: The EU AI Act}{158}{section.E.1}%
+\contentsline {subsection}{\numberline {E.1.1}Kategori Risiko}{158}{subsection.E.1.1}%
+\contentsline {section}{\numberline {E.2}Amerika Serikat: Executive Order on AI}{159}{section.E.2}%
+\contentsline {subsection}{\numberline {E.2.1}Poin Kunci}{159}{subsection.E.2.1}%
+\contentsline {section}{\numberline {E.3}Tiongkok: Generative AI Measures}{159}{section.E.3}%
+\contentsline {subsection}{\numberline {E.3.1}Poin Kunci}{159}{subsection.E.3.1}%
+\contentsline {section}{\numberline {E.4}Indonesia: Surat Edaran Menkominfo No. 9 Tahun 2023}{160}{section.E.4}%
+\contentsline {subsection}{\numberline {E.4.1}Nilai Etika AI}{160}{subsection.E.4.1}%
+\contentsline {section}{\numberline {E.5}Isu Hak Cipta (Copyright) & AI}{160}{section.E.5}%
+\contentsline {subsection}{\numberline {E.5.1}Input: Apakah melatih AI dengan data berhak cipta itu legal?}{160}{subsection.E.5.1}%
+\contentsline {subsection}{\numberline {E.5.2}Output: Siapa pemilik hak cipta karya AI?}{160}{subsection.E.5.2}%
+\contentsline {section}{\numberline {E.6}GDPR & AI (Eropa)}{161}{section.E.6}%
+\contentsline {section}{\numberline {E.7}Checklist Kepatuhan Etika untuk Developer}{161}{section.E.7}%
+\contentsline {chapter}{\numberline {F}Profil 10 Startup AI Paling Berpengaruh}{162}{appendix.F}%
+\contentsline {section}{\numberline {F.1}1. OpenAI}{162}{section.F.1}%
+\contentsline {section}{\numberline {F.2}2. Anthropic}{162}{section.F.2}%
+\contentsline {section}{\numberline {F.3}3. Hugging Face}{163}{section.F.3}%
+\contentsline {section}{\numberline {F.4}4. Midjourney}{163}{section.F.4}%
+\contentsline {section}{\numberline {F.5}5. Stability AI}{164}{section.F.5}%
+\contentsline {section}{\numberline {F.6}6. Mistral AI}{164}{section.F.6}%
+\contentsline {section}{\numberline {F.7}7. Cohere}{165}{section.F.7}%
+\contentsline {section}{\numberline {F.8}8. Perplexity AI}{165}{section.F.8}%
+\contentsline {section}{\numberline {F.9}9. Databricks (MosaicML)}{165}{section.F.9}%
+\contentsline {section}{\numberline {F.10}10. ElevenLabs}{166}{section.F.10}%
+\contentsline {chapter}{\numberline {G}Koleksi Prompt Engineering Terbaik}{167}{appendix.G}%
+\contentsline {section}{\numberline {G.1}Coding \& Software Development}{167}{section.G.1}%
+\contentsline {subsection}{\numberline {G.1.1}1. Menjelaskan Kode Kompleks}{167}{subsection.G.1.1}%
+\contentsline {subsection}{\numberline {G.1.2}2. Membuat Unit Test (Pytest)}{167}{subsection.G.1.2}%
+\contentsline {subsection}{\numberline {G.1.3}3. Mengonversi Bahasa Pemrograman}{168}{subsection.G.1.3}%
+\contentsline {subsection}{\numberline {G.1.4}4. Debugging Error}{168}{subsection.G.1.4}%
+\contentsline {subsection}{\numberline {G.1.5}5. Menulis Dokumentasi API}{168}{subsection.G.1.5}%
+\contentsline {section}{\numberline {G.2}Content Writing & Copywriting}{168}{section.G.2}%
+\contentsline {subsection}{\numberline {G.2.1}6. Membuat Outline Artikel Blog SEO}{168}{subsection.G.2.1}%
+\contentsline {subsection}{\numberline {G.2.2}7. Menulis Thread Twitter/X Viral}{169}{subsection.G.2.2}%
+\contentsline {subsection}{\numberline {G.2.3}8. Memperbaiki Tata Bahasa & Gaya (Editing)}{169}{subsection.G.2.3}%
+\contentsline {subsection}{\numberline {G.2.4}9. Membuat Skrip Video YouTube/TikTok}{169}{subsection.G.2.4}%
+\contentsline {subsection}{\numberline {G.2.5}10. Cold Email untuk Penjualan}{169}{subsection.G.2.5}%
+\contentsline {section}{\numberline {G.3}Bisnis & Produktivitas}{170}{section.G.3}%
+\contentsline {subsection}{\numberline {G.3.1}11. Meringkas Dokumen Panjang}{170}{subsection.G.3.1}%
+\contentsline {subsection}{\numberline {G.3.2}12. Analisis SWOT}{170}{subsection.G.3.2}%
+\contentsline {subsection}{\numberline {G.3.3}13. Membuat Rencana Proyek (Gantt Chart text)}{170}{subsection.G.3.3}%
+\contentsline {subsection}{\numberline {G.3.4}14. Persiapan Negosiasi Gaji}{170}{subsection.G.3.4}%
+\contentsline {subsection}{\numberline {G.3.5}15. Ide Brainstorming Produk}{170}{subsection.G.3.5}%
+\contentsline {section}{\numberline {G.4}Pendidikan & Belajar}{171}{section.G.4}%
+\contentsline {subsection}{\numberline {G.4.1}16. Tutor Pribadi (Socratic Method)}{171}{subsection.G.4.1}%
+\contentsline {subsection}{\numberline {G.4.2}17. Membuat Soal Kuis}{171}{subsection.G.4.2}%
+\contentsline {subsection}{\numberline {G.4.3}18. Menjelaskan ke Anak 5 Tahun (ELI5)}{171}{subsection.G.4.3}%
+\contentsline {subsection}{\numberline {G.4.4}19. Membuat Rencana Belajar (Sylabus)}{171}{subsection.G.4.4}%
+\contentsline {subsection}{\numberline {G.4.5}20. Flashcard Generator}{171}{subsection.G.4.5}%
+\contentsline {section}{\numberline {G.5}Data Analysis & Excel}{172}{section.G.5}%
+\contentsline {subsection}{\numberline {G.5.1}21. Membuat Rumus Excel/Google Sheets}{172}{subsection.G.5.1}%
+\contentsline {subsection}{\numberline {G.5.2}22. Analisis Sentimen Teks}{172}{subsection.G.5.2}%
+\contentsline {subsection}{\numberline {G.5.3}23. Interpretasi Data SQL}{172}{subsection.G.5.3}%
+\contentsline {subsection}{\numberline {G.5.4}24. Regex Generator}{172}{subsection.G.5.4}%
+\contentsline {subsection}{\numberline {G.5.5}25. Data Cleaning Python}{172}{subsection.G.5.5}%
+\contentsline {section}{\numberline {G.6}Marketing & Sales}{173}{section.G.6}%
+\contentsline {subsection}{\numberline {G.6.1}26. Membuat Persona Pelanggan (Buyer Persona)}{173}{subsection.G.6.1}%
+\contentsline {subsection}{\numberline {G.6.2}27. Ide Kampanye Marketing}{173}{subsection.G.6.2}%
+\contentsline {subsection}{\numberline {G.6.3}28. Menulis Ad Copy (Facebook/Instagram Ads)}{173}{subsection.G.6.3}%
+\contentsline {subsection}{\numberline {G.6.4}29. Email Newsletter}{173}{subsection.G.6.4}%
+\contentsline {subsection}{\numberline {G.6.5}30. Review Respons}{173}{subsection.G.6.5}%
+\contentsline {section}{\numberline {G.7}Prompting untuk Gambar (Midjourney/DALL-E)}{174}{section.G.7}%
+\contentsline {subsection}{\numberline {G.7.1}31. Fotografi Realistis}{174}{subsection.G.7.1}%
+\contentsline {subsection}{\numberline {G.7.2}32. Logo Desain}{174}{subsection.G.7.2}%
+\contentsline {subsection}{\numberline {G.7.3}33. Ilustrasi 3D (Pixar Style)}{174}{subsection.G.7.3}%
+\contentsline {subsection}{\numberline {G.7.4}34. Cyberpunk City}{174}{subsection.G.7.4}%
+\contentsline {subsection}{\numberline {G.7.5}35. UI/UX Design Inspiration}{174}{subsection.G.7.5}%
+\contentsline {section}{\numberline {G.8}Personal Assistant & Life Hacking}{175}{section.G.8}%
+\contentsline {subsection}{\numberline {G.8.1}36. Perencanaan Perjalanan (Itinerary)}{175}{subsection.G.8.1}%
+\contentsline {subsection}{\numberline {G.8.2}37. Meal Plan Mingguan (Diet)}{175}{subsection.G.8.2}%
+\contentsline {subsection}{\numberline {G.8.3}38. Rekomendasi Buku/Film}{175}{subsection.G.8.3}%
+\contentsline {subsection}{\numberline {G.8.4}39. Format Email Profesional (Resign)}{175}{subsection.G.8.4}%
+\contentsline {subsection}{\numberline {G.8.5}40. Simulasi Debat (Devil's Advocate)}{175}{subsection.G.8.5}%
+\contentsline {section}{\numberline {G.9}Creative Writing \& Storytelling}{176}{section.G.9}%
+\contentsline {subsection}{\numberline {G.9.1}41. Membangun Dunia (World Building)}{176}{subsection.G.9.1}%
+\contentsline {subsection}{\numberline {G.9.2}42. Pengembangan Karakter}{176}{subsection.G.9.2}%
+\contentsline {subsection}{\numberline {G.9.3}43. Plot Twist Generator}{176}{subsection.G.9.3}%
+\contentsline {subsection}{\numberline {G.9.4}44. Menulis Puisi}{176}{subsection.G.9.4}%
+\contentsline {subsection}{\numberline {G.9.5}45. Skenario Dialog}{176}{subsection.G.9.5}%
+\contentsline {chapter}{\numberline {H}50 Pertanyaan \& Jawaban Wawancara AI}{178}{appendix.H}%
+\contentsline {section}{\numberline {H.1}Machine Learning Fundamentals}{178}{section.H.1}%
+\contentsline {subsection}{\numberline {H.1.1}1. Apa perbedaan antara Supervised, Unsupervised, dan Reinforcement Learning?}{178}{subsection.H.1.1}%
+\contentsline {subsection}{\numberline {H.1.2}2. Jelaskan Bias-Variance Tradeoff!}{178}{subsection.H.1.2}%
+\contentsline {subsection}{\numberline {H.1.3}3. Apa itu Overfitting dan bagaimana cara mencegahnya?}{179}{subsection.H.1.3}%
+\contentsline {subsection}{\numberline {H.1.4}4. Jelaskan perbedaan antara Precision dan Recall!}{179}{subsection.H.1.4}%
+\contentsline {subsection}{\numberline {H.1.5}5. Apa itu F1 Score?}{179}{subsection.H.1.5}%
+\contentsline {subsection}{\numberline {H.1.6}6. Apa itu Cross-Validation?}{180}{subsection.H.1.6}%
+\contentsline {subsection}{\numberline {H.1.7}7. Apa perbedaan antara Normalization dan Standardization?}{180}{subsection.H.1.7}%
+\contentsline {subsection}{\numberline {H.1.8}8. Jelaskan cara kerja Decision Tree!}{180}{subsection.H.1.8}%
+\contentsline {subsection}{\numberline {H.1.9}9. Apa itu Random Forest?}{180}{subsection.H.1.9}%
+\contentsline {subsection}{\numberline {H.1.10}10. Apa perbedaan antara K-Means dan KNN?}{181}{subsection.H.1.10}%
+\contentsline {section}{\numberline {H.2}Deep Learning \& Neural Networks}{181}{section.H.2}%
+\contentsline {subsection}{\numberline {H.2.1}11. Apa itu Activation Function dan mengapa kita membutuhkannya?}{181}{subsection.H.2.1}%
+\contentsline {subsection}{\numberline {H.2.2}12. Jelaskan Vanishing Gradient Problem!}{181}{subsection.H.2.2}%
+\contentsline {subsection}{\numberline {H.2.3}13. Apa fungsi dari Optimizer (seperti Adam, SGD)?}{181}{subsection.H.2.3}%
+\contentsline {subsection}{\numberline {H.2.4}14. Apa perbedaan antara Epoch, Batch, dan Iteration?}{181}{subsection.H.2.4}%
+\contentsline {subsection}{\numberline {H.2.5}15. Jelaskan konsep Convolutional Neural Network (CNN)!}{182}{subsection.H.2.5}%
+\contentsline {subsection}{\numberline {H.2.6}16. Apa itu Transfer Learning?}{182}{subsection.H.2.6}%
+\contentsline {subsection}{\numberline {H.2.7}17. Jelaskan arsitektur Transformer!}{182}{subsection.H.2.7}%
+\contentsline {subsection}{\numberline {H.2.8}18. Apa itu BERT vs GPT?}{182}{subsection.H.2.8}%
+\contentsline {subsection}{\numberline {H.2.9}19. Apa itu Word Embedding (Word2Vec, GloVe)?}{182}{subsection.H.2.9}%
+\contentsline {subsection}{\numberline {H.2.10}20. Jelaskan Long Short-Term Memory (LSTM)!}{183}{subsection.H.2.10}%
+\contentsline {section}{\numberline {H.3}LLM & Generative AI}{183}{section.H.3}%
+\contentsline {subsection}{\numberline {H.3.1}21. Apa itu Tokenization dalam konteks LLM?}{183}{subsection.H.3.1}%
+\contentsline {subsection}{\numberline {H.3.2}22. Apa itu Temperature dalam sampling LLM?}{183}{subsection.H.3.2}%
+\contentsline {subsection}{\numberline {H.3.3}23. Jelaskan konsep RAG (Retrieval-Augmented Generation)!}{183}{subsection.H.3.3}%
+\contentsline {subsection}{\numberline {H.3.4}24. Apa itu Hallucination pada AI?}{183}{subsection.H.3.4}%
+\contentsline {subsection}{\numberline {H.3.5}25. Bagaimana cara kerja RLHF (Reinforcement Learning from Human Feedback)?}{183}{subsection.H.3.5}%
+\contentsline {subsection}{\numberline {H.3.6}26. Apa itu LoRA (Low-Rank Adaptation)?}{184}{subsection.H.3.6}%
+\contentsline {subsection}{\numberline {H.3.7}27. Apa itu Context Window?}{184}{subsection.H.3.7}%
+\contentsline {subsection}{\numberline {H.3.8}28. Jelaskan Prompt Engineering!}{184}{subsection.H.3.8}%
+\contentsline {subsection}{\numberline {H.3.9}29. Apa itu Vector Database?}{184}{subsection.H.3.9}%
+\contentsline {subsection}{\numberline {H.3.10}30. Apa perbedaan antara Fine-Tuning dan RAG?}{184}{subsection.H.3.10}%
+\contentsline {section}{\numberline {H.4}System Design & MLOps}{185}{section.H.4}%
+\contentsline {subsection}{\numberline {H.4.1}31. Bagaimana Anda menangani dataset yang tidak seimbang (Imbalanced Dataset)?}{185}{subsection.H.4.1}%
+\contentsline {subsection}{\numberline {H.4.2}32. Bagaimana cara men-deploy model ML ke produksi?}{185}{subsection.H.4.2}%
+\contentsline {subsection}{\numberline {H.4.3}33. Apa itu Model Drift (Data Drift vs Concept Drift)?}{185}{subsection.H.4.3}%
+\contentsline {subsection}{\numberline {H.4.4}34. Bagaimana Anda memilih jumlah cluster (K) dalam K-Means?}{185}{subsection.H.4.4}%
+\contentsline {subsection}{\numberline {H.4.5}35. Apa itu A/B Testing dalam konteks ML?}{186}{subsection.H.4.5}%
+\contentsline {section}{\numberline {H.5}Python & Coding}{186}{section.H.5}%
+\contentsline {subsection}{\numberline {H.5.1}36. Apa perbedaan List dan Tuple di Python?}{186}{subsection.H.5.1}%
+\contentsline {subsection}{\numberline {H.5.2}37. Jelaskan konsep Decorator di Python!}{186}{subsection.H.5.2}%
+\contentsline {subsection}{\numberline {H.5.3}38. Bagaimana cara menangani Missing Values di Pandas?}{186}{subsection.H.5.3}%
+\contentsline {subsection}{\numberline {H.5.4}39. Apa itu Generator di Python?}{186}{subsection.H.5.4}%
+\contentsline {subsection}{\numberline {H.5.5}40. Jelaskan perbedaan \texttt {copy()} dan \texttt {deepcopy()}!}{187}{subsection.H.5.5}%
+\contentsline {section}{\numberline {H.6}Behavioral \& Situational}{187}{section.H.6}%
+\contentsline {subsection}{\numberline {H.6.1}41. Ceritakan proyek AI tersulit yang pernah Anda kerjakan!}{187}{subsection.H.6.1}%
+\contentsline {subsection}{\numberline {H.6.2}42. Bagaimana Anda menjelaskan konsep teknis (misal Neural Network) kepada klien non-teknis?}{187}{subsection.H.6.2}%
+\contentsline {subsection}{\numberline {H.6.3}43. Apa yang Anda lakukan jika model Anda memiliki performa bagus di training tapi buruk di produksi?}{187}{subsection.H.6.3}%
+\contentsline {subsection}{\numberline {H.6.4}44. Bagaimana Anda tetap update dengan perkembangan AI yang sangat cepat?}{187}{subsection.H.6.4}%
+\contentsline {subsection}{\numberline {H.6.5}45. Apa pertimbangan etis yang Anda pikirkan saat membangun sistem AI?}{187}{subsection.H.6.5}%
+\contentsline {section}{\numberline {H.7}Studi Kasus}{188}{section.H.7}%
+\contentsline {subsection}{\numberline {H.7.1}46. Bagaimana Anda mendesain sistem rekomendasi untuk e-commerce baru (cold start)?}{188}{subsection.H.7.1}%
+\contentsline {subsection}{\numberline {H.7.2}47. Bagaimana mendeteksi penipuan kartu kredit (Fraud Detection)?}{188}{subsection.H.7.2}%
+\contentsline {subsection}{\numberline {H.7.3}48. Perusahaan ingin membuat chatbot customer service. Apa strateginya?}{188}{subsection.H.7.3}%
+\contentsline {subsection}{\numberline {H.7.4}49. Bagaimana memprediksi harga saham?}{188}{subsection.H.7.4}%
+\contentsline {subsection}{\numberline {H.7.5}50. Bagaimana cara menghitung jumlah orang dalam kerumunan dari video CCTV?}{188}{subsection.H.7.5}%
+\contentsline {chapter}{\numberline {I}Panduan Karir AI: Roadmap \& Strategi}{189}{appendix.I}%
+\contentsline {section}{\numberline {I.1}Peta Peran (Role Map) dalam Industri AI}{189}{section.I.1}%
+\contentsline {subsection}{\numberline {I.1.1}1. Data Analyst}{189}{subsection.I.1.1}%
+\contentsline {subsection}{\numberline {I.1.2}2. Data Scientist}{189}{subsection.I.1.2}%
+\contentsline {subsection}{\numberline {I.1.3}3. Machine Learning Engineer (MLE)}{190}{subsection.I.1.3}%
+\contentsline {subsection}{\numberline {I.1.4}4. AI Research Scientist}{190}{subsection.I.1.4}%
+\contentsline {subsection}{\numberline {I.1.5}5. AI Product Manager}{190}{subsection.I.1.5}%
+\contentsline {section}{\numberline {I.2}Roadmap Belajar (Learning Path)}{190}{section.I.2}%
+\contentsline {subsection}{\numberline {I.2.1}Tahap 1: Fondasi (Bulan 1-2)}{190}{subsection.I.2.1}%
+\contentsline {subsection}{\numberline {I.2.2}Tahap 2: Machine Learning Klasik (Bulan 3-4)}{191}{subsection.I.2.2}%
+\contentsline {subsection}{\numberline {I.2.3}Tahap 3: Deep Learning \& Neural Networks (Bulan 5-6)}{191}{subsection.I.2.3}%
+\contentsline {subsection}{\numberline {I.2.4}Tahap 4: Spesialisasi \& Modern AI (Bulan 7+)}{191}{subsection.I.2.4}%
+\contentsline {subsection}{\numberline {I.2.5}Tahap 5: MLOps \& Engineering (Parallel)}{191}{subsection.I.2.5}%
+\contentsline {section}{\numberline {I.3}Membangun Portofolio}{192}{section.I.3}%
+\contentsline {section}{\numberline {I.4}Persiapan Wawancara}{192}{section.I.4}%
+\contentsline {subsection}{\numberline {I.4.1}Coding Interview (LeetCode)}{192}{subsection.I.4.1}%
+\contentsline {subsection}{\numberline {I.4.2}Machine Learning Design Interview}{192}{subsection.I.4.2}%
+\contentsline {section}{\numberline {I.5}Gaji \& Prospek Pasar (Indonesia \& Global)}{192}{section.I.5}%
+\contentsline {subsection}{\numberline {I.5.1}Indonesia (Per Bulan)}{192}{subsection.I.5.1}%
+\contentsline {subsection}{\numberline {I.5.2}Global/Remote (Per Tahun - USD)}{193}{subsection.I.5.2}%
+\contentsline {section}{\numberline {I.6}Sumber Belajar Rekomendasi}{193}{section.I.6}%
+\contentsline {chapter}{Epilog: Masa Depan di Tangan Anda}{194}{appendix*.2}%

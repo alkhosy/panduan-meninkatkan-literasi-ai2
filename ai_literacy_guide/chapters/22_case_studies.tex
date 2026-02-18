@@ -1,0 +1,103 @@
+\chapter{Studi Kasus Industri: AI dalam Dunia Nyata}
+\label{chap:case_studies}
+
+Teori dan kode hanyalah awal. Nilai sebenarnya dari AI terletak pada kemampuannya memecahkan masalah dunia nyata. Dalam bab ini, kita akan menyelami bagaimana berbagai industri bertransformasi berkat penerapan kecerdasan buatan.
+
+\section{Kesehatan (Healthcare): Lebih dari Sekadar Diagnosis}
+
+Industri kesehatan adalah salah satu sektor dengan dampak AI paling signifikan, mulai dari efisiensi administratif hingga menyelamatkan nyawa.
+
+\subsection{1. Radiologi dan Deteksi Dini Kanker}
+Radiolog harus memeriksa ratusan gambar X-ray, CT scan, dan MRI setiap hari. Kelelahan manusia (human error) adalah risiko nyata.
+\begin{itemize}
+    \item \textbf{Solusi AI:} Computer Vision (seperti CNN) dilatih pada jutaan gambar medis untuk mendeteksi anomali sekecil milimeter.
+    \item \textbf{Studi Kasus:} Google Health mengembangkan model AI yang dapat mendeteksi kanker payudara pada mamografi dengan akurasi yang melampaui radiolog manusia, mengurangi positif palsu hingga 5.7\% dan negatif palsu hingga 9.4\%.
+\end{itemize}
+
+\subsection{2. Penemuan Obat (Drug Discovery)}
+Mengembangkan obat baru biasanya memakan waktu 10-15 tahun dan biaya miliaran dolar.
+\begin{itemize}
+    \item \textbf{Solusi AI:} AlphaFold (DeepMind) memecahkan masalah pelipatan protein (protein folding) yang telah bertahan 50 tahun. Ini memungkinkan ilmuwan memprediksi struktur 3D protein dari urutan asam amino dalam hitungan menit, bukan tahun.
+    \item \textbf{Dampak:} Mempercepat pengembangan obat untuk penyakit langka dan merancang enzim pemakan plastik.
+\end{itemize}
+
+\subsection{3. Asisten Medis Virtual}
+Dokter menghabiskan 50\% waktunya untuk mencatat rekam medis (EHR).
+\begin{itemize}
+    \item \textbf{Solusi AI:} Ambient Clinical Intelligence (ACI) mendengarkan percakapan dokter-pasien dan secara otomatis menyusun catatan medis SOAP (Subjective, Objective, Assessment, Plan) yang akurat.
+\end{itemize}
+
+\section{Keuangan (Finance): Kecepatan dan Keamanan}
+
+Uang bergerak dalam milidetik. AI adalah satu-satunya cara untuk mengimbanginya.
+
+\subsection{1. Deteksi Penipuan (Fraud Detection)}
+Transaksi kartu kredit terjadi ribuan kali per detik. Rule-based system lama ("blokir jika > \$10,000") terlalu kaku.
+\begin{itemize}
+    \item \textbf{Solusi AI:} Model Anomaly Detection (seperti Isolation Forest atau Autoencoders) mempelajari pola belanja normal setiap nasabah. Jika Anda biasanya membeli kopi di Jakarta lalu tiba-tiba membeli berlian di Paris 5 menit kemudian, AI akan memblokirnya.
+    \item \textbf{Keunggulan:} Dapat mendeteksi pola penipuan baru yang belum pernah dilihat sebelumnya (zero-day fraud).
+\end{itemize}
+
+\subsection{2. Algorithmic Trading}
+Pasar saham dipengaruhi oleh berita, sentimen sosial media, dan laporan keuangan.
+\begin{itemize}
+    \item \textbf{Solusi AI:} NLP memproses jutaan artikel berita dan tweet secara real-time untuk memprediksi sentimen pasar (bullish/bearish). Reinforcement Learning agent mengeksekusi jual/beli untuk memaksimalkan profit dalam jangka panjang.
+\end{itemize}
+
+\subsection{3. Credit Scoring Alternatif}
+Banyak orang "unbanked" tidak memiliki riwayat kredit tradisional.
+\begin{itemize}
+    \item \textbf{Solusi AI:} Menganalisis data alternatif seperti riwayat pembayaran pulsa, penggunaan aplikasi e-commerce, dan geolokasi untuk menentukan kelayakan kredit (creditworthiness).
+\end{itemize}
+
+\section{Pendidikan (Education): Guru Privat untuk Semua}
+
+Sistem pendidikan tradisional "satu ukuran untuk semua" sering gagal melayani kebutuhan unik setiap siswa.
+
+\subsection{1. Personalized Learning (Tutor AI)}
+Khan Academy meluncurkan Khanmigo, tutor bertenaga GPT-4.
+\begin{itemize}
+    \item \textbf{Cara Kerja:} Alih-alih memberikan jawaban langsung, Khanmigo membimbing siswa dengan pertanyaan sokratik ("Apa langkah pertamamu untuk memecahkan persamaan ini?").
+    \item \textbf{Adaptabilitas:} Jika siswa lemah di pecahan tapi kuat di geometri, AI menyesuaikan kurikulum secara otomatis.
+\end{itemize}
+
+\subsection{2. Administrasi Guru}
+Guru menghabiskan waktu berjam-jam membuat RPP (Rencana Pelaksanaan Pembelajaran) dan soal ujian.
+\begin{itemize}
+    \item \textbf{Solusi AI:} Generative AI dapat membuat draf RPP, kuis pilihan ganda, dan materi presentasi dalam hitungan detik, membebaskan guru untuk fokus pada interaksi siswa.
+\end{itemize}
+
+\section{Hukum (Legal): Membaca Dokumen Tak Terbatas}
+
+Firma hukum "menjual" waktu. AI memberikan efisiensi ekstrem.
+
+\subsection{1. Contract Review}
+Memeriksa kontrak setebal 500 halaman untuk mencari klausul berbahaya.
+\begin{itemize}
+    \item \textbf{Solusi AI:} NLP model (seperti COIN dari JP Morgan) dapat mengekstrak poin penting dari perjanjian komersial dalam hitungan detik, pekerjaan yang sebelumnya memakan 360,000 jam kerja pengacara per tahun.
+\end{itemize}
+
+\subsection{2. Prediksi Putusan Pengadilan}
+Bisakah kita memprediksi hasil kasus?
+\begin{itemize}
+    \item \textbf{Solusi AI:} Dengan melatih model pada ribuan putusan pengadilan masa lalu, AI dapat memprediksi probabilitas kemenangan berdasarkan fakta kasus dan hakim yang bertugas, membantu pengacara memutuskan apakah akan lanjut atau berdamai.
+\end{itemize}
+
+\section{Pemasaran (Marketing): Hyper-Personalization}
+
+\subsection{1. Copywriting Skala Besar}
+Jasper.ai dan Copy.ai memungkinkan marketer membuat ratusan variasi iklan Facebook, email marketing, dan blog post dalam satu klik.
+
+\subsection{2. Segmentasi Pelanggan Dinamis}
+Bukan sekadar "Wanita usia 20-30", tapi "Wanita usia 25 yang suka yoga di pagi hari dan minum matcha latte". K-Means Clustering pada data perilaku memungkinkan penargetan mikro yang sangat presisi.
+
+\section{Manufaktur: Predictive Maintenance}
+
+Pabrik rugi besar jika mesin mati mendadak.
+\begin{itemize}
+    \item \textbf{Solusi AI:} Sensor IoT mengukur getaran dan suhu mesin. Time-Series Forecasting model memprediksi kapan mesin akan rusak \textit{sebelum} itu terjadi, memungkinkan teknisi melakukan perbaikan preventif.
+\end{itemize}
+
+\section{Kesimpulan}
+
+Pola yang sama muncul di setiap industri: AI mengambil alih tugas repetitif, pemrosesan data skala besar, dan prediksi pola, sementara manusia beralih ke peran strategis, kreatif, dan empatik. Pertanyaannya bukan "Apakah AI akan menggantikan saya?", tetapi "Bagaimana saya bisa menggunakan AI untuk melakukan pekerjaan saya 10x lebih baik?".

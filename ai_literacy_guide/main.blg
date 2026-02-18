@@ -1,0 +1,69 @@
+This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+A level-1 auxiliary file: chapters/01_intro.aux
+A level-1 auxiliary file: chapters/02_how_it_works.aux
+A level-1 auxiliary file: chapters/03_prompting.aux
+A level-1 auxiliary file: chapters/04_tools.aux
+A level-1 auxiliary file: chapters/05_productivity.aux
+A level-1 auxiliary file: chapters/06_python_setup.aux
+A level-1 auxiliary file: chapters/07_apis.aux
+A level-1 auxiliary file: chapters/08_rag_basics.aux
+A level-1 auxiliary file: chapters/10_computer_vision.aux
+A level-1 auxiliary file: chapters/11_nlp_advanced.aux
+A level-1 auxiliary file: chapters/12_generative_media.aux
+A level-1 auxiliary file: chapters/13_business_ai.aux
+A level-1 auxiliary file: chapters/14_future.aux
+A level-1 auxiliary file: chapters/09_ethics.aux
+A level-1 auxiliary file: chapters/15_lab_projects.aux
+A level-1 auxiliary file: chapters/16_cookbook.aux
+A level-1 auxiliary file: chapters/17_deployment.aux
+A level-1 auxiliary file: chapters/18_math_dl.aux
+A level-1 auxiliary file: chapters/19_transformers.aux
+A level-1 auxiliary file: chapters/20_rlhf.aux
+A level-1 auxiliary file: chapters/21_coding_scratch.aux
+The style file: plain.bst
+Database file #1: references.bib
+Warning--I didn't find a database entry for "schulman2017proximal"
+You've used 12 entries,
+            2118 wiz_defined-function locations,
+            589 strings with 7512 characters,
+and the built_in function-call counts, 5492 in all, are:
+= -- 481
+> -- 486
+< -- 0
++ -- 193
+- -- 180
+* -- 493
+:= -- 1010
+add.period$ -- 36
+call.type$ -- 12
+change.case$ -- 121
+chr.to.int$ -- 0
+cite$ -- 12
+duplicate$ -- 125
+empty$ -- 263
+format.name$ -- 180
+if$ -- 1028
+int.to.chr$ -- 0
+int.to.str$ -- 12
+missing$ -- 12
+newline$ -- 63
+num.names$ -- 24
+pop$ -- 105
+preamble$ -- 1
+purify$ -- 109
+quote$ -- 0
+skip$ -- 92
+stack$ -- 0
+substring$ -- 216
+swap$ -- 12
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 48
+warning$ -- 0
+while$ -- 34
+width$ -- 14
+write$ -- 130
+(There was 1 warning)

@@ -1,0 +1,130 @@
+\chapter{The Mathematics of Deep Learning}
+\label{chap:math_dl}
+
+Deep learning is not magic; it is linear algebra, calculus, and probability theory operating at scale. To truly understand how modern AI systems work---and to debug them when they fail---one must grasp the underlying mathematical principles. This chapter moves beyond high-level analogies to explore the rigorous foundations of neural networks.
+
+\section{Linear Algebra: The Language of Data}
+
+At the heart of every neural network is linear algebra. Data is represented as tensors, and learning is the process of transforming these tensors through a series of linear and non-linear operations.
+
+\subsection{Tensors and Dimensions}
+A scalar is a single number ($x \in \mathbb{R}$). A vector is an array of numbers ($\mathbf{x} \in \mathbb{R}^n$). A matrix is a 2D grid ($\mathbf{X} \in \mathbb{R}^{m \times n}$). A tensor is a generalization to $n$-dimensions.
+
+In deep learning, we manipulate tensors to represent:
+\begin{itemize}
+    \item \textbf{Input Data:} An image might be $[3, 224, 224]$ (Channels, Height, Width). A batch of text might be $[32, 512, 768]$ (Batch Size, Sequence Length, Embedding Dimension).
+    \item \textbf{Weights:} The learnable parameters connecting layers.
+\end{itemize}
+
+\subsection{Matrix Multiplication (Dot Product)}
+The core operation in neural networks is the dot product. For a layer with input vector $\mathbf{x}$ and weight matrix $\mathbf{W}$, the linear transformation is:
+\begin{equation}
+    \mathbf{z} = \mathbf{W}\mathbf{x} + \mathbf{b}
+\end{equation}
+where $\mathbf{b}$ is the bias vector. This operation projects the input data into a new dimensional space where features might be more separable.
+
+Efficient matrix multiplication is crucial. GPUs are essentially massive parallel matrix multipliers. The complexity of multiplying an $m \times k$ matrix by a $k \times n$ matrix is $O(mkn)$.
+
+\section{Calculus: The Engine of Learning}
+
+If linear algebra describes the state of the network, calculus describes how to change it. We use differential calculus to minimize error.
+
+\subsection{The Gradient}
+The gradient is a vector of partial derivatives. For a function $f(\mathbf{x})$, the gradient $\nabla f(\mathbf{x})$ points in the direction of the steepest ascent.
+\begin{equation}
+    \nabla f(\mathbf{x}) = \left[ \frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \dots, \frac{\partial f}{\partial x_n} \right]^T
+\end{equation}
+
+To minimize a loss function $L$, we move in the opposite direction of the gradient:
+\begin{equation}
+    \mathbf{w}_{new} = \mathbf{w}_{old} - \eta \nabla L(\mathbf{w})
+\end{equation}
+where $\eta$ is the learning rate.
+
+\subsection{The Chain Rule and Backpropagation}
+Neural networks are composite functions: $y = f_n(f_{n-1}(\dots f_1(\mathbf{x})\dots))$.
+To find the derivative of the loss with respect to a weight in the first layer, we must propagate the error backward through the network. This is known as \textit{Backpropagation} \cite{rumelhart1986learning}.
+
+The chain rule states:
+\begin{equation}
+    \frac{\partial z}{\partial x} = \frac{\partial z}{\partial y} \cdot \frac{\partial y}{\partial x}
+\end{equation}
+
+In a computational graph, if $L$ is the loss, we compute gradients for weight $w$ using intermediate activations $a$:
+\begin{equation}
+    \frac{\partial L}{\partial w} = \frac{\partial L}{\partial a} \cdot \frac{\partial a}{\partial z} \cdot \frac{\partial z}{\partial w}
+\end{equation}
+
+\section{Optimization Algorithms}
+
+Gradient Descent is the baseline, but modern deep learning uses more advanced optimizers to handle sparse gradients and non-convex loss surfaces.
+
+\subsection{Stochastic Gradient Descent (SGD)}
+Instead of computing the gradient over the entire dataset (which is computationally prohibitive), SGD estimates the gradient using a small random batch of data.
+\begin{equation}
+    \theta_{t+1} = \theta_t - \eta \nabla_{\theta} L(\theta; x^{(i)}, y^{(i)})
+\end{equation}
+While noisy, this noise can actually help escape shallow local minima.
+
+\subsection{Adam (Adaptive Moment Estimation)}
+Adam is the default optimizer for most Transformers. It adapts the learning rate for each parameter by maintaining moving averages of the gradients ($m_t$) and squared gradients ($v_t$).
+\begin{align}
+    m_t &= \beta_1 m_{t-1} + (1 - \beta_1) g_t \\
+    v_t &= \beta_2 v_{t-1} + (1 - \beta_2) g_t^2 \\
+    \hat{m}_t &= \frac{m_t}{1 - \beta_1^t}, \quad \hat{v}_t = \frac{v_t}{1 - \beta_2^t} \\
+    \theta_{t+1} &= \theta_t - \frac{\eta}{\sqrt{\hat{v}_t} + \epsilon} \hat{m}_t
+\end{align}
+This allows parameters with infrequent updates to have larger learning steps.
+
+\section{Activation Functions}
+
+Without non-linear activation functions, a multi-layer neural network would collapse into a single linear regression model. Activations introduce non-linearity, allowing the network to approximate any function.
+
+\subsection{Sigmoid and Tanh}
+Historically popular, these squash inputs to $(0, 1)$ or $(-1, 1)$.
+\begin{equation}
+    \sigma(x) = \frac{1}{1 + e^{-x}}
+\end{equation}
+\textbf{Problem:} They suffer from the \textit{vanishing gradient problem}. For very large or small inputs, the derivative approaches zero, halting learning in deep networks.
+
+\subsection{ReLU (Rectified Linear Unit)}
+The standard for modern vision models.
+\begin{equation}
+    \text{ReLU}(x) = \max(0, x)
+\end{equation}
+It is computationally free and avoids vanishing gradients for positive inputs \cite{krizhevsky2012imagenet}.
+
+\subsection{GeLU (Gaussian Error Linear Unit)}
+Used in BERT and GPT models. It is a smoother approximation of ReLU.
+\begin{equation}
+    \text{GeLU}(x) = x \Phi(x)
+\end{equation}
+where $\Phi(x)$ is the CDF of the standard normal distribution.
+
+\section{Loss Functions}
+
+The loss function quantifies how "wrong" the model is.
+
+\subsection{Mean Squared Error (MSE)}
+Used for regression tasks.
+\begin{equation}
+    L = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2
+\end{equation}
+
+\subsection{Cross-Entropy Loss}
+Used for classification and language modeling. It measures the difference between two probability distributions: the true distribution $P$ and the predicted distribution $Q$.
+\begin{equation}
+    H(P, Q) = - \sum_{x} P(x) \log Q(x)
+\end{equation}
+In language modeling, minimizing cross-entropy is equivalent to maximizing the likelihood of the next token.
+
+\section{Conclusion}
+
+Understanding these mathematical primitives allows you to:
+\begin{enumerate}
+    \item \textbf{Debug Instability:} Know why gradients explode (eigenvalues of weight matrices $> 1$) or vanish.
+    \item \textbf{Tune Hyperparameters:} Understand why learning rate schedulers matter.
+    \item \textbf{Innovate:} New architectures often stem from mathematical insights, such as the attention mechanism being a weighted sum based on dot-product similarity.
+\end{enumerate}
+
+In the next chapter, we will apply these concepts to the Transformer architecture.

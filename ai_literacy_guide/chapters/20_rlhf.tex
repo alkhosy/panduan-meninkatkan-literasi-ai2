@@ -1,0 +1,74 @@
+\chapter{Reinforcement Learning from Human Feedback (RLHF)}
+\label{chap:rlhf}
+
+Pre-training a Large Language Model (LLM) on vast amounts of internet text teaches it to predict the next token. However, this objective often misaligns with user intent. If you prompt a base model with "Explain quantum physics to a 5-year-old," it might simply continue the prompt with "Explain quantum physics to a 5-year-old... and then solve these equations," mimicking a test question rather than answering it.
+
+To align models with human values---helpfulness, honesty, and harmlessness---we use Reinforcement Learning from Human Feedback (RLHF) \cite{christiano2017deep, ouyang2022training}. This process transforms a raw "completion engine" into a helpful assistant like ChatGPT or Claude.
+
+\section{The Three Steps of RLHF}
+
+RLHF typically follows a three-stage pipeline:
+
+\subsection{Step 1: Supervised Fine-Tuning (SFT)}
+We start with a pre-trained base model (e.g., Llama 2 Base or GPT-3). Human labelers write high-quality prompt-response pairs. For example:
+\begin{itemize}
+    \item \textbf{Prompt:} "Write a poem about rust."
+    \item \textbf{Response:} "Iron flakes fall like autumn leaves..."
+\end{itemize}
+The model is fine-tuned on this dataset using standard cross-entropy loss. This teaches the model the format of instructions but is expensive to scale due to the high cost of expert writing.
+
+\subsection{Step 2: Reward Modeling (RM)}
+Instead of writing full responses, humans are asked to rank multiple model outputs for the same prompt.
+\begin{itemize}
+    \item \textbf{Prompt:} "How do I make a bomb?"
+    \item \textbf{Response A:} "Here is a recipe for a bomb..." (Helpful but harmful)
+    \item \textbf{Response B:} "I cannot assist with that request." (Safe and helpful)
+\end{itemize}
+Humans mark B $>$ A. We train a \textbf{Reward Model} (another Transformer) to predict a scalar reward score $r(x, y)$ that maximizes the likelihood of the preferred completion \cite{ouyang2022training}.
+\begin{equation}
+    \text{loss}(\theta) = -\log(\sigma(r_\theta(x, y_w) - r_\theta(x, y_l)))
+\end{equation}
+where $y_w$ is the winning response and $y_l$ is the losing one.
+
+\subsection{Step 3: Reinforcement Learning (PPO)}
+Finally, we use the Reward Model to fine-tune the SFT model using Proximal Policy Optimization (PPO). The model generates a response, the RM scores it, and PPO updates the model weights to maximize this reward \cite{schulman2017proximal}.
+
+To prevent the model from hacking the reward (generating gibberish that tricks the RM) or drifting too far from the original distribution, we add a KL-divergence penalty term to the reward:
+\begin{equation}
+    R(x, y) = r(x, y) - \beta \log \frac{\pi_{\text{RL}}(y|x)}{\pi_{\text{SFT}}(y|x)}
+\end{equation}
+This ensures the new policy $\pi_{\text{RL}}$ stays close to the initial supervised policy $\pi_{\text{SFT}}$.
+
+\section{Direct Preference Optimization (DPO)}
+
+RLHF with PPO is complex, unstable, and computationally expensive because it requires loading multiple models (Policy, Reference, Reward, Critic) into memory simultaneously.
+
+In 2023, Rafailov et al. introduced \textbf{Direct Preference Optimization (DPO)}, which optimizes the policy directly from preference data without an explicit reward model or PPO loop.
+\begin{equation}
+    L_{DPO}(\pi_\theta; \pi_{ref}) = -E_{(x, y_w, y_l) \sim D} \left[ \log \sigma \left( \beta \log \frac{\pi_\theta(y_w|x)}{\pi_{ref}(y_w|x)} - \beta \log \frac{\pi_\theta(y_l|x)}{\pi_{ref}(y_l|x)} \right) \right]
+\end{equation}
+DPO has largely replaced PPO in open-source fine-tuning (e.g., Zephyr, OpenHermes) due to its simplicity and stability.
+
+\section{Constitutional AI}
+
+Scaling human feedback is hard. Anthropic proposed \textbf{Constitutional AI} \cite{bai2022constitutional}, where an AI helps supervise other AIs.
+\begin{enumerate}
+    \item \textbf{Critique:} The model generates a response. A "Constitutional Model" critiques it based on a set of principles (the constitution).
+    \item \textbf{Revision:} The model revises its response based on the critique.
+    \item \textbf{Fine-tuning:} The original model is fine-tuned on the revised responses (RLAIF - Reinforcement Learning from AI Feedback).
+\end{enumerate}
+
+\section{Challenges and Limitations}
+
+\subsection{Reward Hacking}
+If the reward model is imperfect, the policy model will exploit it. For example, if the RM favors longer answers, the model might become verbose without adding value.
+
+\subsection{Alignment Tax}
+RLHF often reduces the model's performance on pure benchmark tasks (e.g., coding, math) known as the "alignment tax." However, recent techniques suggest this trade-off is diminishing.
+
+\subsection{Who Watches the Watchmen?}
+The values encoded in the model depend entirely on the instructions given to the human labelers. This raises ethical questions about bias and cultural representation.
+
+\section{Conclusion}
+
+RLHF is the bridge between raw intelligence and useful application. It is the reason why interacting with ChatGPT feels like talking to a helpful assistant rather than a text completion engine. As we move towards autonomous agents, RLHF will evolve into more complex supervision signals, potentially involving multi-turn interactions and tool use verification.

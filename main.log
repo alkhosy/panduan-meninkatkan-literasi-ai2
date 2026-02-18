@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.18)  18 FEB 2026 12:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.18)  18 FEB 2026 13:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -643,6 +643,25 @@ Package tocloft Info: The document has chapter divisions on input line 51.
 \cfttabindent=\skip94
 \cfttabnumwidth=\skip95
 )
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2023-11-01 v4.19 Multi-page Table package (DPC)
+\LTleft=\skip96
+\LTright=\skip97
+\LTpre=\skip98
+\LTpost=\skip99
+\LTchunksize=\count304
+\LTcapwidth=\dimen261
+\LT@head=\box70
+\LT@firsthead=\box71
+\LT@foot=\box72
+\LT@lastfoot=\box73
+\LT@gbox=\box74
+\LT@cols=\count305
+\LT@rows=\count306
+\c@LT@tables=\count307
+\c@LT@chunks=\count308
+\LT@p@ftn=\toks36
+)
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
@@ -651,10 +670,10 @@ Package tocloft Info: The document has chapter divisions on input line 51.
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
 Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
-\pgffor@iter=\dimen261
-\pgffor@skip=\dimen262
-\pgffor@stack=\toks36
-\pgffor@toks=\toks37
+\pgffor@iter=\dimen262
+\pgffor@skip=\dimen263
+\pgffor@stack=\toks37
+\pgffor@toks=\toks38
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2023-01-15 v3.1.10 (3.1.10)
@@ -662,33 +681,33 @@ Package: tikz 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
 .code.tex
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count304
-\pgfplotmarksize=\dimen263
+\pgf@plot@mark@count=\count309
+\pgfplotmarksize=\dimen264
 )
-\tikz@lastx=\dimen264
-\tikz@lasty=\dimen265
-\tikz@lastxsaved=\dimen266
-\tikz@lastysaved=\dimen267
-\tikz@lastmovetox=\dimen268
-\tikz@lastmovetoy=\dimen269
-\tikzleveldistance=\dimen270
-\tikzsiblingdistance=\dimen271
-\tikz@figbox=\box70
-\tikz@figbox@bg=\box71
-\tikz@tempbox=\box72
-\tikz@tempbox@bg=\box73
-\tikztreelevel=\count305
-\tikznumberofchildren=\count306
-\tikznumberofcurrentchild=\count307
-\tikz@fig@count=\count308
+\tikz@lastx=\dimen265
+\tikz@lasty=\dimen266
+\tikz@lastxsaved=\dimen267
+\tikz@lastysaved=\dimen268
+\tikz@lastmovetox=\dimen269
+\tikz@lastmovetoy=\dimen270
+\tikzleveldistance=\dimen271
+\tikzsiblingdistance=\dimen272
+\tikz@figbox=\box75
+\tikz@figbox@bg=\box76
+\tikz@tempbox=\box77
+\tikz@tempbox@bg=\box78
+\tikztreelevel=\count310
+\tikznumberofchildren=\count311
+\tikznumberofcurrentchild=\count312
+\tikz@fig@count=\count313
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count309
-\pgfmatrixcurrentcolumn=\count310
-\pgf@matrix@numberofcolumns=\count311
+\pgfmatrixcurrentrow=\count314
+\pgfmatrixcurrentcolumn=\count315
+\pgf@matrix@numberofcolumns=\count316
 )
-\tikz@expandcount=\count312
+\tikz@expandcount=\count317
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarytopaths.code.tex
@@ -709,9 +728,9 @@ File: tikzlibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.
 tex
 File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\arrowsize=\dimen272
+\arrowsize=\dimen273
 ))
-Package hyperref Info: Option `colorlinks' set `true' on input line 42.
+Package hyperref Info: Option `colorlinks' set `true' on input line 43.
 )
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 20
 .
@@ -720,8 +739,8 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count313
-\l__pdf_internal_box=\box74
+\l__color_backend_stack_int=\count318
+\l__pdf_internal_box=\box79
 )
 No file main.aux.
 \openout1 = `main.aux'.
@@ -780,17 +799,17 @@ LaTeX Font Info:    ... okay on input line 20.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count314
-\scratchdimen=\dimen273
-\scratchbox=\box75
-\nofMPsegments=\count315
-\nofMParguments=\count316
-\everyMPshowfont=\toks38
-\MPscratchCnt=\count317
-\MPscratchDim=\dimen274
-\MPnumerator=\count318
-\makeMPintoPDFobject=\count319
-\everyMPtoPDFconversion=\toks39
+\scratchcounter=\count319
+\scratchdimen=\dimen274
+\scratchbox=\box80
+\nofMPsegments=\count320
+\nofMParguments=\count321
+\everyMPshowfont=\toks39
+\MPscratchCnt=\count322
+\MPscratchDim=\dimen275
+\MPnumerator=\count323
+\makeMPintoPDFobject=\count324
+\everyMPtoPDFconversion=\toks40
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -800,7 +819,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count320
+\c@lstlisting=\count325
 Package hyperref Info: Link coloring ON on input line 20.
 \@outlinefile=\write4
 \openout4 = `main.out'.
@@ -1840,7 +1859,451 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[56] (./main.aux (./ai_literacy_guide/chapters/01_intro.aux)
+[56]
+\openout2 = `ai_literacy_guide/chapters/16_cookbook.aux'.
+
+ (./ai_literacy_guide/chapters/16_cookbook.tex
+Chapter 20.
+! Misplaced alignment tab character &.
+l.8     \item Resep 1: Menghitung Token &
+                                          Estimasi Biaya
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+[57
+
+
+
+
+]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt):
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[58]
+Overfull \hbox (1.99196pt too wide) in paragraph at lines 39--40
+\T1/lmr/m/n/12 Gunakan library \T1/lmtt/m/n/12 tiktoken \T1/lmr/m/n/12 dari Ope
+nAI untuk menghitung token secara akurat sebelum
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt):
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[59]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt):
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[60]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt):
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[61]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt):
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[62]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt):
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[63]
+Overfull \hbox (5.41107pt too wide) in paragraph at lines 181--182
+\T1/lmr/m/n/12 Teknik **Map-Reduce**: Ringkas setiap bagian (chunk), lalu ringk
+as hasil ringkasannya
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt):
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[64]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt):
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[65]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt):
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[66]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt):
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[67]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt):
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[68]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt):
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[69]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt):
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[70]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt):
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[71]
+Overfull \hbox (2.08145pt too wide) in paragraph at lines 465--465
+|[]\T1/lmr/bx/n/17.28 Resep 12: Reranking (Meningkatkan Akurasi
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt):
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[72]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt):
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[73]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt):
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[74]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt):
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[75]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt):
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[76]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt):
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[77]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt):
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[78]
+Overfull \hbox (4.32994pt too wide) in paragraph at lines 705--705
+|[]\T1/lmr/bx/n/17.28 Resep 19: Handling Rate Limits (Exponential
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt):
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[79])
+Overfull \hbox (37.44096pt too wide) in paragraph at lines 751--63
+\T1/lmr/m/n/12 dengan Resep 11 (RAG) untuk membuat Chatbot Dokumen yang cerdas,
+ atau menggabungkan
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt):
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[80]
+\openout2 = `ai_literacy_guide/chapters/17_deployment.aux'.
+
+ (./ai_literacy_guide/chapters/17_deployment.tex
+Chapter 21.
+
+Overfull \hbox (43.10551pt too wide) in paragraph at lines 1--1
+|\T1/lmr/bx/n/24.88 Deployment & Production: Dari Laptop
+ []
+
+
+Overfull \hbox (1.01564pt too wide) in paragraph at lines 4--5
+\T1/lmr/m/n/12 Membuat skrip AI di Jupyter Notebook itu mudah. Tantangannya ada
+lah membawanya
+ []
+
+
+Overfull \hbox (22.42033pt too wide) in paragraph at lines 4--5
+\T1/lmr/m/n/12 ke tahap produksi agar bisa diakses oleh ribuan user. Bab ini me
+mbahas cara "membungkus"
+ []
+
+
+Overfull \hbox (1.68669pt too wide) in paragraph at lines 8--9
+\T1/lmr/m/n/12 Streamlit bagus untuk demo, tapi untuk backend produksi, **FastA
+PI** adalah standar
+ []
+
+[81
+
+
+
+
+]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt):
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[82]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt):
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[83])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt):
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[84]
+\openout2 = `ai_literacy_guide/chapters/appendix_ref.aux'.
+
+ (./ai_literacy_guide/chapters/appendix_ref.tex
+Appendix A.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `alignment tab' on input line 1.
+
+! Misplaced alignment tab character &.
+<argument> Appendix A: Referensi Teknis &
+                                          Dataset
+l.1 ...ter{Appendix A: Referensi Teknis & Dataset}
+
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+Overfull \hbox (25.26028pt too wide) in paragraph at lines 1--1
+|\T1/lmr/bx/n/24.88 Appendix A: Referensi Teknis  Dataset|
+ []
+
+
+Overfull \hbox (33.78665pt too wide) in paragraph at lines 6--7
+\T1/lmr/m/n/12 Tabel berikut menjelaskan parameter penting saat menggunakan \T1
+/lmtt/m/n/12 chat.completions.create\T1/lmr/m/n/12 .
+ []
+
+
+Underfull \hbox (badness 1824) in paragraph at lines 13--14
+[]|\T1/lmr/m/n/12 ID model (gpt-4, gpt-3.5-turbo, gpt-4-turbo).
+ []
+
+
+Underfull \hbox (badness 3019) in paragraph at lines 15--16
+[]|\T1/lmr/m/n/12 List of objects. Wajib ada. Berisi role
+ []
+
+
+Underfull \hbox (badness 4531) in paragraph at lines 19--20
+\T1/lmr/m/n/12 probabilitas token. Jangan ubah ini dan
+ []
+
+
+Underfull \hbox (badness 3746) in paragraph at lines 23--24
+[]|\T1/lmr/m/n/12 Jika True, mengirim partial message deltas
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--26
+\T1/lmr/m/n/12 akan berusaha se-konsisten mungkin (beta
+ []
+
+
+Overfull \hbox (1.26062pt too wide) in paragraph at lines 27--27
+[]|\T1/lmr/m/n/12 response_format|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
+[]|\T1/lmtt/m/n/12 {"type": "json_object"} \T1/lmr/m/n/12 untuk memaksa
+ []
+
+
+Overfull \hbox (10.92201pt too wide) in paragraph at lines 31--31
+[]|\T1/lmr/m/n/12 frequency_penalty|
+ []
+
+
+Overfull \hbox (4.78542pt too wide) in paragraph at lines 33--33
+[]|\T1/lmr/m/n/12 presence_penalty|
+ []
+
+[85
+
+
+
+
+]
+! Misplaced alignment tab character &.
+<argument> Instruksi &
+                       Chat (untuk Fine-Tuning)
+l.62 ...tion{Instruksi & Chat (untuk Fine-Tuning)}
+
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `alignment tab' on input line 62.
+
+
+Overfull \hbox (1.21614pt too wide) in paragraph at lines 66--67
+[]\T1/lmr/m/n/12 **OpenAssistant Guanaco:** Dataset percakapan multibahasa berk
+ualitas tinggi.
+ []
+
+! Misplaced alignment tab character &.
+<inserted text> ... APPENDIX A: REFERENSI TEKNIS &
+                                                   DATASET
+l.88 clean
+           = re.sub(r'\d+', '', text)
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt):
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[86])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt):
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[87] (./main.aux (./ai_literacy_guide/chapters/01_intro.aux)
 (./ai_literacy_guide/chapters/02_how_it_works.aux)
 (./ai_literacy_guide/chapters/03_prompting.aux)
 (./ai_literacy_guide/chapters/04_tools.aux)
@@ -1854,7 +2317,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (./ai_literacy_guide/chapters/13_business_ai.aux)
 (./ai_literacy_guide/chapters/14_future.aux)
 (./ai_literacy_guide/chapters/09_ethics.aux)
-(./ai_literacy_guide/chapters/15_lab_projects.aux))
+(./ai_literacy_guide/chapters/15_lab_projects.aux)
+(./ai_literacy_guide/chapters/16_cookbook.aux)
+(./ai_literacy_guide/chapters/17_deployment.aux)
+(./ai_literacy_guide/chapters/appendix_ref.aux))
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1870,13 +2336,13 @@ Package rerunfilecheck Warning: File `main.out' has changed.
 
 Package rerunfilecheck Info: Checksums for `main.out':
 (rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  EAE3035423A53249C5DCF1E2345A31D0;24986.
+(rerunfilecheck)             After:  E33CC86D736F58E43F1EB4A1AE4FE4B7;35816.
  )
 Here is how much of TeX's memory you used:
- 27903 strings out of 476182
- 538463 string characters out of 5795595
+ 28957 strings out of 476182
+ 556099 string characters out of 5795595
  2400975 words of memory out of 5000000
- 48702 multiletter control sequences out of 15000+600000
+ 49070 multiletter control sequences out of 15000+600000
  619904 words of font info for 74 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  98i,12n,101p,484b,2055s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1887,9 +2353,9 @@ lic/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/shar
 e/texmf/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/l
 m/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb></usr/share/tex
 mf/fonts/type1/public/lm/lmtti10.pfb>
-Output written on main.pdf (60 pages, 653131 bytes).
+Output written on main.pdf (91 pages, 760235 bytes).
 PDF statistics:
- 1158 PDF objects out of 1200 (max. 8388607)
- 1055 compressed objects within 11 object streams
- 726 named destinations out of 1000 (max. 500000)
+ 2070 PDF objects out of 2073 (max. 8388607)
+ 1927 compressed objects within 20 object streams
+ 1394 named destinations out of 1440 (max. 500000)
  38 words of extra memory for PDF output out of 10000 (max. 10000000)

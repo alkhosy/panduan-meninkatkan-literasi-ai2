@@ -1,0 +1,107 @@
+\chapter{Transformer Architecture Deep Dive}
+\label{chap:transformers}
+
+The Transformer architecture, introduced by Vaswani et al. in "Attention Is All You Need" \cite{vaswani2017attention}, marked a paradigm shift in natural language processing. Prior to 2017, Recurrent Neural Networks (RNNs) and Long Short-Term Memory networks (LSTMs) \cite{hochreiter1997long} dominated sequence modeling. However, RNNs processed data sequentially, making parallelization impossible and struggling with long-range dependencies.
+
+Transformers solved both problems by discarding recurrence entirely in favor of an attention mechanism that processes the entire sequence at once.
+
+\section{The Core Mechanism: Self-Attention}
+
+At its core, self-attention allows a model to weigh the importance of different words in a sentence relative to each other. When processing the word "bank" in "river bank", the model should pay attention to "river" to disambiguate meaning.
+
+\subsection{Query, Key, and Value}
+Self-attention is calculated using three vectors derived from each input token's embedding:
+\begin{itemize}
+    \item \textbf{Query ($Q$):} What the current token is looking for.
+    \item \textbf{Key ($K$):} What the current token offers to others.
+    \item \textbf{Value ($V$):} The actual content of the token.
+\end{itemize}
+
+These vectors are obtained by multiplying the input embedding $X$ by learned weight matrices $W^Q$, $W^K$, and $W^V$.
+
+\subsection{Scaled Dot-Product Attention}
+The attention score is computed by taking the dot product of the Query with all Keys. A high dot product indicates high relevance.
+\begin{equation}
+    \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
+\end{equation}
+\begin{itemize}
+    \item $QK^T$: The similarity matrix (how much focus each word places on every other word).
+    \item $\sqrt{d_k}$: A scaling factor to prevent gradients from vanishing in the softmax function.
+    \item Softmax: Normalizes the scores so they sum to 1.
+    \item $V$: The values are weighted by the attention scores.
+\end{itemize}
+
+\section{Multi-Head Attention}
+
+A single attention head might focus on syntactic relationships (e.g., subject-verb agreement). Another might focus on semantic relationships. To capture multiple types of relationships simultaneously, Transformers use Multi-Head Attention.
+
+\begin{equation}
+    \text{MultiHead}(Q, K, V) = \text{Concat}(\text{head}_1, \dots, \text{head}_h)W^O
+\end{equation}
+where each $\text{head}_i = \text{Attention}(QW_i^Q, KW_i^K, VW_i^V)$.
+
+This allows the model to attend to information from different representation subspaces at different positions.
+
+\section{Positional Encodings}
+
+Since Transformers process all tokens in parallel, they have no inherent sense of order. "The cat ate the mouse" looks the same as "The mouse ate the cat" to a raw attention mechanism.
+
+To fix this, we inject positional information into the input embeddings. The original paper used sine and cosine functions of different frequencies:
+\begin{align}
+    PE_{(pos, 2i)} &= \sin(pos / 10000^{2i/d_{model}}) \\
+    PE_{(pos, 2i+1)} &= \cos(pos / 10000^{2i/d_{model}})
+\end{align}
+Modern models like Llama 2 \cite{touvron2023llama} use Rotary Positional Embeddings (RoPE), which rotate the query and key vectors in complex space to encode relative positions.
+
+\section{The Architecture Blocks}
+
+A standard Transformer block consists of two sub-layers:
+\begin{enumerate}
+    \item Multi-Head Self-Attention
+    \item Position-wise Feed-Forward Network (FFN)
+\end{enumerate}
+Each sub-layer has a residual connection followed by layer normalization:
+\begin{equation}
+    \text{LayerNorm}(x + \text{Sublayer}(x))
+\end{equation}
+
+\subsection{Feed-Forward Network}
+The FFN is applied to each position separately and identically. It consists of two linear transformations with a ReLU activation in between:
+\begin{equation}
+    \text{FFN}(x) = \max(0, xW_1 + b_1)W_2 + b_2
+\end{equation}
+This is where the model stores its "knowledge" or facts, while the attention mechanism handles "reasoning" or routing information.
+
+\section{Encoder vs. Decoder Architectures}
+
+The original Transformer had both an Encoder (to process input) and a Decoder (to generate output). Over time, architectures diverged.
+
+\subsection{Encoder-Only (BERT)}
+Models like BERT \cite{devlin2018bert} use only the Encoder stack. They are \textbf{bidirectional}, meaning they can see the entire context (left and right) at once.
+\begin{itemize}
+    \item \textbf{Use Case:} Classification, Named Entity Recognition, Sentiment Analysis.
+    \item \textbf{Training Objective:} Masked Language Modeling (predicting missing words).
+\end{itemize}
+
+\subsection{Decoder-Only (GPT)}
+Models like GPT-3 \cite{brown2020language} and Llama \cite{touvron2023llama} use only the Decoder stack. They are \textbf{autoregressive}, meaning they generate one token at a time, attending only to previous tokens.
+\begin{itemize}
+    \item \textbf{Use Case:} Text Generation, Chatbots, Code Completion.
+    \item \textbf{Training Objective:} Causal Language Modeling (predicting the next word).
+\end{itemize}
+
+\subsection{Encoder-Decoder (T5, BART)}
+These models keep both stacks. The encoder processes the input text, and the decoder generates the output text \cite{raffel2020exploring}.
+\begin{itemize}
+    \item \textbf{Use Case:} Translation, Summarization.
+\end{itemize}
+
+\section{Vision Transformers (ViT)}
+
+The Transformer architecture is not limited to text. The Vision Transformer (ViT) \cite{dosovitskiy2020image} splits an image into fixed-size patches (e.g., 16x16 pixels), linearly embeds each patch, adds position embeddings, and feeds the sequence of vectors to a standard Transformer encoder. This has largely replaced CNNs in state-of-the-art computer vision.
+
+\section{Conclusion}
+
+The Transformer's ability to scale with compute and data has led to the current AI boom. Its simple building blocks---attention and feed-forward networks---combined with massive datasets, allow it to learn intricate patterns in human language, code, and even biology (e.g., AlphaFold).
+
+In the next chapter, we will discuss how to align these powerful models with human intent using Reinforcement Learning.

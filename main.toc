@@ -125,3 +125,49 @@
 \contentsline {chapter}{\numberline {19}Lab 5: Voice Assistant (J.A.R.V.I.S Mini)}{55}{chapter.19}%
 \contentsline {section}{\numberline {19.1}Arsitektur}{55}{section.19.1}%
 \contentsline {section}{\numberline {19.2}Kode Implementasi}{55}{section.19.2}%
+\contentsline {chapter}{\numberline {20}The AI Engineer's Cookbook: 20+ Resep Praktis}{57}{chapter.20}%
+\contentsline {section}{\numberline {20.1}Resep 1: Menghitung Token \& Estimasi Biaya}{59}{section.20.1}%
+\contentsline {section}{\numberline {20.2}Resep 2: Format Output JSON yang Valid}{61}{section.20.2}%
+\contentsline {section}{\numberline {20.3}Resep 3: Klasifikasi Teks Multi-Label}{63}{section.20.3}%
+\contentsline {section}{\numberline {20.4}Resep 4: Summarization Dokumen Panjang (Map-Reduce)}{64}{section.20.4}%
+\contentsline {section}{\numberline {20.5}Resep 5: Ekstraksi Entitas (NER)}{65}{section.20.5}%
+\contentsline {section}{\numberline {20.6}Resep 6: Sentiment Analysis Sederhana}{66}{section.20.6}%
+\contentsline {section}{\numberline {20.7}Resep 7: Translate Dokumen (Keep Format)}{67}{section.20.7}%
+\contentsline {section}{\numberline {20.8}Resep 8: Chatbot dengan Memori Persisten (Redis)}{68}{section.20.8}%
+\contentsline {section}{\numberline {20.9}Resep 9: Streaming Response di Terminal}{69}{section.20.9}%
+\contentsline {section}{\numberline {20.10}Resep 10: Membuat Embeddings dari CSV}{70}{section.20.10}%
+\contentsline {section}{\numberline {20.11}Resep 11: Pencarian Semantik Sederhana}{71}{section.20.11}%
+\contentsline {section}{\numberline {20.12}Resep 12: Reranking (Meningkatkan Akurasi RAG)}{72}{section.20.12}%
+\contentsline {section}{\numberline {20.13}Resep 13: Moderasi Konten Otomatis}{73}{section.20.13}%
+\contentsline {section}{\numberline {20.14}Resep 14: Prompt Chaining}{74}{section.20.14}%
+\contentsline {section}{\numberline {20.15}Resep 15: Generate Synthetic Data}{75}{section.20.15}%
+\contentsline {section}{\numberline {20.16}Resep 16: Evaluasi Jawaban AI (LLM-as-a-Judge)}{76}{section.20.16}%
+\contentsline {section}{\numberline {20.17}Resep 17: Text-to-SQL Sederhana}{77}{section.20.17}%
+\contentsline {section}{\numberline {20.18}Resep 18: Function Calling (Weather API)}{78}{section.20.18}%
+\contentsline {section}{\numberline {20.19}Resep 19: Handling Rate Limits (Exponential Backoff)}{79}{section.20.19}%
+\contentsline {section}{\numberline {20.20}Resep 20: Caching Response}{80}{section.20.20}%
+\contentsline {chapter}{\numberline {21}Deployment \& Production: Dari Laptop ke Cloud}{81}{chapter.21}%
+\contentsline {section}{\numberline {21.1}Membangun API dengan FastAPI}{81}{section.21.1}%
+\contentsline {subsection}{\numberline {21.1.1}1. Struktur Project}{81}{subsection.21.1.1}%
+\contentsline {subsection}{\numberline {21.1.2}2. Code: main.py}{81}{subsection.21.1.2}%
+\contentsline {subsection}{\numberline {21.1.3}3. Menjalankan Server}{82}{subsection.21.1.3}%
+\contentsline {section}{\numberline {21.2}Containerization dengan Docker}{82}{section.21.2}%
+\contentsline {subsection}{\numberline {21.2.1}1. Dockerfile}{82}{subsection.21.2.1}%
+\contentsline {subsection}{\numberline {21.2.2}2. Build \& Run}{83}{subsection.21.2.2}%
+\contentsline {section}{\numberline {21.3}Deployment ke Cloud}{83}{section.21.3}%
+\contentsline {subsection}{\numberline {21.3.1}Opsi 1: Hugging Face Spaces (Gratis/Mudah)}{83}{subsection.21.3.1}%
+\contentsline {subsection}{\numberline {21.3.2}Opsi 2: Railway / Render (PaaS)}{83}{subsection.21.3.2}%
+\contentsline {subsection}{\numberline {21.3.3}Opsi 3: AWS EC2 (Manual/Enterprise)}{84}{subsection.21.3.3}%
+\contentsline {section}{\numberline {21.4}Monitoring \& Observability}{84}{section.21.4}%
+\contentsline {subsection}{\numberline {21.4.1}LangSmith (by LangChain)}{84}{subsection.21.4.1}%
+\contentsline {subsection}{\numberline {21.4.2}Logging Sederhana}{84}{subsection.21.4.2}%
+\contentsline {section}{\numberline {21.5}Security Checklist untuk Produksi}{84}{section.21.5}%
+\contentsline {chapter}{\numberline {A}Appendix A: Referensi Teknis & Dataset}{85}{appendix.A}%
+\contentsline {section}{\numberline {A.1}OpenAI API Parameters Deep Dive}{85}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Daftar Model Open Source (Hugging Face)}{86}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Dataset Publik untuk Latihan}{86}{section.A.3}%
+\contentsline {subsection}{\numberline {A.3.1}Teks Umum}{86}{subsection.A.3.1}%
+\contentsline {subsection}{\numberline {A.3.2}Instruksi & Chat (untuk Fine-Tuning)}{86}{subsection.A.3.2}%
+\contentsline {subsection}{\numberline {A.3.3}Indonesia}{86}{subsection.A.3.3}%
+\contentsline {section}{\numberline {A.4}Regex Cheatsheet untuk Data Cleaning}{86}{section.A.4}%
+\contentsline {section}{\numberline {A.5}Daftar HTTP Status Code (API Debugging)}{87}{section.A.5}%

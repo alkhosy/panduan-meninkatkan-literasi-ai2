@@ -1,6 +1,6 @@
 \documentclass[12pt, a4paper, openany]{book}
 
-\usepackage{ai_literacy_guide/styles/custom}
+\usepackage{styles/custom}
 
 % --- ToC Depth ---
 \setcounter{tocdepth}{2}
@@ -8,7 +8,7 @@
 
 % --- Document Properties ---
 \title{
-    \includegraphics[width=0.3\textwidth]{ai_literacy_guide/images/python-logo.png} \\
+    \includegraphics[width=0.3\textwidth]{images/python-logo.png} \\
     \vspace{1cm}
     \textbf{Panduan Literasi AI}\\
     \large{Teknikal \& Praktikal}
@@ -30,35 +30,65 @@ Buku ini dirancang untuk membimbing Anda dari pemula hingga mahir dalam memahami
 
 % --- Bagian I: Fondasi ---
 \part{Fondasi AI}
-\include{ai_literacy_guide/chapters/01_intro}
-\include{ai_literacy_guide/chapters/02_how_it_works}
+\include{chapters/01_intro}
+\include{chapters/02_how_it_works}
 
 % --- Bagian II: Prompt Engineering ---
 \part{Prompt Engineering Praktis}
-\include{ai_literacy_guide/chapters/03_prompting}
-\include{ai_literacy_guide/chapters/04_tools}
-\include{ai_literacy_guide/chapters/05_productivity}
+\include{chapters/03_prompting}
+\include{chapters/04_tools}
+\include{chapters/05_productivity}
 
 % --- Bagian III: Implementasi Teknis ---
 \part{Implementasi Teknis \& Coding}
-\include{ai_literacy_guide/chapters/06_python_setup}
-\include{ai_literacy_guide/chapters/07_apis}
-\include{ai_literacy_guide/chapters/08_rag_basics}
+\include{chapters/06_python_setup}
+\include{chapters/07_apis}
+\include{chapters/08_rag_basics}
 
 % --- Bagian IV: Topik Lanjutan (Advanced) ---
 \part{Topik Lanjutan (Advanced)}
-\include{ai_literacy_guide/chapters/10_computer_vision}
-\include{ai_literacy_guide/chapters/11_nlp_advanced}
-\include{ai_literacy_guide/chapters/12_generative_media}
+\include{chapters/10_computer_vision}
+\include{chapters/11_nlp_advanced}
+\include{chapters/12_generative_media}
 
 % --- Bagian V: Strategi & Masa Depan ---
 \part{Strategi \& Masa Depan}
-\include{ai_literacy_guide/chapters/13_business_ai}
-\include{ai_literacy_guide/chapters/14_future}
-\include{ai_literacy_guide/chapters/09_ethics}
+\include{chapters/13_business_ai}
+\include{chapters/14_future}
+\include{chapters/09_ethics}
 
 % --- Bagian VI: Laboratorium Praktik (Deep Dive) ---
 \part{Laboratorium Praktik AI (Hands-On Labs)}
-\include{ai_literacy_guide/chapters/15_lab_projects}
+\include{chapters/15_lab_projects}
+\include{chapters/16_cookbook}
+\include{chapters/17_deployment}
+
+% --- Bagian VII: Teori Mendalam (Deep Dive) ---
+\part{Teori Mendalam (Theoretical Deep Dive)}
+\include{chapters/18_math_dl}
+\include{chapters/19_transformers}
+\include{chapters/20_rlhf}
+
+% --- Bagian VIII: Implementasi Tingkat Lanjut ---
+\part{Implementasi Tingkat Lanjut}
+\include{chapters/21_coding_scratch}
+
+% --- Appendices ---
+\appendix
+\part{Lampiran & Referensi}
+\include{chapters/appendix_glossary}
+\include{chapters/appendix_python}
+\include{chapters/appendix_tools}
+\include{chapters/appendix_datasets}
+\include{chapters/appendix_regulation}
+\include{chapters/appendix_startups}
+\include{chapters/appendix_prompts}
+\include{chapters/appendix_interview}
+\include{chapters/appendix_career}
+\include{chapters/epilogue}
+
+% --- Bibliografi ---
+\bibliographystyle{plain}
+\bibliography{references}
 
 \end{document}
