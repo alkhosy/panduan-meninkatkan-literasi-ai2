@@ -1,0 +1,127 @@
+\babel@toc {nil}{}\relax
+\contentsline {part}{I\hspace {1em}Fondasi AI}{1}{part.1}%
+\contentsline {chapter}{\numberline {1}Pengantar Kecerdasan Buatan}{2}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Apa Itu Kecerdasan Buatan?}{2}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Sejarah Singkat AI}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Tiga Tipe AI}{3}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}1. Artificial Narrow Intelligence (ANI)}{3}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}2. Artificial General Intelligence (AGI)}{4}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}3. Artificial Super Intelligence (ASI)}{4}{subsection.1.3.3}%
+\contentsline {section}{\numberline {1.4}Machine Learning vs. Deep Learning vs. Generative AI}{4}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Latihan Praktis 1: Audit AI Harian Anda}{5}{section.1.5}%
+\contentsline {chapter}{\numberline {2}Bagaimana LLM Bekerja?}{6}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Analogi Burung Beo Probabilistik}{6}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Tokenisasi: Cara AI Membaca}{6}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Prediksi Kata Berikutnya (Next Token Prediction)}{7}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Halusinasi: Ketika AI Berbohong}{7}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Training Data}{8}{section.2.5}%
+\contentsline {part}{II\hspace {1em}Prompt Engineering Praktis}{9}{part.2}%
+\contentsline {chapter}{\numberline {3}Dasar-dasar Prompt Engineering}{10}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Anatomi Prompt yang Baik}{10}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Zero-Shot vs. Few-Shot Prompting}{11}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Zero-Shot}{11}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Few-Shot (Pemberian Contoh)}{11}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Chain of Thought (CoT)}{11}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Teknik ReAct (Reason + Act)}{12}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Workshop: Memperbaiki Prompt}{12}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Advanced Prompting Cheat Sheet}{12}{section.3.6}%
+\contentsline {chapter}{\numberline {4}Peralatan AI Praktis (The AI Toolbox)}{13}{chapter.4}%
+\contentsline {section}{\numberline {4.1}ChatGPT (OpenAI)}{13}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Claude (Anthropic)}{13}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Midjourney \& DALL-E 3}{14}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Midjourney}{14}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}DALL-E 3}{14}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}Studi Kasus: Membuat Presentasi Pitch Deck}{14}{section.4.4}%
+\contentsline {chapter}{\numberline {5}AI untuk Produktivitas (Studi Kasus)}{15}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Studi Kasus 1: Asisten Penulisan (Writing Assistant)}{15}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}1. Brainstorming Ide Konten}{15}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}2. Membuat Outline Struktur}{15}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}3. Drafting dan Editing}{15}{subsection.5.1.3}%
+\contentsline {section}{\numberline {5.2}Studi Kasus 2: Coding Assistant (Untuk Non-Programmer)}{16}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Studi Kasus 3: Analisis Data Instan}{16}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Cheat Sheet Produktivitas}{16}{section.5.4}%
+\contentsline {part}{III\hspace {1em}Implementasi Teknis \& Coding}{18}{part.3}%
+\contentsline {chapter}{\numberline {6}Menyiapkan Lingkungan Pengembangan (Dev Environment)}{19}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Langkah 1: Instalasi Python}{19}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Langkah 2: Instalasi VS Code}{19}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Langkah 3: Virtual Environment (Venv)}{20}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Langkah 4: Menginstall Library AI}{20}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Hello World: Skrip AI Pertama Anda}{20}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Common Errors \& Solutions}{21}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}ModuleNotFoundError}{21}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}APIConnectionError}{21}{subsection.6.6.2}%
+\contentsline {subsection}{\numberline {6.6.3}RateLimitError}{21}{subsection.6.6.3}%
+\contentsline {subsection}{\numberline {6.6.4}AuthenticationError}{21}{subsection.6.6.4}%
+\contentsline {chapter}{\numberline {7}Berinteraksi dengan API}{22}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Mendapatkan API Key}{22}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Struktur Request JSON}{22}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Membuat Chatbot Sederhana dengan Python}{23}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}1. Simpan API Key}{23}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}2. Tulis Kode Chatbot}{23}{subsection.7.3.2}%
+\contentsline {section}{\numberline {7.4}Streaming Responses}{24}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Cost Management (Menghitung Token)}{24}{section.7.5}%
+\contentsline {chapter}{\numberline {8}Retrieval Augmented Generation (RAG) Dasar}{25}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Konsep Dasar RAG}{25}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Vector Embeddings: Bahasa Mesin}{26}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Membangun "Chat with your PDF" Sederhana}{26}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Proyek Akhir Bagian III: Bot Customer Service}{26}{section.8.4}%
+\contentsline {part}{IV\hspace {1em}Topik Lanjutan (Advanced)}{28}{part.4}%
+\contentsline {chapter}{\numberline {9}Deep Dive: Computer Vision}{29}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Convolutional Neural Networks (CNN)}{29}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Object Detection: YOLO}{29}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Image Segmentation}{29}{section.9.3}%
+\contentsline {section}{\numberline {9.4}Penerapan di Industri}{30}{section.9.4}%
+\contentsline {chapter}{\numberline {10}NLP Lanjutan: Di Balik Layar LLM}{31}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Evolusi NLP: RNN vs Transformer}{31}{section.10.1}%
+\contentsline {subsection}{\numberline {10.1.1}RNN (Recurrent Neural Networks)}{31}{subsection.10.1.1}%
+\contentsline {subsection}{\numberline {10.1.2}Transformer (Attention Mechanism)}{31}{subsection.10.1.2}%
+\contentsline {section}{\numberline {10.2}BERT vs GPT}{31}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Fine-Tuning vs RAG}{31}{section.10.3}%
+\contentsline {chapter}{\numberline {11}Generative Media: Gambar, Video, & Audio}{33}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Diffusion Models (Stable Diffusion)}{33}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Video Generation (Sora, Runway)}{33}{section.11.2}%
+\contentsline {section}{\numberline {11.3}Audio & Voice Cloning}{33}{section.11.3}%
+\contentsline {section}{\numberline {11.4}Tutorial: Menggunakan OpenAI Whisper (Speech-to-Text)}{33}{section.11.4}%
+\contentsline {part}{V\hspace {1em}Strategi \& Masa Depan}{35}{part.5}%
+\contentsline {chapter}{\numberline {12}Strategi AI untuk Bisnis}{36}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Framework Adopsi AI}{36}{section.12.1}%
+\contentsline {section}{\numberline {12.2}Menghitung ROI AI}{36}{section.12.2}%
+\contentsline {section}{\numberline {12.3}Studi Kasus Sektoral}{36}{section.12.3}%
+\contentsline {subsection}{\numberline {12.3.1}Kesehatan}{36}{subsection.12.3.1}%
+\contentsline {subsection}{\numberline {12.3.2}Keuangan}{36}{subsection.12.3.2}%
+\contentsline {subsection}{\numberline {12.3.3}E-Commerce}{36}{subsection.12.3.3}%
+\contentsline {section}{\numberline {12.4}Risiko Shadow AI}{37}{section.12.4}%
+\contentsline {chapter}{\numberline {13}Masa Depan: Quantum AI & AGI}{38}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Quantum Computing \& AI}{38}{section.13.1}%
+\contentsline {section}{\numberline {13.2}Menuju AGI (Artificial General Intelligence)}{38}{section.13.2}%
+\contentsline {section}{\numberline {13.3}Regulasi AI (EU AI Act)}{38}{section.13.3}%
+\contentsline {section}{\numberline {13.4}Penutup: Peran Manusia}{39}{section.13.4}%
+\contentsline {chapter}{\numberline {14}Etika, Keamanan, dan Masa Depan}{40}{chapter.14}%
+\contentsline {section}{\numberline {14.1}Bias dan Fairness}{40}{section.14.1}%
+\contentsline {section}{\numberline {14.2}Privasi Data: Jangan Upload Rahasia!}{40}{section.14.2}%
+\contentsline {section}{\numberline {14.3}Deepfakes dan Misinformasi}{40}{section.14.3}%
+\contentsline {section}{\numberline {14.4}Prompt Injection Attacks}{41}{section.14.4}%
+\contentsline {section}{\numberline {14.5}Masa Depan Pekerjaan}{41}{section.14.5}%
+\contentsline {section}{\numberline {14.6}Skill Baru yang Dibutuhkan}{41}{section.14.6}%
+\contentsline {part}{VI\hspace {1em}Laboratorium Praktik AI (Hands-On Labs)}{42}{part.6}%
+\contentsline {chapter}{\numberline {15}Lab 1: Membangun Aplikasi RAG Full-Stack}{43}{chapter.15}%
+\contentsline {section}{\numberline {15.1}Arsitektur Sistem}{43}{section.15.1}%
+\contentsline {section}{\numberline {15.2}Persiapan Environment}{43}{section.15.2}%
+\contentsline {section}{\numberline {15.3}Kode Utama: app.py}{44}{section.15.3}%
+\contentsline {section}{\numberline {15.4}Cara Menjalankan}{46}{section.15.4}%
+\contentsline {chapter}{\numberline {16}Lab 2: Fine-Tuning LLM (QLoRA)}{47}{chapter.16}%
+\contentsline {section}{\numberline {16.1}Persiapan Dataset}{47}{section.16.1}%
+\contentsline {section}{\numberline {16.2}Kode Notebook (Google Colab)}{47}{section.16.2}%
+\contentsline {subsection}{\numberline {16.2.1}1. Install Libraries}{47}{subsection.16.2.1}%
+\contentsline {subsection}{\numberline {16.2.2}2. Load Model \& Tokenizer}{47}{subsection.16.2.2}%
+\contentsline {subsection}{\numberline {16.2.3}3. Setup LoRA Config}{48}{subsection.16.2.3}%
+\contentsline {subsection}{\numberline {16.2.4}4. Training Loop}{48}{subsection.16.2.4}%
+\contentsline {chapter}{\numberline {17}Lab 3: Membangun AI Agent dari Nol}{50}{chapter.17}%
+\contentsline {section}{\numberline {17.1}Logika ReAct (Reason + Act)}{50}{section.17.1}%
+\contentsline {section}{\numberline {17.2}Menjalankan Loop}{51}{section.17.2}%
+\contentsline {chapter}{\numberline {18}Lab 4: Computer Vision Pipeline}{53}{chapter.18}%
+\contentsline {section}{\numberline {18.1}Persiapan}{53}{section.18.1}%
+\contentsline {section}{\numberline {18.2}Kode Pendeteksi Wajah}{53}{section.18.2}%
+\contentsline {chapter}{\numberline {19}Lab 5: Voice Assistant (J.A.R.V.I.S Mini)}{55}{chapter.19}%
+\contentsline {section}{\numberline {19.1}Arsitektur}{55}{section.19.1}%
+\contentsline {section}{\numberline {19.2}Kode Implementasi}{55}{section.19.2}%

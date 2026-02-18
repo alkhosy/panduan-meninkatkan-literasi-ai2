@@ -88,3 +88,27 @@ Jika muncul tulisan "Lingkungan AI siap digunakan!", selamat! Anda sudah siap me
 \textbf{Troubleshooting:}
 Jika muncul error "pip is not recognized", artinya Anda lupa mencentang "Add Python to PATH". Uninstall Python dan install ulang dengan benar.
 \end{exercisebox}
+
+\section{Common Errors \& Solutions}
+
+Sebagai pemula, Anda pasti akan bertemu error. Jangan panik.
+
+\subsection{ModuleNotFoundError}
+\textbf{Error:} \texttt{ModuleNotFoundError: No module named 'openai'}
+\textbf{Sebab:} Library belum diinstall.
+\textbf{Solusi:} Jalankan \texttt{pip install openai} di terminal. Pastikan venv aktif.
+
+\subsection{APIConnectionError}
+\textbf{Error:} \texttt{openai.error.APIConnectionError}
+\textbf{Sebab:} Masalah koneksi internet atau server OpenAI down.
+\textbf{Solusi:} Cek internet Anda. Cek status.openai.com.
+
+\subsection{RateLimitError}
+\textbf{Error:} \texttt{Rate limit reached}
+\textbf{Sebab:} Anda mengirim request terlalu cepat atau saldo habis.
+\textbf{Solusi:} Tunggu beberapa saat atau cek billing di dashboard OpenAI.
+
+\subsection{AuthenticationError}
+\textbf{Error:} \texttt{Incorrect API key provided}
+\textbf{Sebab:} API Key salah atau belum diset di .env.
+\textbf{Solusi:} Cek file .env, pastikan tidak ada spasi tambahan.

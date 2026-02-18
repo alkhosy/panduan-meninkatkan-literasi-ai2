@@ -1,0 +1,479 @@
+\chapter{Lab 1: Membangun Aplikasi RAG Full-Stack}
+\label{chap:lab1}
+
+Dalam lab ini, kita tidak hanya menulis skrip Python, tetapi membangun aplikasi web lengkap yang bisa diakses via browser. Kita akan menggunakan **Streamlit**, framework UI paling populer untuk Data Science.
+
+\section{Arsitektur Sistem}
+
+Aplikasi kita akan memiliki komponen berikut:
+\begin{enumerate}
+    \item **Frontend:** Streamlit (Input PDF, Chat Interface).
+    \item **Processing:** PyPDF2 (Extract text), LangChain (Text Splitter).
+    \item **Database:** ChromaDB (Vector Store lokal).
+    \item **Brain:** OpenAI GPT-3.5/4 (Generative response).
+\end{enumerate}
+
+\section{Persiapan Environment}
+
+Buat file \texttt{requirements.txt} dan isi dengan:
+
+\begin{codeblock}
+streamlit
+openai
+langchain
+langchain-community
+chromadb
+pypdf2
+python-dotenv
+tiktoken
+\end{codeblock}
+
+Install dependensi:
+\begin{codeblock}
+pip install -r requirements.txt
+\end{codeblock}
+
+\section{Kode Utama: app.py}
+
+Berikut adalah kode lengkap untuk aplikasi \texttt{app.py}. Salin dan pelajari komentar di dalamnya.
+
+\begin{codeblock}[language=Python]
+import streamlit as st
+from dotenv import load_dotenv
+from PyPDF2 import PdfReader
+from langchain.text_splitter import CharacterTextSplitter
+from langchain_community.embeddings import OpenAIEmbeddings
+from langchain_community.vectorstores import Chroma
+from langchain.memory import ConversationBufferMemory
+from langchain.chains import ConversationalRetrievalChain
+from langchain_community.chat_models import ChatOpenAI
+
+def get_pdf_text(pdf_docs):
+    text = ""
+    for pdf in pdf_docs:
+        pdf_reader = PdfReader(pdf)
+        for page in pdf_reader.pages:
+            text += page.extract_text()
+    return text
+
+def get_text_chunks(text):
+    text_splitter = CharacterTextSplitter(
+        separator="\n",
+        chunk_size=1000,
+        chunk_overlap=200,
+        length_function=len
+    )
+    chunks = text_splitter.split_text(text)
+    return chunks
+
+def get_vectorstore(text_chunks):
+    embeddings = OpenAIEmbeddings()
+    # Persist directory opsional untuk menyimpan DB di disk
+    vectorstore = Chroma.from_texts(texts=text_chunks, embedding=embeddings)
+    return vectorstore
+
+def get_conversation_chain(vectorstore):
+    llm = ChatOpenAI()
+    memory = ConversationBufferMemory(
+        memory_key='chat_history',
+        return_messages=True
+    )
+    conversation_chain = ConversationalRetrievalChain.from_llm(
+        llm=llm,
+        retriever=vectorstore.as_retriever(),
+        memory=memory
+    )
+    return conversation_chain
+
+def handle_userinput(user_question):
+    response = st.session_state.conversation({'question': user_question})
+    st.session_state.chat_history = response['chat_history']
+
+    for i, message in enumerate(st.session_state.chat_history):
+        if i % 2 == 0:
+            st.write(f"👤 User: {message.content}")
+        else:
+            st.write(f"🤖 Bot: {message.content}")
+
+def main():
+    load_dotenv()
+    st.set_page_config(page_title="Chat dengan PDF", page_icon="📚")
+    st.header("Chat dengan PDF Anda 📚")
+
+    if "conversation" not in st.session_state:
+        st.session_state.conversation = None
+    if "chat_history" not in st.session_state:
+        st.session_state.chat_history = None
+
+    user_question = st.text_input("Ajukan pertanyaan tentang dokumen:")
+    if user_question:
+        handle_userinput(user_question)
+
+    with st.sidebar:
+        st.subheader("Dokumen Anda")
+        pdf_docs = st.file_uploader(
+            "Upload PDF di sini dan klik 'Proses'",
+            accept_multiple_files=True
+        )
+        if st.button("Proses"):
+            with st.spinner("Sedang memproses..."):
+                # 1. Get PDF Text
+                raw_text = get_pdf_text(pdf_docs)
+
+                # 2. Get Text Chunks
+                text_chunks = get_text_chunks(raw_text)
+
+                # 3. Create Vector Store
+                vectorstore = get_vectorstore(text_chunks)
+
+                # 4. Create Conversation Chain
+                st.session_state.conversation = get_conversation_chain(vectorstore)
+
+                st.success("Selesai!")
+
+if __name__ == '__main__':
+    main()
+\end{codeblock}
+
+\section{Cara Menjalankan}
+
+Buka terminal dan ketik:
+\begin{codeblock}
+streamlit run app.py
+\end{codeblock}
+
+Browser akan otomatis terbuka di \texttt{localhost:8501}. Upload PDF apa saja (misal manual elektronik atau makalah ilmiah), tunggu proses indexing, dan mulailah bertanya!
+
+\chapter{Lab 2: Fine-Tuning LLM (QLoRA)}
+\label{chap:lab2}
+
+Fine-tuning adalah proses melatih ulang model agar memiliki gaya bicara atau pengetahuan spesifik. Kita akan menggunakan teknik **QLoRA** (Quantized Low-Rank Adapters) yang memungkinkan training model Llama 2 / Mistral di Google Colab gratis (T4 GPU).
+
+\section{Persiapan Dataset}
+
+Format data untuk fine-tuning biasanya JSONL (JSON Lines).
+
+\begin{codeblock}[title=dataset.jsonl]
+{"input": "Siapa presiden Indonesia?", "output": "Joko Widodo adalah presiden ke-7..."}
+{"input": "Apa ibukota Jawa Barat?", "output": "Bandung adalah ibukota..."}
+... (minimal 100-500 baris untuk hasil terlihat)
+\end{codeblock}
+
+\section{Kode Notebook (Google Colab)}
+
+Copy kode ini ke sel Google Colab.
+
+\subsection{1. Install Libraries}
+\begin{codeblock}[language=Python]
+!pip install -q -U bitsandbytes
+!pip install -q -U git+https://github.com/huggingface/transformers.git
+!pip install -q -U git+https://github.com/huggingface/peft.git
+!pip install -q -U git+https://github.com/huggingface/accelerate.git
+!pip install -q -U datasets
+\end{codeblock}
+
+\subsection{2. Load Model \& Tokenizer}
+\begin{codeblock}[language=Python]
+import torch
+from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
+
+model_id = "bn22/Mistral-7B-Instruct-v0.1-sharded"
+
+bnb_config = BitsAndBytesConfig(
+    load_in_4bit=True,
+    bnb_4bit_use_double_quant=True,
+    bnb_4bit_quant_type="nf4",
+    bnb_4bit_compute_dtype=torch.bfloat16
+)
+
+tokenizer = AutoTokenizer.from_pretrained(model_id)
+model = AutoModelForCausalLM.from_pretrained(
+    model_id,
+    quantization_config=bnb_config,
+    device_map={"":0}
+)
+\end{codeblock}
+
+\subsection{3. Setup LoRA Config}
+\begin{codeblock}[language=Python]
+from peft import LoraConfig, get_peft_model
+
+config = LoraConfig(
+    r=8,
+    lora_alpha=32,
+    target_modules=["q_proj", "v_proj"],
+    lora_dropout=0.05,
+    bias="none",
+    task_type="CAUSAL_LM"
+)
+
+model = get_peft_model(model, config)
+\end{codeblock}
+
+\subsection{4. Training Loop}
+\begin{codeblock}[language=Python]
+from transformers import TrainingArguments, Trainer
+
+data = load_dataset("json", data_files="dataset.jsonl")
+data = data.map(lambda samples: tokenizer(samples["input"]), batched=True)
+
+trainer = Trainer(
+    model=model,
+    train_dataset=data["train"],
+    args=TrainingArguments(
+        per_device_train_batch_size=1,
+        gradient_accumulation_steps=4,
+        warmup_steps=2,
+        max_steps=50,
+        learning_rate=2e-4,
+        fp16=True,
+        logging_steps=1,
+        output_dir="outputs",
+        optim="paged_adamw_8bit"
+    ),
+    data_collator=transformers.DataCollatorForLanguageModeling(tokenizer, mlm=False),
+)
+
+trainer.train()
+\end{codeblock}
+
+\chapter{Lab 3: Membangun AI Agent dari Nol}
+\label{chap:lab3}
+
+AI Agent adalah sistem yang bisa menggunakan tools (Google Search, Kalkulator) untuk menyelesaikan masalah.
+
+\section{Logika ReAct (Reason + Act)}
+
+Kita akan menulis kode Python murni tanpa LangChain untuk memahami cara kerja Agent.
+
+\begin{codeblock}[language=Python]
+import openai
+import re
+
+class Agent:
+    def __init__(self, system=""):
+        self.system = system
+        self.messages = []
+        if self.system:
+            self.messages.append({"role": "system", "content": system})
+
+    def __call__(self, message):
+        self.messages.append({"role": "user", "content": message})
+        result = self.execute()
+        self.messages.append({"role": "assistant", "content": result})
+        return result
+
+    def execute(self):
+        completion = openai.ChatCompletion.create(
+            model="gpt-4",
+            messages=self.messages
+        )
+        return completion.choices[0].message.content
+
+# Tools
+def calculate(what):
+    return eval(what)
+
+def average_dog_weight(name):
+    if name in "Scottish Terrier":
+        return("Scottish Terriers average 20 lbs")
+    elif name in "Border Collie":
+        return("a Border Collies average weight is 37 lbs")
+    elif name in "Toy Poodle":
+        return("a toy poodles average weight is 7 lbs")
+    else:
+        return("An average dog weights 50 lbs")
+
+known_actions = {
+    "calculate": calculate,
+    "average_dog_weight": average_dog_weight
+}
+
+# Prompt Engineering untuk Agent
+prompt = """
+Anda berjalan dalam loop Thought, Action, PAUSE, Observation.
+Di akhir loop, Anda memberikan Answer.
+Gunakan Thought untuk mendeskripsikan pemikiran Anda.
+Gunakan Action untuk menjalankan salah satu tindakan yang tersedia: calculate, average_dog_weight.
+Contoh sesi:
+Question: Berapa berat gabungan anjing Terrier dan Border Collie?
+Thought: Saya harus mencari berat Terrier dulu.
+Action: average_dog_weight: Scottish Terrier
+PAUSE
+Observation: Scottish Terriers average 20 lbs
+Thought: Sekarang cari berat Border Collie.
+Action: average_dog_weight: Border Collie
+PAUSE
+Observation: a Border Collies average weight is 37 lbs
+Thought: Sekarang hitung totalnya.
+Action: calculate: 20 + 37
+PAUSE
+Observation: 57
+Answer: Berat gabungannya adalah 57 lbs.
+""".strip()
+
+agent = Agent(prompt)
+\end{codeblock}
+
+\section{Menjalankan Loop}
+
+\begin{codeblock}[language=Python]
+def query(question, max_turns=5):
+    i = 0
+    bot = Agent(prompt)
+    next_prompt = question
+    while i < max_turns:
+        i += 1
+        result = bot(next_prompt)
+        print(result)
+
+        actions = [
+            re.match(r"Action: (\w+): (.*)", line.strip())
+            for line in result.split('\n')
+            if re.match(r"Action: (\w+): (.*)", line.strip())
+        ]
+
+        if actions:
+            action, action_input = actions[0].groups()
+            if action not in known_actions:
+                raise Exception("Unknown action: {}: {}".format(action, action_input))
+            print(" -- running {} {}".format(action, action_input))
+            observation = known_actions[action](action_input)
+            print("Observation:", observation)
+            next_prompt = "Observation: {}".format(observation)
+        else:
+            return
+\end{codeblock}
+
+Coba jalankan dengan:
+\texttt{query("Berapa berat mainan Poodle dikali 2?")}
+
+\chapter{Lab 4: Computer Vision Pipeline}
+\label{chap:lab4}
+
+Kita akan membuat skrip pendeteksi wajah real-time menggunakan webcam laptop Anda.
+
+\section{Persiapan}
+\begin{codeblock}
+pip install opencv-python
+\end{codeblock}
+
+\section{Kode Pendeteksi Wajah}
+
+\begin{codeblock}[language=Python]
+import cv2
+
+# Load pre-trained Haar Cascade classifier
+face_cascade = cv2.CascadeClassifier(
+    cv2.data.haarcascades + 'haarcascade_frontalface_default.xml'
+)
+
+# Buka webcam (0 biasanya ID webcam default)
+cap = cv2.VideoCapture(0)
+
+while True:
+    # Baca frame demi frame
+    ret, frame = cap.read()
+    if not ret:
+        break
+
+    # Konversi ke grayscale (CV bekerja lebih baik di BW)
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+    # Deteksi wajah
+    faces = face_cascade.detectMultiScale(
+        gray,
+        scaleFactor=1.1,
+        minNeighbors=5,
+        minSize=(30, 30)
+    )
+
+    # Gambar kotak di sekitar wajah
+    for (x, y, w, h) in faces:
+        cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
+        cv2.putText(frame, 'Wajah', (x, y-10),
+                   cv2.FONT_HERSHEY_SIMPLEX, 0.9, (36,255,12), 2)
+
+    # Tampilkan hasil
+    cv2.imshow('Video', frame)
+
+    # Tekan 'q' untuk keluar
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+cap.release()
+cv2.destroyAllWindows()
+\end{codeblock}
+
+\chapter{Lab 5: Voice Assistant (J.A.R.V.I.S Mini)}
+\label{chap:lab5}
+
+Menggabungkan 3 teknologi: Mendengar (Whisper), Berpikir (GPT), dan Berbicara (TTS).
+
+\section{Arsitektur}
+\begin{enumerate}
+    \item Rekam audio dari mic.
+    \item Transkrip audio ke teks.
+    \item Kirim teks ke LLM.
+    \item Konversi balasan LLM ke audio.
+\end{enumerate}
+
+\section{Kode Implementasi}
+
+\begin{codeblock}[language=Python]
+import speech_recognition as sr
+from openai import OpenAI
+import os
+import time
+from gtts import gTTS # Google Text-to-Speech (Gratis)
+import playsound
+
+client = OpenAI()
+
+def listen():
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Mendengarkan...")
+        audio = r.listen(source)
+        try:
+            text = r.recognize_google(audio, language="id-ID")
+            print(f"Anda: {text}")
+            return text
+        except:
+            print("Maaf, tidak terdengar.")
+            return ""
+
+def think(text):
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "Jawab singkat dan padat."},
+            {"role": "user", "content": text}
+        ]
+    )
+    return response.choices[0].message.content
+
+def speak(text):
+    print(f"AI: {text}")
+    tts = gTTS(text=text, lang='id')
+    filename = "voice.mp3"
+    tts.save(filename)
+    playsound.playsound(filename)
+    os.remove(filename)
+
+def main():
+    while True:
+        user_input = listen()
+        if "keluar" in user_input.lower():
+            break
+        if user_input:
+            response = think(user_input)
+            speak(response)
+
+if __name__ == "__main__":
+    main()
+\end{codeblock}
+
+\begin{tipbox}
+Untuk suara yang lebih natural, Anda bisa mengganti \texttt{gTTS} dengan \textbf{ElevenLabs API} (berbayar tapi sangat realistis).
+\end{tipbox}
