@@ -1,0 +1,40 @@
+\chapter{Generative Media: Gambar, Video, & Audio}
+\label{chap:gen_media}
+
+AI tidak lagi bisu dan buta. Generasi multimodal adalah tren masa depan.
+
+\section{Diffusion Models (Stable Diffusion)}
+
+Bagaimana AI menggambar?
+Prosesnya disebut **Denoising**. AI dilatih dengan mengambil gambar bersih, lalu menambahkan "noise" (bintik-bintik buram) sedikit demi sedikit sampai menjadi acak total.
+Kemudian, AI belajar membalikkan prosesnya: dari bintik acak menjadi gambar jelas.
+
+\section{Video Generation (Sora, Runway)}
+
+Video adalah sekumpulan gambar yang bergerak. Tantangannya adalah **Konsistensi Temporal**.
+Jika AI membuat frame 1 (kucing duduk) dan frame 2 (kucing berdiri) tanpa transisi mulus, video akan terlihat berkedip (flickering). Model terbaru seperti Sora mengatasi ini dengan memahami fisika dunia nyata secara 3D.
+
+\section{Audio & Voice Cloning}
+
+Teknologi TTS (Text-to-Speech) kini sudah sulit dibedakan dari manusia.
+
+\begin{codeblock}[title=Bahaya Voice Cloning]
+Hanya dengan sampel suara 3 detik, AI bisa meniru suara siapa pun. Ini memicu gelombang penipuan baru via telepon.
+\end{codeblock}
+
+\section{Tutorial: Menggunakan OpenAI Whisper (Speech-to-Text)}
+
+Mari kita transkrip audio meeting menggunakan Python.
+
+\begin{codeblock}[language=Python]
+from openai import OpenAI
+client = OpenAI()
+
+audio_file = open("rekaman_rapat.mp3", "rb")
+transcript = client.audio.transcriptions.create(
+  model="whisper-1",
+  file=audio_file
+)
+
+print(transcript.text)
+\end{codeblock}

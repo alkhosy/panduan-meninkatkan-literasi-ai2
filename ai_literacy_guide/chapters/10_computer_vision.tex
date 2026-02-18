@@ -1,0 +1,41 @@
+\chapter{Deep Dive: Computer Vision}
+\label{chap:cv}
+
+Computer Vision (CV) adalah bidang AI yang melatih komputer untuk menafsirkan dan memahami dunia visual.
+
+\section{Convolutional Neural Networks (CNN)}
+
+Jika LLM menggunakan Transformer, maka Computer Vision menggunakan **CNN**. CNN bekerja dengan cara memindai gambar menggunakan "filter" kecil untuk mendeteksi fitur seperti garis, sudut, dan bentuk.
+
+\begin{tipbox}
+\textbf{Analogi Senter:}
+Bayangkan Anda melihat lukisan besar di ruangan gelap dengan senter kecil. Anda menyusuri lukisan itu inci demi inci. CNN melakukan hal yang sama untuk memahami gambar.
+\end{tipbox}
+
+\section{Object Detection: YOLO}
+
+YOLO (You Only Look Once) adalah algoritma populer untuk mendeteksi objek secara real-time. Tidak seperti model lama yang melihat gambar berkali-kali, YOLO melihat sekali dan langsung tahu di mana letak semua objek.
+
+\begin{codeblock}[title=Konsep Output YOLO]
+Input: Gambar jalan raya
+Output:
+- Mobil (Confidence: 99%, Box: [x=10, y=20, w=50, h=30])
+- Orang (Confidence: 85%, Box: [x=60, y=50, w=10, h=20])
+- Lampu Merah (Confidence: 90%, Box: [x=90, y=10, w=5, h=10])
+\end{codeblock}
+
+\section{Image Segmentation}
+
+Jika Object Detection membuat kotak di sekitar objek, Segmentation mewarnai setiap pixel.
+\begin{itemize}
+    \item **Semantic Segmentation:** Semua "mobil" diwarnai merah.
+    \item **Instance Segmentation:** Mobil A merah, Mobil B biru.
+\end{itemize}
+
+\section{Penerapan di Industri}
+
+\begin{itemize}
+    \item **Medis:** Mendeteksi tumor di hasil rontgen.
+    \item **Manufaktur:** Mendeteksi cacat produk di jalur perakitan.
+    \item **Otomotif:** Mobil otonom membaca rambu lalu lintas.
+\end{itemize}

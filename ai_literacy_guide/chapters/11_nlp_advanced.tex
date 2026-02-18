@@ -1,0 +1,49 @@
+\chapter{NLP Lanjutan: Di Balik Layar LLM}
+\label{chap:nlp_adv}
+
+Di bab awal, kita belajar bahwa LLM adalah "burung beo cerdas". Sekarang, mari kita lihat anatomi otaknya.
+
+\section{Evolusi NLP: RNN vs Transformer}
+
+\subsection{RNN (Recurrent Neural Networks)}
+Model lama membaca kata satu per satu secara berurutan.
+\textit{"Saya"} $\rightarrow$ \textit{"suka"} $\rightarrow$ \textit{"makan"}.
+Kelemahan: Lupa konteks awal jika kalimat terlalu panjang.
+
+\subsection{Transformer (Attention Mechanism)}
+Terobosan Google (2017). Transformer membaca seluruh kalimat sekaligus dan memberikan "perhatian" (attention) pada hubungan antar kata, tidak peduli seberapa jauh jaraknya.
+
+\begin{quote}
+"Attention is All You Need."
+\end{quote}
+
+\section{BERT vs GPT}
+
+\begin{itemize}
+    \item **BERT (Bidirectional Encoder):** Membaca dari kiri-ke-kanan DAN kanan-ke-kiri. Bagus untuk \textit{memahami} teks (klasifikasi, analisis sentimen).
+    \item **GPT (Generative Pre-trained Transformer):** Hanya membaca kiri-ke-kanan (Decoder). Bagus untuk \textit{membuat} teks (generasi).
+\end{itemize}
+
+\section{Fine-Tuning vs RAG}
+
+Kapan harus melatih ulang model?
+
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Fitur} & \textbf{Fine-Tuning} & \textbf{RAG} \\
+\hline
+\textbf{Tujuan} & Mengubah gaya/perilaku & Menambah pengetahuan \\
+\hline
+\textbf{Biaya} & Mahal & Murah \\
+\hline
+\textbf{Update Data} & Butuh training ulang & Instan (update database) \\
+\hline
+\textbf{Contoh} & Chatbot medis & Chatbot Customer Service \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{tipbox}
+Gunakan RAG untuk fakta. Gunakan Fine-Tuning untuk gaya bahasa.
+\end{tipbox}
