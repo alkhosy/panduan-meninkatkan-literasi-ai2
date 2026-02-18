@@ -16,19 +16,7 @@ Secara sederhana, RAG adalah proses "menyontek" sebelum menjawab ujian.
 \end{enumerate}
 
 \begin{center}
-\begin{tikzpicture}[node distance=2cm, auto]
-    % Nodes
-    \node (user) [draw, rectangle, rounded corners] {User Question};
-    \node (db) [draw, cylinder, shape border rotate=90, aspect=0.25, below of=user] {Vector Database (Knowledge Base)};
-    \node (llm) [draw, rectangle, rounded corners, right of=user, xshift=4cm] {LLM (GPT-4)};
-    \node (answer) [draw, rectangle, rounded corners, below of=llm] {Final Answer};
-
-    % Arrows
-    \draw[->] (user) -- (db) node[midway] {1. Search};
-    \draw[->] (db) -| (llm) node[midway, above] {2. Context};
-    \draw[->] (user) -- (llm);
-    \draw[->] (llm) -- (answer) node[midway] {3. Generate};
-\end{tikzpicture}
+    \includegraphics[width=\textwidth]{ai_literacy_guide/images/rag_diagram.png}
 \end{center}
 
 \section{Vector Embeddings: Bahasa Mesin}

@@ -4,15 +4,28 @@ Proyek ini adalah panduan komprehensif untuk memahami dan menerapkan Kecerdasan 
 
 ## Cara Mengompilasi
 
-1.  Pastikan Anda memiliki distribusi LaTeX yang lengkap (misalnya, TeX Live).
-2.  Jalankan perintah berikut dari direktori root proyek:
+1.  **Prasyarat:**
+    *   Distribusi LaTeX lengkap (misalnya, TeX Live).
+    *   Python 3.x dan library `matplotlib` untuk generate diagram.
+        ```bash
+        pip install matplotlib
+        ```
 
-```bash
-pdflatex ai_literacy_guide/main.tex
-pdflatex ai_literacy_guide/main.tex
-```
+2.  **Generate Diagram:**
+    Jalankan script Python untuk membuat diagram RAG.
+    ```bash
+    python ai_literacy_guide/scripts/generate_diagram.py
+    ```
 
-(Dua kali kompilasi diperlukan untuk memastikan *Table of Contents* dan referensi silang dibuat dengan benar).
+3.  **Kompilasi LaTeX:**
+    Jalankan perintah berikut dari direktori root proyek:
+
+    ```bash
+    pdflatex ai_literacy_guide/main.tex
+    pdflatex ai_literacy_guide/main.tex
+    ```
+
+    (Dua kali kompilasi diperlukan untuk memastikan *Table of Contents* dan referensi silang dibuat dengan benar).
 
 ## Struktur Proyek
 
