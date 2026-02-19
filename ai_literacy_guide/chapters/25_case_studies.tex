@@ -1,0 +1,101 @@
+\chapter{Studi Kasus Implementasi Industri}
+\label{chap:case_studies}
+
+Teori dan kode dasar hanyalah permulaan. Nilai sebenarnya dari AI muncul ketika diterapkan untuk memecahkan masalah bisnis yang nyata dalam skala besar. Bab ini akan membedah tiga studi kasus arsitektur implementasi AI di sektor Perbankan, Kesehatan, dan E-commerce.
+
+\section{Studi Kasus 1: Deteksi Fraud Real-time (Fintech)}
+
+\subsection{Masalah Bisnis}
+Sebuah bank digital memproses 500 transaksi per detik. Sistem aturan (rule-based) lama menghasilkan terlalu banyak *False Positive* (memblokir nasabah asli) dan gagal mendeteksi pola penipuan baru yang canggih.
+
+\subsection{Solusi AI}
+Membangun sistem *Hybrid*: Model Machine Learning (XGBoost) untuk klasifikasi cepat + Graph Neural Network (GNN) untuk mendeteksi sindikat penipuan berdasarkan relasi.
+
+\subsection{Arsitektur Sistem}
+Sistem ini harus memiliki latensi di bawah 200ms.
+\begin{enumerate}
+    \item **Ingestion:** Transaksi masuk via Kafka.
+    \item **Feature Engineering (Flink):** Menghitung fitur real-time (misal: "jumlah transaksi dalam 5 menit terakhir").
+    \item **Inference Engine (Triton):** Model XGBoost memberikan skor risiko (0-1).
+    \item **Graph Database (Neo4j):** Jika skor mencurigakan (>0.7), query ke GNN untuk melihat apakah user terhubung dengan device/IP penipu lain.
+    \item **Decision:** Blokir, Izinkan, atau minta OTP tambahan (Step-up Auth).
+\end{enumerate}
+
+\subsection{Implementasi Fitur (Python)}
+Contoh menghitung fitur "kecepatan transaksi":
+
+\begin{codeblock}[language=Python]
+# Pseudo-code untuk Apache Flink / Pandas
+def calculate_velocity(transaction_log, window="10min"):
+    # Group by User ID, hitung count dalam rolling window
+    return transaction_log.rolling(window).count()
+
+# Fitur untuk model:
+# 1. velocity_10m: 15 (Sangat tinggi -> mencurigakan)
+# 2. amount_ratio_avg: 5.0 (5x lebih besar dari rata-rata transfer user ini)
+# 3. location_mismatch: 1 (IP address beda negara dengan alamat rumah)
+\end{codeblock}
+
+\section{Studi Kasus 2: RAG untuk Rekam Medis (HealthTech)}
+
+\subsection{Masalah Bisnis}
+Dokter menghabiskan 40\% waktu mereka untuk membaca riwayat pasien yang tersebar di puluhan PDF (hasil lab, rontgen, catatan lama). Mereka butuh asisten yang bisa menjawab: "Apakah pasien ini pernah alergi penisilin?" dalam hitungan detik.
+
+\subsection{Tantangan Teknis}
+1. **Privasi (HIPAA):** Data tidak boleh dikirim ke API publik (OpenAI).
+2. **Akurasi:** Halusinasi tidak bisa ditoleransi (risiko nyawa).
+3. **Format:** Data berupa scan dokumen tulisan tangan (OCR sulit).
+
+\subsection{Solusi AI}
+**Local RAG dengan Citasi Ketat.**
+- **OCR:** Menggunakan model OCR khusus medis (misal: TrOCR) untuk mendigitalkan tulisan tangan dokter.
+- **Embedding:** Menggunakan model embedding lokal (BioBERT) yang paham istilah medis.
+- **LLM:** Menggunakan model open-weights (Llama 3 atau Meditron) yang di-hosting di server rumah sakit (On-Premise).
+- **Guardrails:** Sistem menolak menjawab jika *confidence score* dari retrieval rendah.
+
+\subsection{Workflow Retrieval}
+\begin{itemize}
+    \item **Query:** "Riwayat alergi obat?"
+    \item **Expansion:** LLM mengubah query jadi: "alergi", "anafilaksis", "reaksi obat", "efek samping".
+    \item **Retrieve:** Mengambil 5 potongan dokumen teratas.
+    \item **Generation:** LLM menjawab DAN memberikan *link* ke halaman PDF sumber.
+\end{itemize}
+
+\section{Studi Kasus 3: Personalisasi E-Commerce (Retail)}
+
+\subsection{Masalah Bisnis}
+Homepage aplikasi e-commerce biasanya statis atau hanya menampilkan "Terlaris". User churn tinggi karena tidak menemukan barang yang relevan dengan selera unik mereka.
+
+\subsection{Solusi AI}
+**Two-Tower Recommendation System.**
+Sistem rekomendasi modern tidak hanya kolaboratif (user A mirip user B), tetapi juga semantik (user suka "baju merah", tampilkan "celana merah").
+
+\subsection{Arsitektur Two-Tower}
+\begin{enumerate}
+    \item **User Tower:** Neural Network yang mengubah history klik user menjadi vektor $U$.
+    \item **Item Tower:** Neural Network yang mengubah deskripsi & gambar produk menjadi vektor $I$.
+    \item **Matching:** Hitung Dot Product $U \cdot I$. Semakin tinggi skornya, semakin relevan.
+\end{enumerate}
+
+\subsection{Implementasi (PyTorch)}
+\begin{codeblock}[language=Python]
+class TwoTowerModel(nn.Module):
+    def __init__(self, n_users, n_items, embed_dim):
+        super().__init__()
+        self.user_embedding = nn.Embedding(n_users, embed_dim)
+        self.item_embedding = nn.Embedding(n_items, embed_dim)
+
+    def forward(self, user_ids, item_ids):
+        u = self.user_embedding(user_ids)
+        i = self.item_embedding(item_ids)
+        # Dot product
+        return (u * i).sum(1)
+\end{codeblock}
+
+Sistem ini dilatih dengan *Contrastive Loss* agar vektor user mendekati vektor barang yang mereka beli, dan menjauhi barang yang mereka abaikan.
+
+\section{Pelajaran dari Lapangan}
+Dari ketiga studi kasus ini, pola suksesnya adalah:
+1. **Jangan mulai dengan LLM:** Untuk Fraud dan Rekomendasi, model klasik (Tree/Embedding) seringkali lebih cepat dan efektif daripada Generative AI.
+2. **Data Pipeline adalah Kunci:** 80\% koding ada di ingestion dan cleaning data, bukan di pemodelan.
+3. **Latensi vs Akurasi:** Di fraud detection, kita korbankan sedikit akurasi demi kecepatan (<200ms). Di medis, kita korbankan kecepatan demi akurasi absolut.

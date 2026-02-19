@@ -1,0 +1,230 @@
+\chapter{Bedah Jurnal: Tinjauan Mendalam Riset AI 2024-2025}
+\label{chap:lit_review}
+
+Tahun 2024 dan 2025 menjadi saksi pergeseran tektonik dalam lanskap kecerdasan buatan. Kita bergerak dari era "Scaling Laws" (di mana lebih besar selalu lebih baik) menuju era "Efficiency \& Agentic" (di mana model lebih kecil, lebih pintar, dan bisa bertindak).
+
+Bab ini mendedikasikan analisis mendalam untuk 20 makalah penelitian (papers) paling berpengaruh dari periode ini. Untuk setiap makalah, kita akan membedah latar belakang masalah, metodologi teknis, hasil eksperimen, dan implikasi praktisnya bagi masa depan industri.
+
+\section{Arsitektur Baru \& Efisiensi}
+
+\subsection{Mamba: Linear-Time Sequence Modeling with Selective State Spaces \cite{gu2023mamba}}
+
+\textbf{Latar Belakang:}
+Selama hampir satu dekade, arsitektur Transformer menjadi standar de facto untuk pemrosesan bahasa alami (NLP). Namun, Transformer memiliki kelemahan fatal: mekanisme Self-Attention memiliki kompleksitas komputasi kuadratik $O(L^2)$ terhadap panjang urutan input ($L$). Ini berarti jika panjang input bertambah 2x lipat, biaya komputasi naik 4x lipat. Hal ini membuat Transformer sangat mahal untuk menangani konteks yang sangat panjang (misalnya, menganalisis genom DNA atau merangkum buku tebal).
+
+\textbf{Metodologi:}
+Albert Gu dan Tri Dao memperkenalkan \textbf{Mamba}, sebuah arsitektur yang dibangun di atas fondasi State Space Models (SSM). Inovasi kuncinya adalah:
+1.  **Selective State Space:** Mamba memperkenalkan parameter yang bergantung pada input (input-dependent) ke dalam SSM. Ini memungkinkan model untuk secara dinamis memilih informasi mana yang harus disimpan dalam state tersembunyi (hidden state) dan mana yang harus dilupakan. Ini mirip dengan mekanisme "gating" pada LSTM tetapi jauh lebih efisien.
+2.  **Hardware-Aware Algorithm:** Mamba dirancang untuk memaksimalkan throughput GPU dengan meminimalkan transfer memori (IO) antara HBM (High Bandwidth Memory) dan SRAM.
+
+Secara matematis, SSM diskrit didefinisikan sebagai:
+\begin{align}
+h_t &= \mathbf{A} h_{t-1} + \mathbf{B} x_t \\
+y_t &= \mathbf{C} h_t
+\end{align}
+Mamba membuat matriks $\mathbf{A}$, $\mathbf{B}$, dan $\mathbf{C}$ menjadi fungsi dari input $x_t$, memberikan kemampuan adaptasi kontekstual yang sebelumnya tidak dimiliki SSM linier.
+
+\textbf{Hasil Kunci:}
+- **Kompleksitas Linear $O(L)$:** Mamba dapat memproses urutan jutaan token dengan biaya komputasi yang tumbuh secara linear, bukan kuadratik.
+- **Performa Superior:** Mamba dengan 3M parameter mengalahkan Transformer dengan ukuran yang sama pada berbagai benchmark bahasa, dan menyamai Transformer 2x ukurannya pada pretraining.
+- **Inference Cepat:** Karena bersifat rekuren saat inferensi, Mamba memiliki throughput 5x lebih tinggi daripada Transformer (yang memerlukan KV Cache besar).
+
+\textbf{Implikasi:}
+Mamba membuktikan bahwa kita tidak terjebak dengan Transformer selamanya. Ini membuka jalan bagi aplikasi AI yang membutuhkan pemrosesan konteks "tak terbatas", seperti analisis log server real-time atau pemrosesan video panjang.
+
+\subsection{Vision Mamba: Efficient Visual Representation Learning \cite{zhu2024vision}}
+
+\textbf{Latar Belakang:}
+Keberhasilan Mamba di NLP memicu pertanyaan: bisakah efisiensi ini dibawa ke Computer Vision? Vision Transformer (ViT) menderita masalah kuadratik yang sama, terutama untuk gambar resolusi tinggi (misal 4K atau citra satelit).
+
+\textbf{Metodologi:}
+Peneliti mengadaptasi Mamba untuk visi dengan arsitektur **Vim (Vision Mamba)**.
+1.  **Bidirectional Modeling:** Tidak seperti teks yang bersifat sekuensial (kiri ke kanan), gambar tidak memiliki arah alami. Vim memproses patch gambar (urutan token visual) dari dua arah (maju dan mundur) untuk menangkap konteks spasial yang komprehensif.
+2.  **Position Embedding:** Menggunakan penyandian posisi untuk memberi tahu model di mana letak setiap patch.
+
+\textbf{Hasil Kunci:}
+- Vim berjalan 2.8x lebih cepat daripada DeiT (Data-efficient Image Transformer) dan menggunakan memori GPU 86\% lebih sedikit saat melakukan inferensi pada resolusi tinggi ($1248 \times 1248$).
+- Akurasi klasifikasi ImageNet setara dengan ViT state-of-the-art.
+
+\textbf{Implikasi:}
+Vision Mamba sangat menjanjikan untuk aplikasi edge devices (seperti drone atau mobil otonom) di mana sumber daya komputasi terbatas tetapi resolusi input tinggi sangat krusial.
+
+\subsection{KAN: Kolmogorov-Arnold Networks \cite{liu2024kan}}
+
+\textbf{Latar Belakang:}
+Sejak era Perceptron (1957), arsitektur dasar Neural Network tidak banyak berubah: kombinasi linear dari input ($W \cdot x$) diikuti oleh fungsi aktivasi non-linear tetap (seperti ReLU atau Sigmoid) pada neuron. KAN menantang paradigma ini.
+
+\textbf{Metodologi:}
+Terinspirasi oleh Teorema Representasi Kolmogorov-Arnold, KAN memindahkan non-linearitas dari neuron ke \textit{koneksi} (edges).
+- Di MLP standar: Bobot adalah skalar, Aktivasi adalah fungsi.
+- Di KAN: Bobot adalah \textit{fungsi} (B-splines yang dapat dipelajari), Neuron hanyalah penjumlahan.
+
+Setiap koneksi antar neuron di KAN adalah fungsi spline $\phi(x)$ yang bentuknya dipelajari selama training.
+
+\textbf{Hasil Kunci:}
+1.  **Parameter Efficiency:** KAN seringkali dapat mencapai akurasi yang sama dengan MLP menggunakan parameter 10x-100x lebih sedikit.
+2.  **Interpretability:** Karena koneksinya adalah fungsi matematika, KAN bisa "dibedah" untuk menemukan rumus fisika yang mendasari data. Penulis mendemonstrasikan KAN menemukan kembali hukum fisika dari data sintetik secara simbolik.
+3.  **Catastrophic Forgetting:** KAN menunjukkan ketahanan yang lebih baik terhadap lupa saat belajar tugas baru secara berurutan.
+
+\textbf{Implikasi:}
+KAN mungkin belum menggantikan Transformer skala besar karena pelatihan spline lambat, tetapi untuk "AI for Science" (fisika, kimia, biologi) di mana akurasi dan interpretabilitas adalah segalanya, KAN adalah terobosan besar.
+
+\subsection{BitNet b1.58: The Era of 1-bit LLMs \cite{wang2024bitnet}}
+
+\textbf{Latar Belakang:}
+Biaya energi dan memori untuk melatih/menjalankan LLM sangat besar karena biasanya menggunakan presisi FP16 (16-bit) atau BF16. Kuantisasi pasca-pelatihan (Post-Training Quantization) sering menurunkan kualitas.
+
+\textbf{Metodologi:}
+Microsoft Research memperkenalkan BitNet b1.58, varian Transformer di mana setiap parameter (bobot) dibatasi hanya memiliki satu dari tiga nilai: $\{-1, 0, 1\}$.
+- Mengapa 1.58 bit? Karena $\log_2(3) \approx 1.58$.
+- Ini mengubah operasi perkalian matriks (Matrix Multiplication - MatMul) yang mahal menjadi operasi penjumlahan (Addition) yang sangat murah.
+
+\textbf{Hasil Kunci:}
+- **Kinerja Setara:** Pada ukuran model yang sama dan token pelatihan yang sama, BitNet b1.58 menyamai perplexity dan kinerja hilir model Llama FP16.
+- **Efisiensi:** Mengurangi penggunaan memori hingga 70\% dan konsumsi energi hingga 71\% dibandingkan baseline FP16.
+- **Throughput:** Kecepatan inferensi meningkat drastis.
+
+\textbf{Implikasi:}
+Ini adalah "Game Changer" untuk AI hijau (Green AI) dan on-device AI. Kita mungkin segera melihat LLM setara GPT-3 berjalan lancar di smartphone tanpa memanaskan baterai.
+
+\section{Foundation Models \& Multimodalitas}
+
+\subsection{Gemini 1.5 Pro: Infinite Context \cite{geminiteam2024gemini}}
+
+\textbf{Latar Belakang:}
+Salah satu batasan terbesar LLM adalah "ingatan jangka pendek". Sebelum ini, konteks 128k token dianggap besar.
+
+\textbf{Metodologi:}
+Google menggunakan teknik Ring Attention dan arsitektur Mixture-of-Experts (MoE) yang sangat dioptimalkan untuk mencapai jendela konteks hingga **10 Juta token**.
+
+\textbf{Hasil Kunci:}
+- **Needle In A Haystack:** Gemini 1.5 Pro mencapai akurasi >99\% dalam menemukan fakta spesifik ("jarum") yang disembunyikan dalam tumpukan 10 juta token ("jerami").
+- **In-Context Learning Masif:** Diberikan buku tata bahasa dan kamus bahasa Kalamang (bahasa Papua dengan <200 penutur) dalam prompt, model bisa belajar menerjemahkan bahasa tersebut dengan kualitas setara manusia, tanpa fine-tuning bobot sama sekali.
+
+\textbf{Implikasi:}
+RAG (Retrieval Augmented Generation) mungkin menjadi kurang relevan untuk dataset skala menengah. Alih-alih memecah dokumen (chunking), kita bisa "memasukkan" seluruh perpustakaan perusahaan ke dalam prompt.
+
+\subsection{GPT-4o: Omni Model \cite{achiam2023gpt4}}
+
+\textbf{Latar Belakang:}
+Model multimodal tradisional biasanya adalah "jahitan" dari beberapa model: Speech-to-Text (Whisper) $\to$ LLM (GPT-4) $\to$ Text-to-Speech (TTS). Ini menyebabkan latensi tinggi dan hilangnya nuansa intonasi.
+
+\textbf{Metodologi:}
+GPT-4o dilatih secara **end-to-end** pada teks, audio, dan gambar sekaligus. Input audio diproses langsung oleh model utama tanpa dikonversi ke teks terlebih dahulu.
+
+\textbf{Hasil Kunci:}
+- **Latensi Audio:** Rata-rata 320ms, setara dengan kecepatan respons manusia dalam percakapan alami.
+- **Emosi:** Karena memproses gelombang suara langsung, GPT-4o bisa mendeteksi sarkasme, nafas, dan emosi pembicara, serta merespons dengan intonasi yang sesuai (tertawa, bernyanyi).
+
+\textbf{Implikasi:}
+Interaksi manusia-komputer akan bergeser dari mengetik (chatting) menjadi berbicara (voice conversation) yang seamless.
+
+\subsection{Llama 3: Data Quality is All You Need \cite{touvron2024llama3}}
+
+\textbf{Latar Belakang:}
+Komunitas open source membutuhkan model dasar yang kuat untuk inovasi. Llama 2 sudah bagus, tapi mulai tertinggal.
+
+\textbf{Metodologi:}
+Meta melatih Llama 3 (8B, 70B, 405B) dengan fokus obsesif pada **kualitas dan kuantitas data**.
+- **Data:** 15 Triliun token (7x lebih besar dari dataset Llama 2).
+- **Filtering:** Menggunakan filter heuristik dan model klasifikasi (Llama 2) untuk membuang data kualitas rendah.
+- **Scaling Law:** Meta sengaja melatih model 8B jauh melampaui titik optimal Chinchilla (over-training) untuk membuat model yang sangat padat pengetahuan namun tetap kecil dan cepat saat inferensi.
+
+\textbf{Hasil Kunci:}
+Llama 3 8B mengungguli model-model lain yang ukurannya 70B dari generasi sebelumnya. Llama 3 405B menjadi model open-weights pertama yang menyaingi GPT-4.
+
+\textbf{Implikasi:}
+"Data Engineering" sekarang lebih penting daripada "Model Architecture Engineering".
+
+\subsection{Claude 3: Character \& Safety \cite{anthropic2024claude3}}
+
+\textbf{Latar Belakang:}
+Model AI seringkali terlalu kaku ("sebagai model bahasa AI...") atau tidak aman.
+
+\textbf{Metodologi:}
+Anthropic menggunakan pendekatan **Constitutional AI** yang lebih canggih. Selain RLHF, mereka menggunakan RLAIF (Reinforcement Learning from AI Feedback) di mana model mengkritik outputnya sendiri berdasarkan "konstitusi" etika.
+
+\textbf{Hasil Kunci:}
+- **Opus:** Menjadi model pertama yang secara konsisten mengalahkan GPT-4 di leaderboard LMSYS Chatbot Arena.
+- **Refusal Rate:** Menurunkan tingkat penolakan yang tidak perlu (false refusal) secara signifikan dibandingkan Claude 2.
+
+\subsection{Mixtral 8x7B: Mixture of Experts \cite{jiang2024mixtral}}
+
+\textbf{Latar Belakang:}
+Bagaimana cara meningkatkan kapasitas model tanpa membuat inferensi menjadi lambat?
+
+\textbf{Metodologi:}
+Menggunakan arsitektur **Sparse Mixture-of-Experts (SMoE)**.
+- Model memiliki 8 "pakar" (feed-forward networks) berbeda.
+- Untuk setiap token, jaringan "router" memilih 2 pakar terbaik untuk memprosesnya.
+- Total parameter: 47 Miliar. Parameter aktif per token: 13 Miliar.
+
+\textbf{Hasil Kunci:}
+Menawarkan kemampuan model 50B+ dengan kecepatan dan biaya inferensi model 13B.
+
+\section{Generative Media (Video \& 3D)}
+
+\subsection{Sora: Video Generation as World Simulators \cite{openai2024sora}}
+
+\textbf{Latar Belakang:}
+Model video generatif sebelumnya (Runway, Pika) sering menghasilkan video yang tidak konsisten secara temporal (objek berubah bentuk).
+
+\textbf{Metodologi:}
+Sora menggabungkan **Diffusion Models** dengan **Transformer**.
+1.  Video dikompresi ke ruang laten (latent space).
+2.  Ruang laten dipotong-potong menjadi "spacetime patches" (mirip token kata).
+3.  Transformer dilatih untuk memprediksi patch bersih dari patch yang diberi noise.
+
+\textbf{Hasil Kunci:}
+Sora mampu menghasilkan video 60 detik dengan konsistensi objek yang menakjubkan. Laporan teknis OpenAI mengklaim bahwa dengan skala yang cukup besar, model video ini secara alami mempelajari "fisika" dunia (seperti gravitasi, tumbukan, oklusi) tanpa diajarkan secara eksplisit.
+
+\subsection{Stable Diffusion 3: Rectified Flow \cite{stability2024sd3}}
+
+\textbf{Latar Belakang:}
+Model text-to-image sering gagal mengikuti prompt yang kompleks dan gagal merender teks (tulisan) dalam gambar.
+
+\textbf{Metodologi:}
+- **MMDiT (Multimodal Diffusion Transformer):** Menggunakan dua set bobot terpisah untuk pemrosesan teks dan gambar, memungkinkan aliran informasi yang lebih baik.
+- **Rectified Flow:** Metode pelatihan baru yang menghubungkan distribusi data dan noise dengan garis lurus, membuat sampling lebih efisien daripada difusi standar.
+
+\textbf{Hasil Kunci:}
+Kemampuan tipografi (spelling) yang jauh lebih baik dan kepatuhan prompt yang tinggi.
+
+\subsection{AlphaFold 3: Modeling Life \cite{deepmind2024alphafold3}}
+
+\textbf{Latar Belakang:}
+AlphaFold 2 hanya memprediksi struktur protein. Namun, biologi melibatkan interaksi protein dengan DNA, RNA, dan molekul kecil (ligan).
+
+\textbf{Metodologi:}
+AlphaFold 3 menggantikan modul geometri Evoformer dengan **Diffusion Network**. Model ini dilatih untuk men-denoise koordinat atom langsung dari awan atom yang acak.
+
+\textbf{Hasil Kunci:}
+Akurasi prediksi interaksi protein-ligan meningkat 50\% dibandingkan metode docking fisik terbaik. Ini mempercepat simulasi interaksi obat yang biasanya butuh waktu berbulan-bulan di lab basah.
+
+\section{AI Agents \& Reasoning}
+
+\subsection{Qwen 2: Math \& Coding \cite{qwen2024qwen2}}
+Qwen 2 72B menunjukkan bahwa model open-weights bisa sangat kompetitif di matematika (MATH benchmark) dan coding (HumanEval), area yang sebelumnya didominasi model tertutup. Ini dicapai melalui kurasi data sintetik berkualitas tinggi.
+
+\subsection{Nemotron-4 340B: Synthetic Data Pipeline \cite{apple2024nemotron}}
+NVIDIA merilis Nemotron-4 bukan hanya sebagai model, tetapi sebagai generator data. Laporannya merinci bagaimana menggunakan model "Guru" yang kuat untuk menghasilkan data instruksi sintetis, lalu memfilternya dengan model "Kritikus". Ini adalah cetak biru untuk memecahkan masalah kelangkaan data.
+
+\subsection{Command R+: Tool Use \cite{cohere2024commandr}}
+Cohere merancang Command R+ khusus untuk penggunaan alat (Tool Use) dan RAG. Model ini dilatih untuk tahu kapan harus mencari informasi, bagaimana menggunakan API, dan bagaimana mengutip sumber. Ini menunjukkan tren menuju model spesialis "agentic".
+
+\section{Small Language Models (SLM)}
+
+\subsection{Phi-3: Textbook Quality Data \cite{microsoft2024phi3}}
+Microsoft membuktikan hipotesis: "Jika Anda memberi makan model dengan buku teks (textbook), ia akan menjadi pintar meskipun otaknya kecil."
+Phi-3 Mini (3.8B) dilatih pada data "textbook-quality" yang sangat padat informasi (campuran web yang difilter ketat dan data sintetik GPT-4). Hasilnya, ia mengalahkan model 10x lebih besar (Llama 2 70B) dalam penalaran.
+
+\section{Kesimpulan & Tren Masa Depan}
+
+Dari tinjauan literatur ini, terlihat pola yang jelas untuk masa depan AI (2025 ke atas):
+
+\begin{enumerate}
+    \item **Efisiensi adalah Raja:** Dengan Mamba, KAN, dan 1-bit LLM, kita bergerak menuju model yang lebih murah untuk dilatih dan dijalankan.
+    \item **Data Sintetis:** Karena data internet berkualitas tinggi hampir habis terpakai, data sintetik yang dihasilkan oleh AI (seperti di Nemotron dan Phi-3) menjadi sumber bahan bakar utama.
+    \item **Agentic Workflows:** Fokus bergeser dari sekadar "chatbot" (tanya-jawab) menjadi "agen" (tanya-tindak) yang bisa menggunakan alat dan menyelesaikan tugas panjang.
+    \item **Physical World Understanding:** Melalui Sora dan AlphaFold, AI mulai "memahami" aturan fisik dan biologis dunia nyata, bukan hanya pola bahasa.
+\end{enumerate}

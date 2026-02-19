@@ -1,0 +1,113 @@
+\chapter{Panduan Karir \& Wawancara AI}
+\label{chap:career_guide}
+
+Industri AI berkembang dengan kecepatan yang memusingkan. Bab ini dirancang sebagai panduan navigasi karir Anda, mencakup peta peran pekerjaan, strategi belajar, dan bank soal wawancara teknis yang komprehensif.
+
+\section{Peta Ekosistem Karir AI}
+
+\subsection{1. Data Scientist vs. Machine Learning Engineer}
+Banyak pemula bingung membedakan dua peran ini.
+\begin{itemize}
+    \item **Data Scientist:** Fokus pada \textit{Insight} dan \textit{Eksperimen}. Outputnya seringkali berupa laporan, dashboard, atau model prototipe (Jupyter Notebook). Skill kunci: Statistik, SQL, Scikit-learn, Komunikasi Bisnis.
+    \item **Machine Learning Engineer (MLE):** Fokus pada \textit{Sistem} dan \textit{Produksi}. Outputnya adalah API yang scalable, pipeline data otomatis, dan model yang ter-deploy di cloud. Skill kunci: Docker, Kubernetes, FastAPI, CI/CD, MLOps.
+\end{itemize}
+
+\subsection{2. AI Research Scientist}
+Peran elit yang fokus mendorong batas ilmu pengetahuan. Biasanya membutuhkan gelar PhD. Tugasnya membaca/menulis paper (seperti yang dibahas di Bab 22) dan merancang arsitektur baru.
+
+\subsection{3. AI Product Manager}
+Peran non-koding yang menjembatani tim teknis dengan kebutuhan user. Bertanggung jawab atas roadmap produk, etika AI, dan go-to-market strategy.
+
+\section{Bank Soal Wawancara Teknis (50 Q\&A)}
+
+Berikut adalah kompilasi pertanyaan yang sering muncul di wawancara perusahaan teknologi top (Google, Meta, Tokopedia, Gojek, Traveloka).
+
+\subsection{Machine Learning Fundamentals}
+
+\textbf{1. Jelaskan Bias-Variance Tradeoff!} \\
+\textit{Jawaban:} Bias-Variance Tradeoff adalah keseimbangan antara error yang disebabkan oleh asumsi model yang terlalu sederhana (High Bias/Underfitting) dan error yang disebabkan oleh model yang terlalu sensitif terhadap fluktuasi data latih (High Variance/Overfitting).
+- \textbf{Underfitting:} Model gagal menangkap pola (akurasi latih \& uji rendah).
+- \textbf{Overfitting:} Model menghafal noise (akurasi latih tinggi, uji rendah).
+Tujuannya adalah mencari titik optimal di mana total error minimal.
+
+\textbf{2. Apa bedanya Gradient Descent dan Stochastic Gradient Descent (SGD)?} \\
+\textit{Jawaban:}
+- **Gradient Descent:** Menghitung gradien menggunakan \textit{seluruh} dataset sebelum melakukan satu update bobot. Lambat untuk data besar, tapi konvergen stabil.
+- **SGD:** Menggunakan \textit{satu} sampel data acak untuk update bobot. Sangat cepat dan seringkali bisa keluar dari local minima, tapi jalurnya "berisik" (noisy).
+- **Mini-batch SGD:** Jalan tengah (misal batch size 32), standar industri saat ini.
+
+\textbf{3. Mengapa kita butuh Fungsi Aktivasi Non-Linear (seperti ReLU)?} \\
+\textit{Jawaban:} Tanpa fungsi aktivasi non-linear, Neural Network seberapa pun dalamnya hanya akan menjadi transformasi linear raksasa (setara dengan satu layer). Non-linearitas memungkinkan network mempelajari pola kompleks dan melengkung (manifold).
+
+\textbf{4. Jelaskan metrik Precision dan Recall!} \\
+\textit{Jawaban:}
+- **Precision:** Dari semua yang diprediksi Positif, berapa yang benar? (Penting untuk filter spam).
+- **Recall:** Dari semua yang benar-benar Positif, berapa yang ditemukan? (Penting untuk deteksi kanker).
+- **F1-Score:** Harmonic mean dari keduanya.
+
+\subsection{Deep Learning & LLM}
+
+\textbf{5. Apa itu Vanishing Gradient Problem?} \\
+\textit{Jawaban:} Pada network yang sangat dalam, gradien di layer awal menjadi sangat kecil (mendekati nol) karena perkalian berantai dari turunan fungsi aktivasi (seperti Sigmoid < 0.25). Akibatnya, layer awal berhenti belajar. Solusi: Gunakan ReLU, Residual Connection (ResNet), atau LSTM.
+
+\textbf{6. Jelaskan mekanisme Self-Attention!} \\
+\textit{Jawaban:} Mekanisme yang memungkinkan model menimbang pentingnya setiap kata dalam kalimat terhadap kata lain. Dihitung dengan rumus:
+\[ \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V \]
+Ini memungkinkan pemrosesan paralel dan menangkap dependensi jarak jauh.
+
+\textbf{7. Apa itu RAG (Retrieval-Augmented Generation)?} \\
+\textit{Jawaban:} Teknik menggabungkan LLM dengan database pengetahuan eksternal. Sebelum menjawab, sistem "mencari" (retrieve) dokumen relevan dari vector database, lalu menyuapkannya ke LLM sebagai konteks. Ini mengurangi halusinasi.
+
+\textbf{8. Apa itu LoRA (Low-Rank Adaptation)?} \\
+\textit{Jawaban:} Teknik fine-tuning efisien yang membekukan bobot model asli dan hanya melatih matriks rank-rendah tambahan. Ini mengurangi parameter yang dapat dilatih hingga >99\%, memungkinkan fine-tuning di GPU kecil.
+
+\textbf{9. Bagaimana cara mengatasi Overfitting?} \\
+\textit{Jawaban:}
+- Tambah data.
+- Data Augmentation.
+- Regularisasi (L1, L2).
+- Dropout.
+- Early Stopping.
+- Perkecil model.
+
+\textbf{10. Apa itu "Hallucination" pada AI?} \\
+\textit{Jawaban:} Saat LLM menghasilkan teks yang terdengar masuk akal dan percaya diri, tetapi faktanya salah total. Terjadi karena model hanya memprediksi statistik kata berikutnya, bukan memverifikasi kebenaran.
+
+\subsection{System Design & MLOps}
+
+\textbf{11. Desain sistem rekomendasi untuk Netflix!} \\
+\textit{Jawaban:}
+- **Candidate Generation (Retrieval):** Saring jutaan film jadi ratusan kandidat menggunakan Collaborative Filtering atau Two-Tower model (annoy/faiss).
+- **Ranking:** Urutkan ratusan kandidat menggunakan model kompleks (Deep Learning) dengan fitur kontekstual (jam, device).
+- **Re-ranking:** Hapus film yang sudah ditonton, sesuaikan keberagaman (diversity).
+
+\textbf{12. Bagaimana menangani Data Drift?} \\
+\textit{Jawaban:} Data drift terjadi saat distribusi data di produksi berubah dari data latih. Solusi: Monitoring statistik (KL Divergence) pada fitur input. Jika drift terdeteksi, lakukan retraining model dengan data terbaru.
+
+\section{Roadmap Belajar (6 Bulan)}
+
+\subsection*{Bulan 1-2: Fondasi Coding & Matematika}
+- Python: List, Dict, OOP, Pandas, NumPy.
+- Math: Aljabar Linear (Vektor/Matriks), Kalkulus (Turunan/Gradien), Probabilitas.
+
+\subsection*{Bulan 3-4: Machine Learning Klasik}
+- Scikit-Learn: Linear Regression, Decision Trees, Random Forest, K-Means.
+- Evaluasi: Cross-validation, ROC-AUC.
+- Project: Prediksi Harga Rumah (Kaggle).
+
+\subsection*{Bulan 5: Deep Learning}
+- PyTorch: Tensor, Autograd, CNN (Computer Vision).
+- Project: Klasifikasi Gambar (CIFAR-10).
+
+\subsection*{Bulan 6: LLM & Modern AI}
+- Transformer, Hugging Face, LangChain, RAG.
+- Project: Chatbot PDF dengan RAG.
+
+\section{Strategi Gaji & Negosiasi}
+
+Di Indonesia (2024), kisaran gaji kasar:
+- **Junior:** Rp 8 - 15 Juta.
+- **Mid:** Rp 15 - 30 Juta.
+- **Senior:** Rp 30 - 60 Juta++.
+
+**Tips Negosiasi:** Fokus pada "Value" yang Anda bawa, bukan "Kebutuhan" Anda. Tunjukkan portofolio (GitHub) sebagai bukti kompetensi. Sertifikat kursus kurang berharga dibanding satu aplikasi yang berjalan di produksi.

@@ -1,0 +1,68 @@
+\chapter{Membangun Tim AI: Strategi \& Kultur}
+\label{chap:ai_team}
+
+Mengadopsi AI bukan sekadar membeli lisensi ChatGPT. Ini adalah transformasi budaya yang memerlukan struktur tim yang tepat, pola pikir baru, dan kepemimpinan yang visioner. Bab ini membahas cara membangun "AI-Native Organization".
+
+\section{Struktur Tim AI yang Efektif}
+
+\subsection{1. Tim Terpusat (Center of Excellence)}
+Semua talenta data (Data Scientist, MLE, Data Engineer) berada dalam satu departemen di bawah Chief Data Officer (CDO).
+\begin{itemize}
+    \item **Kelebihan:** Standarisasi kuat, berbagi pengetahuan (knowledge sharing) mudah, jenjang karir jelas.
+    \item **Kekurangan:** Jauh dari masalah bisnis nyata, sering menjadi "pabrik eksperimen" yang tidak pernah masuk produksi.
+\end{itemize}
+
+\subsection{2. Tim Terdesentralisasi (Embedded)}
+Setiap departemen (Marketing, Finance, Product) memiliki Data Scientist sendiri.
+\begin{itemize}
+    \item **Kelebihan:** Sangat dekat dengan masalah bisnis, iterasi cepat.
+    \item **Kekurangan:** Silo data, duplikasi pekerjaan, tidak ada standar teknik yang konsisten.
+\end{itemize}
+
+\subsection{3. Model Hub-and-Spoke (Hybrid)}
+Kombinasi terbaik. Ada tim inti (Hub) yang menyediakan infrastruktur dan standar, sementara Data Scientist (Spoke) ditempatkan di departemen bisnis tetapi melapor secara teknis ke Hub.
+\begin{itemize}
+    \item **Rekomendasi:** Gunakan model ini untuk perusahaan skala menengah-besar.
+\end{itemize}
+
+\section{Peran Kunci (The AI Squad)}
+
+Untuk satu proyek AI end-to-end, Anda membutuhkan "squad" minimalis:
+1.  **Product Manager (PM):** Mendefinisikan "Why". Mengapa kita butuh AI ini? Apa metrik suksesnya?
+2.  **Machine Learning Engineer (MLE):** Membangun "How". Arsitektur model, deployment, skalabilitas.
+3.  **Data Engineer:** Menyiapkan "Fuel". Pipa data (pipeline) yang bersih dan reliabel.
+4.  **Software Engineer (Backend/Frontend):** Mengintegrasikan model ke aplikasi user.
+5.  **Domain Expert (SME):** Dokter (untuk AI medis), Akuntan (untuk AI keuangan). Mereka yang memvalidasi output.
+
+\section{Hiring: Menemukan Talenta Tepat}
+
+\subsection{Red Flags saat Wawancara}
+- **"Saya hanya mau pakai model terbaru (LLM)."** Hindari. Cari engineer yang mau membersihkan data kotor dan mencoba Regresi Logistik dulu.
+- **"Saya tidak peduli bisnis, saya cuma mau riset."** Cocok untuk lab riset, tapi bahaya untuk startup/perusahaan produk.
+- **Tidak bisa koding dasar.** Data Scientist yang tidak bisa menulis kode Python bersih akan menjadi beban bagi tim Engineering.
+
+\subsection{Kualitas yang Dicari}
+- **Curiosity:** AI berubah tiap minggu. Cari orang yang belajar mandiri.
+- **Pragmatisme:** Memilih solusi sederhana yang bekerja daripada solusi kompleks yang keren.
+- **Komunikasi:** Bisa menjelaskan konsep teknis ke orang awam.
+
+\section{Membangun Budaya Data (Data Culture)}
+
+\subsection{1. Demokratisasi Data}
+Jangan kunci data di "menara gading". Berikan akses aman ke semua karyawan (misal: lewat Metabase atau Tableau). Biarkan mereka bertanya pada data.
+
+\subsection{2. Toleransi Kegagalan (Fail Fast)}
+Proyek AI bersifat probabilistik. Tidak semua eksperimen berhasil. Ciptakan lingkungan di mana gagal itu boleh, asalkan ada pelajaran yang diambil (post-mortem).
+
+\subsection{3. Etika di Depan (Ethics First)}
+Jangan biarkan etika menjadi renungan terakhir (afterthought). Diskusikan bias dan dampak sosial sejak hari pertama perencanaan proyek.
+
+\section{Transformasi ke AI-Native}
+
+Perusahaan AI-Native bukan hanya perusahaan yang "memakai AI", tapi yang "berpikir dengan AI".
+- **Otomatisasi Default:** Setiap proses manual harus ditantang: "Bisakah AI membantu ini?"
+- **Keputusan Berbasis Data:** Bukan berdasarkan "firasat bos" (HiPPO - Highest Paid Person's Opinion), tapi berdasarkan bukti data.
+
+\section{Penutup: Peran Pemimpin}
+
+Sebagai pemimpin, tugas Anda bukan menjadi ahli teknis, melainkan menjadi **Arsitek Lingkungan**. Tugas Anda adalah menyingkirkan hambatan birokrasi, menyediakan sumber daya komputasi (GPU/Cloud), dan memberikan visi yang jelas ke mana kapal ini berlayar.

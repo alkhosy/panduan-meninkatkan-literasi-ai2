@@ -1,0 +1,150 @@
+\chapter{Referensi Teknis Python \& PyTorch}
+\label{chap:tech_ref}
+
+Sebagai praktisi AI, sintaks bahasa pemrograman adalah alat utama Anda. Bab ini menyediakan referensi teknis padat untuk Python modern dan PyTorch, kerangka kerja Deep Learning paling populer.
+
+\section{Python Modern untuk AI}
+
+\subsection{Type Hinting}
+Python 3.10+ mendukung pengetikan statis yang membantu mencegah bug.
+\begin{codeblock}[language=Python]
+def process_data(items: list[str]) -> dict[str, int]:
+    result: dict[str, int] = {}
+    for item in items:
+        result[item] = len(item)
+    return result
+\end{codeblock}
+
+\subsection{List \& Dict Comprehensions}
+Cara ringkas dan cepat untuk membuat struktur data.
+\begin{codeblock}[language=Python]
+# List: Kuadrat bilangan genap
+numbers = [1, 2, 3, 4, 5]
+squares = [x**2 for x in numbers if x % 2 == 0]
+
+# Dict: Map nama ke panjang nama
+names = ["Ali", "Budi", "Cici"]
+name_lengths = {name: len(name) for name in names}
+\end{codeblock}
+
+\subsection{Walrus Operator (:=)}
+Melakukan assignment di dalam ekspresi.
+\begin{codeblock}[language=Python]
+# Tanpa Walrus
+data = get_data()
+if data:
+    process(data)
+
+# Dengan Walrus
+if (data := get_data()):
+    process(data)
+\end{codeblock}
+
+\section{NumPy: Komputasi Matriks}
+NumPy adalah fondasi dari semua library AI (PyTorch, TensorFlow, Pandas).
+
+\begin{codeblock}[language=Python]
+import numpy as np
+
+# Membuat Array
+a = np.array([1, 2, 3])
+b = np.ones((3, 3))     # Matriks 3x3 isi 1
+c = np.eye(3)           # Matriks identitas
+
+# Operasi Element-wise
+x = np.array([1, 2])
+y = np.array([3, 4])
+print(x * y) # Output: [3, 8]
+
+# Dot Product (Perkalian Matriks)
+m1 = np.random.rand(2, 3) # 2 baris, 3 kolom
+m2 = np.random.rand(3, 2) # 3 baris, 2 kolom
+result = np.dot(m1, m2)   # Hasil: 2x2
+\end{codeblock}
+
+\section{PyTorch: Deep Learning Framework}
+
+\subsection{Tensor Basics}
+Tensor mirip array NumPy, tapi bisa berjalan di GPU.
+\begin{codeblock}[language=Python]
+import torch
+
+# Pindah ke GPU jika ada
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+x = torch.tensor([1.0, 2.0], requires_grad=True).to(device)
+y = x * 3 + 2
+
+# Automatic Differentiation (Autograd)
+z = y.sum()
+z.backward() # Hitung gradien dz/dx
+print(x.grad) # Output: [3.0, 3.0]
+\end{codeblock}
+
+\subsection{Membangun Neural Network (nn.Module)}
+Struktur standar untuk mendefinisikan model.
+
+\begin{codeblock}[language=Python]
+import torch.nn as nn
+import torch.nn.functional as F
+
+class SimpleNet(nn.Module):
+    def __init__(self):
+        super().__init__()
+        # Layer definisi
+        self.fc1 = nn.Linear(784, 128)
+        self.fc2 = nn.Linear(128, 10)
+        self.dropout = nn.Dropout(0.2)
+
+    def forward(self, x):
+        # Aliran data
+        x = torch.flatten(x, 1)
+        x = F.relu(self.fc1(x))
+        x = self.dropout(x)
+        x = self.fc2(x)
+        return x
+\end{codeblock}
+
+\subsection{Training Loop}
+Pola standar untuk melatih model.
+
+\begin{codeblock}[language=Python]
+model = SimpleNet().to(device)
+optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
+criterion = nn.CrossEntropyLoss()
+
+for epoch in range(10):
+    for batch, (inputs, targets) in enumerate(dataloader):
+        inputs, targets = inputs.to(device), targets.to(device)
+
+        # 1. Forward Pass
+        outputs = model(inputs)
+        loss = criterion(outputs, targets)
+
+        # 2. Backward Pass & Update
+        optimizer.zero_grad() # Reset gradien lama
+        loss.backward()       # Hitung gradien baru
+        optimizer.step()      # Update bobot
+
+    print(f"Epoch {epoch}, Loss: {loss.item()}")
+\end{codeblock}
+
+\subsection{Saving & Loading}
+\begin{codeblock}[language=Python]
+# Save (Hanya bobot, lebih aman)
+torch.save(model.state_dict(), "model_weights.pth")
+
+# Load
+model = SimpleNet() # Inisialisasi arsitektur yang sama
+model.load_state_dict(torch.load("model_weights.pth"))
+model.eval() # Set mode evaluasi (matikan dropout)
+\end{codeblock}
+
+\section{Tips Debugging AI}
+
+\begin{itemize}
+    \item **Shape Error:** Paling sering terjadi. Selalu print `tensor.shape` sebelum operasi perkalian matriks. Pastikan `(A, B) x (B, C)`.
+    \item **Device Error:** `Expected all tensors to be on the same device`. Pastikan input dan model sama-sama di CPU atau GPU.
+    \item **NaN Loss:** Biasanya karena Learning Rate terlalu besar atau pembagian dengan nol. Cek data input untuk nilai tak wajar.
+    \item **Overfitting:** Jika `\texttt{training\_loss}` turun tapi `\texttt{validation\_loss}` naik. Solusi: Tambah data, gunakan Dropout, atau perkecil model.
+\end{itemize}

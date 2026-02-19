@@ -1,0 +1,137 @@
+\chapter{Arsitektur Masa Depan: Beyond Transformers}
+\label{chap:future_arch}
+
+Selama hampir satu dekade, arsitektur Transformer (dengan mekanisme Attention-nya) telah menjadi "satu-satunya" cara untuk membangun model bahasa besar. Namun, seperti yang dibahas di Bab 22, dominasi ini mulai goyah. Kendala komputasi kuadratik dan kebutuhan memori yang masif mendorong peneliti mencari alternatif.
+
+Bab ini akan menyelami teknis tiga kandidat terkuat pengganti (atau pendamping) Transformer: **State Space Models (Mamba)**, **Mixture of Experts (MoE)**, dan **1-bit Architectures**. Kita akan membahas matematika di baliknya dan bagaimana mengimplementasikannya.
+
+\section{State Space Models (SSM) & Mamba}
+
+\subsection{Intuisi: Mengapa Transformer "Boros"?}
+Bayangkan Anda membaca buku.
+- **Transformer:** Anda menyimpan \textit{setiap kata} yang pernah Anda baca di memori (KV Cache). Saat membaca kata baru, Anda membandingkannya dengan \textit{semua} kata sebelumnya. Akurat, tapi sangat membebani ingatan.
+- **RNN (Recurrent Neural Network):** Anda hanya menyimpan "ringkasan" dari apa yang telah Anda baca sejauh ini (Hidden State). Saat membaca kata baru, Anda memperbarui ringkasan tersebut. Efisien, tapi ringkasan bisa kehilangan detail penting.
+- **SSM (Mamba):** Seperti RNN, tapi dengan mekanisme matematis yang jauh lebih canggih untuk mengompresi memori jangka panjang tanpa kehilangan detail.
+
+\subsection{Matematika SSM Diskrit}
+SSM memodelkan sistem sebagai interaksi antara input $x(t)$, hidden state $h(t)$, dan output $y(t)$ melalui persamaan diferensial:
+\begin{align}
+h'(t) &= \mathbf{A}h(t) + \mathbf{B}x(t) \\
+y(t) &= \mathbf{C}h(t)
+\end{align}
+Untuk digunakan di komputer (diskrit), persamaan ini didiskretisasi (biasanya menggunakan metode Zero-Order Hold) menjadi:
+\begin{align}
+h_t &= \bar{\mathbf{A}} h_{t-1} + \bar{\mathbf{B}} x_t \\
+y_t &= \mathbf{C} h_t
+\end{align}
+Di mana $\bar{\mathbf{A}}$ dan $\bar{\mathbf{B}}$ diturunkan dari $\mathbf{A}, \mathbf{B}$ dan step size $\Delta$.
+
+\subsection{Inovasi Mamba: Selective Scan}
+Masalah SSM lama (seperti S4) adalah matriks $\mathbf{A}, \mathbf{B}, \mathbf{C}$ bersifat stasioner (tetap untuk semua waktu). Ini berarti model memproses semua input dengan cara yang sama (Linear Time Invariant - LTI).
+
+Mamba membuat matriks ini menjadi fungsi dari input:
+\begin{equation}
+\mathbf{B}_t, \mathbf{C}_t, \Delta_t = \text{Linear}(x_t)
+\end{equation}
+Ini memungkinkan model untuk:
+1.  **Selectivity:** Memilih untuk "membuka gerbang" memori dan menyimpan informasi penting (misal: nama tokoh).
+2.  **Forgetting:** Memilih untuk melupakan informasi tidak relevan (misal: kata sambung) dengan mengatur $\Delta_t$.
+
+\subsection{Implementasi Mamba (Pseudo-code)}
+Implementasi Mamba sangat bergantung pada operasi scan prefix yang dioptimalkan secara hardware (Parallel Scan).
+
+\begin{codeblock}[language=Python]
+class MambaBlock(nn.Module):
+    def __init__(self, d_model, d_state):
+        super().__init__()
+        self.in_proj = nn.Linear(d_model, d_model * 2)
+        self.conv1d = nn.Conv1d(d_model, d_model, kernel_size=4)
+
+        # SSM Parameters
+        self.x_proj = nn.Linear(d_model, dt_rank + d_state * 2)
+        self.dt_proj = nn.Linear(dt_rank, d_model)
+
+        self.out_proj = nn.Linear(d_model, d_model)
+
+    def forward(self, x):
+        # 1. Project input
+        x_and_res = self.in_proj(x)
+        (x, res) = x_and_res.split(d_model)
+
+        # 2. Convolution
+        x = self.conv1d(x)
+        x = F.silu(x)
+
+        # 3. SSM (Selective Scan)
+        # Hitung parameter dinamis berdasarkan input x
+        delta, B, C = self.x_proj(x)
+
+        # Jalankan scan (biasanya pakai kernel CUDA khusus)
+        y = selective_scan(x, delta, A, B, C)
+
+        # 4. Output projection
+        return self.out_proj(y * F.silu(res))
+\end{codeblock}
+
+\section{Mixture of Experts (MoE)}
+
+\subsection{Konsep Dasar}
+Daripada melatih satu model raksasa yang "tahu segalanya", MoE melatih sekumpulan "pakar" (experts) kecil. Untuk setiap input, sebuah "router" (jaringan gerbang) memutuskan pakar mana yang harus menanganinya.
+
+\subsection{Sparse vs Dense MoE}
+- **Dense:** Semua pakar aktif untuk setiap input (sangat boros).
+- **Sparse:** Hanya Top-K pakar (misal 2 dari 8) yang aktif.
+Ini memungkinkan kita memiliki model dengan 1 Triliun parameter, tetapi biaya inferensinya setara model 10 Miliar parameter.
+
+\subsection{Komponen Router}
+Router biasanya adalah lapisan linear sederhana dengan Softmax:
+\begin{equation}
+G(x) = \text{Softmax}(x \cdot W_g)
+\end{equation}
+Kita memilih indeks pakar dengan probabilitas tertinggi.
+\begin{equation}
+y = \sum_{i \in \text{TopK}} G(x)_i \cdot E_i(x)
+\end{equation}
+Dimana $E_i(x)$ adalah output dari pakar ke-$i$ (biasanya blok FFN).
+
+\subsection{Tantangan MoE: Load Balancing}
+Masalah utama MoE adalah **Expert Collapse**: Router mungkin cenderung mengirim semua tugas ke satu pakar saja (karena inisialisasi acak membuatnya sedikit lebih baik), sehingga pakar lain "mati" dan tidak terlatih.
+Solusi: Tambahkan **Load Balancing Loss** ke fungsi tujuan (loss function) untuk memaksa router membagi beban secara merata.
+
+\section{1-Bit LLMs (BitNet)}
+
+\subsection{Matematika 1.58 Bit}
+Alih-alih menggunakan float16 (membutuhkan 16 bit memori per bobot), BitNet b1.58 membatasi bobot $W$ ke nilai $\{-1, 0, 1\}$.
+Proses kuantisasinya:
+\begin{equation}
+\tilde{W} = \text{RoundClip}\left( \frac{W}{\gamma + \epsilon}, -1, 1 \right)
+\end{equation}
+Di mana $\gamma$ adalah rata-rata magnitudo absolut dari bobot.
+
+\subsection{Keuntungan Energi}
+Operasi utama di Neural Network adalah $y = W \cdot x$.
+Jika $W$ adalah float, kita butuh Floating Point Multiplication.
+Jika $W \in \{-1, 0, 1\}$, perkalian berubah menjadi:
+- Jika $W=1$: Tambahkan $x$ ke akumulator.
+- Jika $W=-1$: Kurangkan $x$ dari akumulator.
+- Jika $W=0$: Jangan lakukan apa-apa.
+Ini menghilangkan kebutuhan akan multiplier unit di hardware, menghemat energi secara drastis.
+
+\section{Perbandingan Arsitektur}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Fitur} & \textbf{Transformer} & \textbf{Mamba (SSM)} & \textbf{MoE (Sparse)} \\ \hline
+Kompleksitas Waktu & $O(L^2)$ (Kuadratik) & $O(L)$ (Linear) & $O(L)$ (Tergantung K) \\ \hline
+Memori Inferensi & Besar (KV Cache) & Kecil (Fixed State) & Besar (VRAM param) \\ \hline
+Performa In-Context & Sangat Baik & Baik (terbatas state) & Sangat Baik \\ \hline
+Training Stability & Stabil & Perlu trik khusus & Rawan Collapse \\ \hline
+Contoh Model & GPT-4, Llama 3 & Jamba, Vim & Mixtral, GPT-4o \\ \hline
+\end{tabular}
+\caption{Perbandingan Arsitektur AI Modern}
+\end{table}
+
+\section{Masa Depan: Arsitektur Hibrida?}
+Tren terbaru (seperti Jamba dari AI21 Labs) menunjukkan arah hibrida: menggabungkan layer Mamba (untuk memori jangka panjang efisien) dengan layer Transformer (untuk kemampuan recall tajam). Model masa depan kemungkinan besar tidak akan murni satu arsitektur, melainkan "Frankenstein" yang mengambil bagian terbaik dari masing-masing penemuan.

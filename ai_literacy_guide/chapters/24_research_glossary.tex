@@ -1,0 +1,82 @@
+\chapter{Kamus Istilah Riset AI}
+\label{chap:research_glossary}
+
+Memahami paper penelitian membutuhkan penguasaan kosakata khusus yang seringkali berbeda dengan istilah industri. Bab ini berfungsi sebagai referensi cepat untuk terminologi teknis yang sering muncul di makalah ArXiv.
+
+\section{Terminologi Pelatihan (Training)}
+
+\subsection{Ablation Study}
+Eksperimen di mana peneliti menghapus satu per satu komponen dari model yang diusulkan untuk melihat kontribusi masing-masing komponen terhadap performa total.
+\textit{Contoh: "Kami melakukan studi ablasi dengan menghapus layer normalisasi dan melihat penurunan akurasi 2\%."}
+
+\subsection{Scaling Laws}
+Hukum empiris yang menyatakan bahwa performa model (biasanya diukur dengan cross-entropy loss) akan meningkat secara terprediksi (power-law) jika kita meningkatkan parameter model, data pelatihan, atau komputasi (FLOPs).
+\textit{Paper Seminal: Kaplan et al. (2020), Chinchilla (Hoffmann et al., 2022).}
+
+\subsection{Groking}
+Fenomena di mana model tampaknya gagal belajar (akurasi rendah) untuk waktu yang lama (overfitting pada data latih), tetapi tiba-tiba "mengerti" pola umum dan akurasi pada data uji melonjak drastis setelah ribuan epoch.
+
+\subsection{Curriculum Learning}
+Strategi pelatihan di mana model diajarkan materi dari yang mudah ke yang sulit, mirip dengan cara manusia belajar di sekolah.
+
+\subsection{Few-Shot Prompting}
+Memberikan beberapa contoh (shots) input-output di dalam prompt untuk mengajarkan tugas baru kepada model tanpa mengubah bobotnya (In-Context Learning).
+- **Zero-shot:** Tidak ada contoh.
+- **One-shot:** Satu contoh.
+- **Few-shot:** Beberapa contoh (biasanya 3-5).
+
+\section{Metrik Evaluasi}
+
+\subsection{Perplexity (PPL)}
+Ukuran ketidakpastian model dalam memprediksi token berikutnya. Semakin rendah nilai PPL, semakin baik model tersebut. PPL adalah eksponensial dari cross-entropy loss.
+
+\subsection{Bleu & Rouge}
+Metrik klasik untuk mengevaluasi kualitas teks (terjemahan/ringkasan) dengan menghitung tumpang tindih n-gram antara output model dan referensi manusia. Kurang akurat untuk menilai makna semantik.
+
+\subsection{Win Rate (vs GPT-4)}
+Metrik evaluasi modern di mana output model diadu dengan output GPT-4, dan "juri" (bisa manusia atau LLM lain) memilih mana yang lebih baik.
+
+\subsection{Pass@k}
+Metrik untuk evaluasi coding. "Pass@1" berarti akurasi jika model hanya diberi 1 kesempatan. "Pass@10" berarti probabilitas setidaknya ada 1 jawaban benar jika model diberi 10 kesempatan generate.
+
+\section{Arsitektur & Teknik}
+
+\subsection{KV Cache (Key-Value Cache)}
+Teknik optimasi memori saat inferensi Transformer. Alih-alih menghitung ulang vektor Key dan Value untuk token-token sebelumnya di setiap langkah, kita menyimpannya di memori GPU. Ini mempercepat generasi tetapi memakan VRAM besar.
+
+\subsection{Rotary Positional Embedding (RoPE)}
+Metode penyandian posisi yang memutar vektor embedding dalam ruang geometris. Standar modern (Llama, GPT-NeoX) karena kemampuan generalisasi ke urutan panjang yang lebih baik daripada embedding posisi absolut atau relatif biasa.
+
+\subsection{FlashAttention}
+Algoritma IO-aware yang menghitung Self-Attention jauh lebih cepat dan hemat memori dengan melakukan tiling pada blok-blok matriks di SRAM GPU, mengurangi akses ke HBM yang lambat.
+
+\subsection{Mixture of Experts (MoE)}
+Arsitektur di mana layer Feed-Forward dipecah menjadi beberapa "pakar" kecil. Router memilih pakar mana yang aktif untuk setiap token. Memungkinkan model memiliki kapasitas besar (banyak parameter) dengan biaya inferensi rendah.
+
+\section{Dataset & Benchmarks}
+
+\subsection{MMLU (Massive Multitask Language Understanding)}
+Benchmark paling populer saat ini untuk mengukur pengetahuan umum LLM. Terdiri dari soal pilihan ganda dari 57 subjek (matematika, sejarah, hukum, kedokteran, dll).
+
+\subsection{HumanEval}
+Benchmark standar untuk kemampuan coding (Python). Berisi soal-soal pemrograman fungsional yang harus diselesaikan oleh model.
+
+\subsection{GSM8K (Grade School Math 8K)}
+Kumpulan soal cerita matematika tingkat sekolah dasar. Digunakan untuk mengukur kemampuan penalaran multi-langkah (Chain-of-Thought).
+
+\subsection{Synthetic Data}
+Data yang dihasilkan oleh model AI lain, bukan dikumpulkan dari dunia nyata. Menjadi krusial karena internet "kehabisan" teks berkualitas tinggi manusia.
+
+\section{Konsep Lanjutan}
+
+\subsection{Chain-of-Thought (CoT)}
+Teknik prompting di mana model diminta untuk "berpikir langkah demi langkah" sebelum memberikan jawaban akhir. Ini terbukti meningkatkan performa penalaran secara drastis.
+
+\subsection{Hallucination}
+Saat model menghasilkan fakta yang salah dengan penuh percaya diri.
+
+\subsection{Alignment Tax}
+Fenomena di mana proses menyelaraskan model agar aman dan sopan (Alignment/RLHF) terkadang menurunkan kemampuan murni model dalam tugas-tugas intelektual atau kreativitas.
+
+\subsection{Emergent Abilities}
+Kemampuan yang tidak muncul pada model kecil, tetapi tiba-tiba muncul ("emerge") ketika model mencapai skala parameter atau data tertentu (misal: kemampuan aritmatika atau translasi).

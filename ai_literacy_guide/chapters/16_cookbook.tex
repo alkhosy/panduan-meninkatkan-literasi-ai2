@@ -25,6 +25,451 @@ client = OpenAI(
 print("Client ready!")
 \end{codeblock}
 
+\newpage
+
+\section{Resep 2: Simple Chat Completion}
+
+\subsection*{Problem}
+Mengirim pesan ke ChatGPT dan mendapatkan balasan.
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+response = client.chat.completions.create(
+  model="gpt-3.5-turbo",
+  messages=[
+    {"role": "system", "content": "You are a helpful assistant."},
+    {"role": "user", "content": "Jelaskan AI dalam 1 kalimat."}
+  ]
+)
+
+print(response.choices[0].message.content)
+\end{codeblock}
+
+\newpage
+
+\section{Resep 3: Menghitung Token (Tiktoken)}
+
+\subsection*{Problem}
+Menghitung estimasi biaya sebelum mengirim request.
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+import tiktoken
+
+def count_tokens(text, model="gpt-3.5-turbo"):
+    encoding = tiktoken.encoding_for_model(model)
+    return len(encoding.encode(text))
+
+prompt = "Halo dunia, apa kabar?"
+print(f"Jumlah token: {count_tokens(prompt)}")
+\end{codeblock}
+
+\newpage
+
+\section{Resep 4: Streaming Response (Efek Mesik Ketik)}
+
+\subsection*{Problem}
+Menampilkan jawaban kata per kata agar user tidak menunggu lama.
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+stream = client.chat.completions.create(
+    model="gpt-3.5-turbo",
+    messages=[{"role": "user", "content": "Buat puisi panjang tentang hujan."}],
+    stream=True,
+)
+
+for chunk in stream:
+    if chunk.choices[0].delta.content is not None:
+        print(chunk.choices[0].delta.content, end="")
+\end{codeblock}
+
+\newpage
+
+\section{Resep 5: JSON Mode (Structured Output)}
+
+\subsection*{Problem}
+Memaksa LLM menghasilkan output format JSON yang valid.
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+response = client.chat.completions.create(
+  model="gpt-3.5-turbo-1106",
+  response_format={ "type": "json_object" },
+  messages=[
+    {"role": "system", "content": "You are a helpful assistant designed to output JSON."},
+    {"role": "user", "content": "Berikan daftar 3 buah berwarna merah dalam format JSON dengan key 'fruits'."}
+  ]
+)
+
+print(response.choices[0].message.content)
+# Output: { "fruits": ["Apel", "Stroberi", "Ceri"] }
+\end{codeblock}
+
+\newpage
+
+\section{Resep 6: Few-Shot Prompting}
+
+\subsection*{Problem}
+Meningkatkan akurasi dengan memberikan contoh.
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+messages = [
+    {"role": "system", "content": "Konversi bahasa gaul ke formal."},
+    {"role": "user", "content": "Gw gak bisa dateng bos."},
+    {"role": "assistant", "content": "Saya berhalangan hadir, Pak."},
+    {"role": "user", "content": "Kerjaan numpuk banget nih."},
+    {"role": "assistant", "content": "Beban kerja sedang sangat tinggi."},
+    {"role": "user", "content": "Lo mau makan apa?"}
+]
+
+response = client.chat.completions.create(
+    model="gpt-3.5-turbo",
+    messages=messages
+)
+print(response.choices[0].message.content)
+\end{codeblock}
+
+\newpage
+
+\section{Resep 7: Handling API Errors (Retry Logic)}
+
+\subsection*{Problem}
+API kadang timeout atau rate limited. Jangan biarkan aplikasi crash.
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+import time
+from openai import APIError, RateLimitError
+
+def safe_chat_completion(prompt, retries=3):
+    for i in range(retries):
+        try:
+            return client.chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages=[{"role": "user", "content": prompt}]
+            )
+        except RateLimitError:
+            print("Rate limit! Waiting...")
+            time.sleep(20)
+        except APIError as e:
+            print(f"API Error: {e}")
+            break
+    return None
+\end{codeblock}
+
+\newpage
+
+\section{Resep 8: Embedding Text}
+
+\subsection*{Problem}
+Mengubah teks menjadi vektor angka untuk pencarian semantik.
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+response = client.embeddings.create(
+    input="Kucing sedang tidur di sofa.",
+    model="text-embedding-3-small"
+)
+
+vector = response.data[0].embedding
+print(f"Dimensi vektor: {len(vector)}") # Biasanya 1536
+print(vector[:5]) # Lihat 5 angka pertama
+\end{codeblock}
+
+\newpage
+
+\section{Resep 9: Cosine Similarity (Membandingkan 2 Teks)}
+
+\subsection*{Problem}
+Menghitung kemiripan antara dua kalimat.
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
+
+def get_embedding(text):
+    return client.embeddings.create(input=[text], model="text-embedding-3-small").data[0].embedding
+
+vec1 = np.array(get_embedding("Saya suka makan nasi goreng."))
+vec2 = np.array(get_embedding("Makanan favoritku adalah nasi goreng."))
+vec3 = np.array(get_embedding("Bumi itu bulat."))
+
+# Reshape karena sklearn butuh array 2D
+sim12 = cosine_similarity(vec1.reshape(1, -1), vec2.reshape(1, -1))
+sim13 = cosine_similarity(vec1.reshape(1, -1), vec3.reshape(1, -1))
+
+print(f"Kemiripan 1 & 2: {sim12[0][0]:.4f}") # Tinggi (~0.8+)
+print(f"Kemiripan 1 & 3: {sim13[0][0]:.4f}") # Rendah (~0.1)
+\end{codeblock}
+
+\newpage
+
+\section{Resep 10: Simple RAG (Retrieval-Augmented Generation)}
+
+\subsection*{Problem}
+Chat dengan dokumen teks tunggal tanpa database vektor kompleks.
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+context_text = """
+Jam operasional Toko Maju Jaya:
+Senin-Jumat: 08.00 - 17.00
+Sabtu: 08.00 - 12.00
+Minggu: Tutup.
+"""
+
+question = "Apakah toko buka hari Minggu?"
+
+prompt = f"""
+Gunakan konteks berikut untuk menjawab pertanyaan. Jika tidak ada di konteks, jawab "Tidak tahu".
+
+Konteks:
+{context_text}
+
+Pertanyaan: {question}
+"""
+
+response = client.chat.completions.create(
+    model="gpt-3.5-turbo",
+    messages=[{"role": "user", "content": prompt}]
+)
+print(response.choices[0].message.content)
+\end{codeblock}
+
+\newpage
+
+\section{Resep 11: Chunking Text (Memecah Dokumen Panjang)}
+
+\subsection*{Problem}
+Dokumen terlalu panjang untuk satu embedding.
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+
+text = "Teks sangat panjang... " * 1000
+
+splitter = RecursiveCharacterTextSplitter(
+    chunk_size=500,
+    chunk_overlap=50, # Agar konteks antar potongan tersambung
+    separators=["\n\n", "\n", " ", ""]
+)
+
+chunks = splitter.create_documents([text])
+print(f"Jumlah chunks: {len(chunks)}")
+print(chunks[0].page_content)
+\end{codeblock}
+
+\newpage
+
+\section{Resep 12: Menyimpan Vektor ke ChromaDB}
+
+\subsection*{Problem}
+Menyimpan embedding agar tidak perlu dihitung ulang (persisten).
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+import chromadb
+
+chroma_client = chromadb.Client()
+collection = chroma_client.create_collection(name="my_docs")
+
+collection.add(
+    documents=["Ini dokumen A", "Ini dokumen B"],
+    metadatas=[{"source": "A"}, {"source": "B"}],
+    ids=["id1", "id2"]
+)
+
+# Chroma otomatis menghitung embedding default jika tidak disediakan
+\end{codeblock}
+
+\newpage
+
+\section{Resep 13: Query ChromaDB}
+
+\subsection*{Problem}
+Mencari dokumen yang mirip dengan query.
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+results = collection.query(
+    query_texts=["Mana dokumen yang pertama?"],
+    n_results=1
+)
+
+print(results['documents'])
+\end{codeblock}
+
+\newpage
+
+\section{Resep 14: Klasifikasi Teks dengan LLM}
+
+\subsection*{Problem}
+Mengategorikan email masuk (Spam, Support, Sales).
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+email_content = "Saya ingin refund barang yang saya beli kemarin."
+
+response = client.chat.completions.create(
+    model="gpt-3.5-turbo",
+    messages=[
+        {"role": "system", "content": "Classify the email into: SPAM, SUPPORT, or SALES. Output only the label."},
+        {"role": "user", "content": email_content}
+    ]
+)
+print(response.choices[0].message.content) # Output: SUPPORT
+\end{codeblock}
+
+\newpage
+
+\section{Resep 15: Summarization (Meringkas Teks)}
+
+\subsection*{Problem}
+Membuat ringkasan poin-poin (bullet points).
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+article = "..." # Teks panjang
+
+response = client.chat.completions.create(
+    model="gpt-3.5-turbo",
+    messages=[
+        {"role": "system", "content": "Ringkas teks berikut menjadi 3 bullet points utama."},
+        {"role": "user", "content": article}
+    ]
+)
+print(response.choices[0].message.content)
+\end{codeblock}
+
+\newpage
+
+\section{Resep 16: Translation (Penerjemah Universal)}
+
+\subsection*{Problem}
+Menerjemahkan ke bahasa yang spesifik (misal: Jawa Krama Inggil).
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+text = "Selamat pagi, mohon maaf mengganggu waktunya."
+
+response = client.chat.completions.create(
+    model="gpt-4", # GPT-4 lebih bagus untuk bahasa daerah
+    messages=[
+        {"role": "system", "content": "Terjemahkan ke Bahasa Jawa Krama Inggil (sopan)."},
+        {"role": "user", "content": text}
+    ]
+)
+print(response.choices[0].message.content)
+\end{codeblock}
+
+\newpage
+
+\section{Resep 17: Memperbaiki Grammar (Proofreading)}
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+draft = "i has a cat, he are cute."
+
+response = client.chat.completions.create(
+    model="gpt-3.5-turbo",
+    messages=[
+        {"role": "system", "content": "Fix grammar and spelling errors. Keep it natural."},
+        {"role": "user", "content": draft}
+    ]
+)
+print(response.choices[0].message.content)
+# Output: "I have a cat, he is cute."
+\end{codeblock}
+
+\newpage
+
+\section{Resep 18: Generate Data Dummy (Faker)}
+
+\subsection*{Problem}
+Butuh data dummy JSON untuk testing frontend.
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+response = client.chat.completions.create(
+    model="gpt-3.5-turbo",
+    messages=[
+        {"role": "user", "content": "Generate 5 dummy user data (name, email, job) in JSON array."}
+    ]
+)
+print(response.choices[0].message.content)
+\end{codeblock}
+
+\newpage
+
+\section{Resep 19: Sentiment Analysis Batch}
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+reviews = ["Enak banget!", "Mahal dan tidak enak.", "Biasa aja."]
+
+# Tips: Gabungkan dalam satu prompt untuk hemat request
+prompt = "Analisis sentimen (Positif/Negatif/Netral) untuk setiap ulasan berikut:\n"
+for i, r in enumerate(reviews):
+    prompt += f"{i+1}. {r}\n"
+
+response = client.chat.completions.create(
+    model="gpt-3.5-turbo",
+    messages=[{"role": "user", "content": prompt}]
+)
+print(response.choices[0].message.content)
+\end{codeblock}
+
+\newpage
+
+\section{Resep 20: Moderasi Konten (Safety)}
+
+\subsection*{Problem}
+Mencegah user menginput kata-kata kasar/berbahaya.
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+response = client.moderations.create(
+    input="I want to kill them."
+)
+
+output = response.results[0]
+if output.flagged:
+    print("Konten ditolak!")
+    print(f"Kategori: {output.categories}")
+else:
+    print("Konten aman.")
+\end{codeblock}
+\chapter{Cookbook: Resep Praktis AI}
+\label{chap:cookbook}
+
+Bab ini berisi kumpulan skrip "siap pakai" untuk menyelesaikan tugas-tugas umum dalam pengembangan AI. Anggap ini sebagai buku resep koki: Anda bisa langsung copy-paste dan sesuaikan dengan kebutuhan Anda.
+
+\section{Resep 1: Setup OpenAI Client}
+
+\subsection*{Problem}
+Memulai interaksi dasar dengan OpenAI API.
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+from openai import OpenAI
+import os
+from dotenv import load_dotenv
+
+# Load API Key dari file .env
+load_dotenv()
+
+client = OpenAI(
+    api_key=os.environ.get("OPENAI_API_KEY"),
+)
+
+# Test koneksi
+print("Client ready!")
+\end{codeblock}
+
 \section{Resep 2: Simple Chat Completion}
 
 \subsection*{Problem}
@@ -1239,4 +1684,250 @@ distances = [cosine_distance(emb, centroid) for emb in embeddings]
 
 threshold = 0.8
 outliers = [doc for doc, dist in zip(documents, distances) if dist > threshold]
+\end{codeblock}
+
+
+\newpage
+
+% --- RECIPE 56 ---
+\section{Resep 56: Evaluasi RAG dengan Ragas}
+
+\subsection*{Problem}
+Bagaimana tahu jawaban RAG kita akurat dan relevan?
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+from ragas import evaluate
+from ragas.metrics import faithfulness, answer_relevancy
+from datasets import Dataset
+
+data = {
+    "question": ["Siapa presiden RI?"],
+    "answer": ["Jokowi adalah presiden RI."],
+    "contexts": [["Joko Widodo menjabat sejak 2014..."]]
+}
+dataset = Dataset.from_dict(data)
+
+results = evaluate(
+    dataset,
+    metrics=[faithfulness, answer_relevancy]
+)
+print(results)
+\end{codeblock}
+
+\newpage
+
+% --- RECIPE 57 ---
+\section{Resep 57: High-Throughput Inference dengan vLLM}
+
+\subsection*{Problem}
+Hugging Face \texttt{generate()} terlalu lambat untuk produksi.
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+from vllm import LLM, SamplingParams
+
+llm = LLM(model="meta-llama/Meta-Llama-3-8B")
+sampling_params = SamplingParams(temperature=0.8, top_p=0.95)
+
+prompts = [
+    "Hello, my name is",
+    "The president of the United States is",
+]
+outputs = llm.generate(prompts, sampling_params)
+
+for output in outputs:
+    print(f"Prompt: {output.prompt!r}, Generated text: {output.outputs[0].text!r}")
+\end{codeblock}
+
+\newpage
+
+% --- RECIPE 58 ---
+\section{Resep 58: Quantization dengan BitsAndBytes (4-bit)}
+
+\subsection*{Problem}
+Menjalankan model 70B di GPU kecil (24GB VRAM).
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+from transformers import AutoModelForCausalLM, BitsAndBytesConfig
+import torch
+
+bnb_config = BitsAndBytesConfig(
+    load_in_4bit=True,
+    bnb_4bit_quant_type="nf4",
+    bnb_4bit_compute_dtype=torch.float16,
+)
+
+model = AutoModelForCausalLM.from_pretrained(
+    "mistralai/Mistral-7B-v0.1",
+    quantization_config=bnb_config,
+    device_map="auto"
+)
+\end{codeblock}
+
+\newpage
+
+% --- RECIPE 59 ---
+\section{Resep 59: Fine-Tuning dengan LoRA (PEFT)}
+
+\subsection*{Problem}
+Melatih model pada data spesifik tanpa mengubah semua bobot.
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+from peft import LoraConfig, get_peft_model, TaskType
+
+peft_config = LoraConfig(
+    task_type=TaskType.CAUSAL_LM,
+    inference_mode=False,
+    r=8,
+    lora_alpha=32,
+    lora_dropout=0.1
+)
+
+model = get_peft_model(model, peft_config)
+model.print_trainable_parameters()
+# Output: "trainable params: 4M || all params: 7B || trainable%: 0.06"
+\end{codeblock}
+
+\newpage
+
+% --- RECIPE 60 ---
+\section{Resep 60: JSON Repair (Fix Broken JSON)}
+
+\subsection*{Problem}
+LLM sering lupa menutup kurung kurawal.
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+import json_repair
+
+broken_json = '{ "name": "Budi", "age": 30 ' # Kurang kurung tutup
+decoded_object = json_repair.repair_json(broken_json, return_objects=True)
+
+print(decoded_object)
+# Output: {'name': 'Budi', 'age': 30}
+\end{codeblock}
+
+\newpage
+
+% --- RECIPE 61 ---
+\section{Resep 61: OCR Dokumen dengan PaddleOCR}
+
+\subsection*{Problem}
+Mengambil teks dari scan KTP/Invoice.
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+from paddleocr import PaddleOCR
+
+ocr = PaddleOCR(use_angle_cls=True, lang='en')
+result = ocr.ocr('invoice.jpg', cls=True)
+
+for line in result:
+    print(line[1][0]) # Teks yang terdeteksi
+\end{codeblock}
+
+\newpage
+
+% --- RECIPE 62 ---
+\section{Resep 62: Audio Noise Reduction (Denoiser)}
+
+\subsection*{Problem}
+Rekaman suara penuh noise latar belakang.
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+import torch
+import torchaudio
+from denoiser import pretrained
+from denoiser.dsp import convert_audio
+
+model = pretrained.dns64().cuda()
+wav, sr = torchaudio.load('noisy_speech.wav')
+wav = convert_audio(wav.cuda(), sr, model.sample_rate, model.chin)
+
+with torch.no_grad():
+    denoised = model(wav[None])[0]
+
+torchaudio.save('clean_speech.wav', denoised.cpu(), model.sample_rate)
+\end{codeblock}
+
+\newpage
+
+% --- RECIPE 63 ---
+\section{Resep 63: Membuat Word Cloud}
+
+\subsection*{Problem}
+Visualisasi topik yang paling sering muncul.
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
+
+text = "AI adalah masa depan. AI cerdas. AI membantu manusia."
+wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text)
+
+plt.figure(figsize=(10, 5))
+plt.imshow(wordcloud, interpolation='bilinear')
+plt.axis("off")
+plt.show()
+\end{codeblock}
+
+\newpage
+
+% --- RECIPE 64 ---
+\section{Resep 64: Flask API untuk Model ML}
+
+\subsection*{Problem}
+Men-serve model scikit-learn via HTTP endpoint.
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+from flask import Flask, request, jsonify
+import joblib
+
+app = Flask(__name__)
+model = joblib.load('model.pkl')
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    data = request.json['features']
+    prediction = model.predict([data])
+    return jsonify({'class': int(prediction[0])})
+
+if __name__ == '__main__':
+    app.run(port=5000)
+\end{codeblock}
+
+\newpage
+
+% --- RECIPE 65 ---
+\section{Resep 65: Streamlit Chat Interface}
+
+\subsection*{Problem}
+UI Chatbot sederhana dalam 10 baris kode.
+
+\subsection*{Code}
+\begin{codeblock}[language=Python]
+import streamlit as st
+
+st.title("Chatbot Sederhana")
+
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
+
+if prompt := st.chat_input("Apa yang ingin Anda tanyakan?"):
+    st.chat_message("user").markdown(prompt)
+    st.session_state.messages.append({"role": "user", "content": prompt})
+
+    response = "Ini jawaban dummy AI."
+    st.chat_message("assistant").markdown(response)
+    st.session_state.messages.append({"role": "assistant", "content": response})
 \end{codeblock}
