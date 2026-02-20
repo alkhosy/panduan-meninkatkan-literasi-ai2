@@ -22,48 +22,57 @@ A level-1 auxiliary file: chapters/18_math_dl.aux
 A level-1 auxiliary file: chapters/19_transformers.aux
 A level-1 auxiliary file: chapters/20_rlhf.aux
 A level-1 auxiliary file: chapters/21_coding_scratch.aux
+A level-1 auxiliary file: chapters/22_literature_review.aux
+A level-1 auxiliary file: chapters/23_future_arch.aux
+A level-1 auxiliary file: chapters/24_research_glossary.aux
+A level-1 auxiliary file: chapters/25_case_studies.aux
+A level-1 auxiliary file: chapters/26_tech_ref.aux
+A level-1 auxiliary file: chapters/27_career_guide.aux
+A level-1 auxiliary file: chapters/28_ai_team.aux
+A level-1 auxiliary file: chapters/29_glossary.aux
+A level-1 auxiliary file: chapters/epilogue.aux
 The style file: plain.bst
 Database file #1: references.bib
-Warning--I didn't find a database entry for "schulman2017proximal"
-You've used 12 entries,
+Warning--I didn't find a database entry for "apple2024nemotron"
+You've used 33 entries,
             2118 wiz_defined-function locations,
-            589 strings with 7512 characters,
-and the built_in function-call counts, 5492 in all, are:
-= -- 481
-> -- 486
+            693 strings with 11265 characters,
+and the built_in function-call counts, 12071 in all, are:
+= -- 1080
+> -- 983
 < -- 0
-+ -- 193
-- -- 180
-* -- 493
-:= -- 1010
-add.period$ -- 36
-call.type$ -- 12
-change.case$ -- 121
++ -- 392
+- -- 356
+* -- 941
+:= -- 2259
+add.period$ -- 108
+call.type$ -- 33
+change.case$ -- 262
 chr.to.int$ -- 0
-cite$ -- 12
-duplicate$ -- 125
-empty$ -- 263
-format.name$ -- 180
-if$ -- 1028
+cite$ -- 33
+duplicate$ -- 336
+empty$ -- 629
+format.name$ -- 356
+if$ -- 2291
 int.to.chr$ -- 0
-int.to.str$ -- 12
-missing$ -- 12
-newline$ -- 63
-num.names$ -- 24
-pop$ -- 105
+int.to.str$ -- 33
+missing$ -- 33
+newline$ -- 177
+num.names$ -- 66
+pop$ -- 235
 preamble$ -- 1
-purify$ -- 109
+purify$ -- 229
 quote$ -- 0
-skip$ -- 92
+skip$ -- 253
 stack$ -- 0
-substring$ -- 216
-swap$ -- 12
+substring$ -- 348
+swap$ -- 33
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 48
+type$ -- 132
 warning$ -- 0
-while$ -- 34
-width$ -- 14
-write$ -- 130
+while$ -- 78
+width$ -- 35
+write$ -- 359
 (There was 1 warning)

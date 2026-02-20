@@ -218,7 +218,64 @@ Cohere merancang Command R+ khusus untuk penggunaan alat (Tool Use) dan RAG. Mod
 Microsoft membuktikan hipotesis: "Jika Anda memberi makan model dengan buku teks (textbook), ia akan menjadi pintar meskipun otaknya kecil."
 Phi-3 Mini (3.8B) dilatih pada data "textbook-quality" yang sangat padat informasi (campuran web yang difilter ketat dan data sintetik GPT-4). Hasilnya, ia mengalahkan model 10x lebih besar (Llama 2 70B) dalam penalaran.
 
-\section{Kesimpulan & Tren Masa Depan}
+\section{Model Spesialis \& Enterprise (Kohort 2025)}
+
+Menjelang tahun 2025, fokus penelitian bergeser dari sekadar penskalaan parameter menuju spesialisasi, efisiensi inferensi ekstrem, dan kemampuan penalaran tingkat lanjut (Advanced Reasoning).
+
+\subsection{DeepSeek-V2: Economical MoE \cite{deepseek2024v2}}
+\textbf{Latar Belakang:}
+Biaya pelatihan dan inferensi model MoE (Mixture-of-Experts) masih menjadi penghalang bagi banyak organisasi.
+
+\textbf{Metodologi:}
+DeepSeek memperkenalkan arsitektur \textbf{Multi-Head Latent Attention (MLA)} yang secara drastis mengurangi ukuran KV Cache, serta struktur MoE yang sangat tergranular (Fine-Grained Experts).
+
+\textbf{Hasil Kunci:}
+- **Biaya:** Mengurangi biaya inferensi hingga 90\% dibandingkan model dense dengan performa setara (seperti Llama 3 70B).
+- **Performa:** Menempati peringkat teratas di antara model open-source pada benchmark coding dan matematika, menantang dominasi model tertutup.
+
+\subsection{OpenAI o1: System 2 Thinking \cite{openai2024o1}}
+\textbf{Latar Belakang:}
+LLM tradisional (seperti GPT-4) beroperasi seperti "Sistem 1" pada otak manusia: cepat, intuitif, tetapi rentan terhadap halusinasi pada masalah logika kompleks.
+
+\textbf{Metodologi:}
+OpenAI o1 dilatih menggunakan \textbf{Large-Scale Reinforcement Learning} untuk melakukan "Chain of Thought" (rantai pemikiran) internal sebelum menjawab. Model ini belajar untuk memecah masalah, mengenali kesalahan sendiri, dan mencoba pendekatan berbeda.
+
+\textbf{Hasil Kunci:}
+- **Matematika:** Mencapai skor medali emas pada Olimpiade Matematika Internasional (IMO) untuk soal-soal tertentu.
+- **Coding:** Melampaui kemampuan rata-rata insinyur perangkat lunak manusia dalam kompetisi pemrograman (Codeforces).
+
+\subsection{Gemma 2: Knowledge Distillation \cite{google2024gemma2}}
+\textbf{Latar Belakang:}
+Biasanya, model kecil dilatih dari nol (from scratch). Google menantang ini dengan menggunakan teknik "penyulingan pengetahuan" (Knowledge Distillation) dari model raksasa ke model kecil.
+
+\textbf{Metodologi:}
+Gemma 2 (9B dan 27B) dilatih bukan hanya pada next-token prediction dari teks mentah, tetapi juga dengan meminimalkan jarak distribusi probabilitas outputnya dengan model guru yang jauh lebih besar.
+
+\textbf{Hasil Kunci:}
+Gemma 2 9B mengalahkan Llama 3 8B dan bahkan menyaingi model 70B dalam beberapa tugas, membuktikan bahwa "kualitas guru" lebih penting daripada sekadar jumlah token pelatihan.
+
+\subsection{Flux.1: Next-Gen Image Synthesis \cite{black2024flux}}
+\textbf{Latar Belakang:}
+Midjourney mendominasi kualitas estetika, tetapi tertutup. Stable Diffusion terbuka, tetapi sulit dikendalikan.
+
+\textbf{Metodologi:}
+Black Forest Labs (tim asli di balik Stable Diffusion) merilis Flux.1, model 12B parameter dengan arsitektur hibrida Transformer-Diffusion yang ditingkatkan (Flow Matching).
+
+\textbf{Hasil Kunci:}
+- **Tipografi:** Kemampuan merender teks dalam gambar yang nyaris sempurna.
+- **Kepatuhan Prompt:** Mengikuti instruksi spasial yang kompleks dengan akurasi tinggi, menetapkan standar baru untuk model gambar open-weights di tahun 2025.
+
+\subsection{MM1: Multimodal Pre-training Insights \cite{apple2024mm1}}
+\textbf{Latar Belakang:}
+Apple jarang mempublikasikan detail teknis. MM1 adalah pengecualian, memberikan analisis komprehensif tentang resep pelatihan model multimodal.
+
+\textbf{Metodologi:}
+Studi ablasi besar-besaran untuk menentukan faktor mana yang paling penting: resolusi gambar, jumlah token visual, atau arsitektur konektor visual-bahasa.
+
+\textbf{Hasil Kunci:}
+Menemukan bahwa resolusi gambar dan jumlah token visual memiliki dampak terbesar pada kinerja, sementara arsitektur konektor (apakah Q-Former atau MLP) kurang berpengaruh. Ini menjadi panduan penting bagi perancang model multimodal di masa depan.
+
+\section{Kesimpulan \& Tren Masa Depan}
 
 Dari tinjauan literatur ini, terlihat pola yang jelas untuk masa depan AI (2025 ke atas):
 

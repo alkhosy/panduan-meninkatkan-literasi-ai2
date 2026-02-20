@@ -1,11 +1,46 @@
 \begin{thebibliography}{10}
 
+\bibitem{microsoft2024phi3}
+Marah Abdin, Sam~Ade Jacobs, Ammar~Ahmad Awan, et~al.
+\newblock Phi-3 technical report: A highly capable language model locally on
+  your phone.
+\newblock {\em arXiv preprint arXiv:2404.14219}, 2024.
+
+\bibitem{deepmind2024alphafold3}
+Josh Abramson, Jonas Adler, Jack Dunger, Richard Evans, Tim Green, Alexander
+  Pritzel, Olaf Ronneberger, Loic Willmore, et~al.
+\newblock Accurate structure prediction of biomolecular interactions with
+  alphafold 3.
+\newblock {\em Nature}, 630:493--500, 2024.
+
+\bibitem{achiam2023gpt4}
+Josh Achiam, Steven Adler, Sandhini Agarwal, et~al.
+\newblock Gpt-4 technical report.
+\newblock {\em arXiv preprint arXiv:2303.08774}, 2023.
+\newblock Updated 2024.
+
+\bibitem{cohere2024commandr}
+Cohere~For AI.
+\newblock Command r+: A scalable \& multilingual rag model.
+\newblock {\em Cohere Blog}, 2024.
+
+\bibitem{anthropic2024claude3}
+Anthropic.
+\newblock The claude 3 model family: Opus, sonnet, haiku.
+\newblock {\em Anthropic Technical Report}, 2024.
+
 \bibitem{bai2022constitutional}
 Yuntao Bai, Saurav Kadavath, Sandipan Kundu, Amanda Askell, Jackson Kernion,
   Andy Jones, Anna Chen, Anna Goldie, Azalia Mirhoseini, Cameron McKinnon,
   et~al.
 \newblock Constitutional ai: Harmlessness from ai feedback.
 \newblock {\em arXiv preprint arXiv:2212.08073}, 2022.
+
+\bibitem{openai2024sora}
+Tim Brooks, Bill Peebles, Connor Homes, Will DePue, Yufei Guo, Li~Jing, David
+  Schnurr, Joe Taylor, Troy Lugosch, Eric Birnbaum, et~al.
+\newblock Video generation models as world simulators.
+\newblock {\em OpenAI Technical Report}, 2024.
 
 \bibitem{brown2020language}
 Tom Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared~D Kaplan, Prafulla
@@ -21,6 +56,13 @@ Paul~F Christiano, Jan Leike, Tom Brown, Miljan Martic, Shane Legg, and Dario
 \newblock Deep reinforcement learning from human preferences.
 \newblock {\em Advances in neural information processing systems}, 30, 2017.
 
+\bibitem{deepseek2024v2}
+DeepSeek-AI.
+\newblock Deepseek-v2: A strong, economical, and efficient mixture-of-experts
+  language model.
+\newblock {\em arXiv preprint arXiv:2405.04434}, 2025.
+\newblock Conference 2025.
+
 \bibitem{devlin2018bert}
 Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova.
 \newblock Bert: Pre-training of deep bidirectional transformers for language
@@ -35,15 +77,62 @@ Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov, Dirk Weissenborn,
   scale.
 \newblock {\em arXiv preprint arXiv:2010.11929}, 2020.
 
+\bibitem{touvron2024llama3}
+Abhimanyu Dubey, Abhinav Jauhri, Abhinav Pandey, et~al.
+\newblock The llama 3 herd of models.
+\newblock {\em arXiv preprint arXiv:2407.21783}, 2025.
+\newblock Conference Proceeding 2025.
+
+\bibitem{stability2024sd3}
+Patrick Esser, Sumith Kulal, Andreas Blattmann, Rahim Entezari, Jonas
+  M{\"u}ller, Harry Saini, Yam Levi, et~al.
+\newblock Stable diffusion 3: Research paper.
+\newblock {\em arXiv preprint arXiv:2403.03206}, 2024.
+
+\bibitem{gu2023mamba}
+Albert Gu and Tri Dao.
+\newblock Mamba: Linear-time sequence modeling with selective state spaces.
+\newblock {\em arXiv preprint arXiv:2312.00752}, 2024.
+\newblock Major impact in 2024.
+
 \bibitem{hochreiter1997long}
 Sepp Hochreiter and J{\"u}rgen Schmidhuber.
 \newblock Long short-term memory.
 \newblock {\em Neural computation}, 9(8):1735--1780, 1997.
 
+\bibitem{jiang2024mixtral}
+Albert~Q Jiang, Alexandre Sablayrolles, Antoine Roux, Arthur Mensch, Blanche
+  Savary, Chris Bamford, Devendra~Singh Chaplot, et~al.
+\newblock Mixtral of experts.
+\newblock {\em arXiv preprint arXiv:2401.04088}, 2024.
+
 \bibitem{krizhevsky2012imagenet}
 Alex Krizhevsky, Ilya Sutskever, and Geoffrey~E Hinton.
 \newblock Imagenet classification with deep convolutional neural networks.
 \newblock {\em Advances in neural information processing systems}, 25, 2012.
+
+\bibitem{black2024flux}
+Black~Forest Labs.
+\newblock Flux.1: Next generation image synthesis.
+\newblock {\em Black Forest Labs Blog}, 2025.
+\newblock Released Aug 2024, influential 2025.
+
+\bibitem{liu2024kan}
+Ziming Liu, Yixuan Wang, Sachin Vaidya, Fabian Ruehle, James Halverson, Marin
+  Solja{\v{c}}i{\'c}, Thomas~Y Hou, and Max Tegmark.
+\newblock Kan: Kolmogorov-arnold networks.
+\newblock {\em arXiv preprint arXiv:2404.19756}, 2024.
+
+\bibitem{apple2024mm1}
+Brandon McKinlay et~al.
+\newblock Mm1: Methods, analysis \& insights from multimodal llm pre-training.
+\newblock {\em arXiv preprint arXiv:2403.09611}, 2024.
+
+\bibitem{openai2024o1}
+OpenAI.
+\newblock Openai o1 system card.
+\newblock {\em OpenAI Technical Report}, 2025.
+\newblock Released Late 2024.
 
 \bibitem{ouyang2022training}
 Long Ouyang, Jeffrey Wu, Xu~Jiang, Diogo Almeida, Carroll Wainwright, Pamela
@@ -65,6 +154,29 @@ David~E Rumelhart, Geoffrey~E Hinton, and Ronald~J Williams.
 \newblock Learning representations by back-propagating errors.
 \newblock {\em nature}, 323(6088):533--536, 1986.
 
+\bibitem{schulman2017proximal}
+John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, and Oleg Klimov.
+\newblock Proximal policy optimization algorithms.
+\newblock {\em arXiv preprint arXiv:1707.06347}, 2017.
+
+\bibitem{geminiteam2024gemini}
+Gemini Team et~al.
+\newblock Gemini 1.5: Unlocking multimodal understanding across millions of
+  tokens of context.
+\newblock {\em arXiv preprint arXiv:2403.05530}, 2024.
+
+\bibitem{google2024gemma2}
+Gemma Team and Google DeepMind.
+\newblock Gemma 2: Improving open language models at a practical size.
+\newblock {\em arXiv preprint arXiv:2406.18665}, 2025.
+\newblock Conference 2025.
+
+\bibitem{qwen2024qwen2}
+Qwen Team.
+\newblock Qwen2 technical report.
+\newblock {\em arXiv preprint arXiv:2407.10670}, 2025.
+\newblock Published 2025.
+
 \bibitem{touvron2023llama}
 Hugo Touvron, Thibaut Lavril, Gautier Izacard, Xavier Martinet, Marie-Anne
   Lachaux, Timoth{\'e}e Lacroix, Baptiste Rozi{\`e}re, Naman Goyal, Eric
@@ -77,5 +189,19 @@ Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
   Aidan~N Gomez, {\L}ukasz Kaiser, and Illia Polosukhin.
 \newblock Attention is all you need.
 \newblock {\em Advances in neural information processing systems}, 30, 2017.
+
+\bibitem{wang2024bitnet}
+Shuming Wang, Wei Ma, Huazheng Feng, Shiwei Zhang, Song Yang, Jiacheng Liu,
+  et~al.
+\newblock Bitnet b1.58: 1-bit llms for every linear layer.
+\newblock {\em arXiv preprint arXiv:2402.17764}, 2025.
+\newblock ICLR 2025.
+
+\bibitem{zhu2024vision}
+Lianghui Zhu, Bencheng Liao, Qian Zhang, Xinwen Wang, Wenyu Liu, and Xinggang
+  Wang.
+\newblock Vision mamba: Efficient visual representation learning with
+  bidirectional state space model.
+\newblock {\em arXiv preprint arXiv:2401.09417}, 2024.
 
 \end{thebibliography}

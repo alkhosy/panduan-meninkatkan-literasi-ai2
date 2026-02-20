@@ -30,7 +30,7 @@ Memberikan beberapa contoh (shots) input-output di dalam prompt untuk mengajarka
 \subsection{Perplexity (PPL)}
 Ukuran ketidakpastian model dalam memprediksi token berikutnya. Semakin rendah nilai PPL, semakin baik model tersebut. PPL adalah eksponensial dari cross-entropy loss.
 
-\subsection{Bleu & Rouge}
+\subsection{Bleu \& Rouge}
 Metrik klasik untuk mengevaluasi kualitas teks (terjemahan/ringkasan) dengan menghitung tumpang tindih n-gram antara output model dan referensi manusia. Kurang akurat untuk menilai makna semantik.
 
 \subsection{Win Rate (vs GPT-4)}
@@ -39,7 +39,7 @@ Metrik evaluasi modern di mana output model diadu dengan output GPT-4, dan "juri
 \subsection{Pass@k}
 Metrik untuk evaluasi coding. "Pass@1" berarti akurasi jika model hanya diberi 1 kesempatan. "Pass@10" berarti probabilitas setidaknya ada 1 jawaban benar jika model diberi 10 kesempatan generate.
 
-\section{Arsitektur & Teknik}
+\section{Arsitektur \& Teknik}
 
 \subsection{KV Cache (Key-Value Cache)}
 Teknik optimasi memori saat inferensi Transformer. Alih-alih menghitung ulang vektor Key dan Value untuk token-token sebelumnya di setiap langkah, kita menyimpannya di memori GPU. Ini mempercepat generasi tetapi memakan VRAM besar.
@@ -53,7 +53,7 @@ Algoritma IO-aware yang menghitung Self-Attention jauh lebih cepat dan hemat mem
 \subsection{Mixture of Experts (MoE)}
 Arsitektur di mana layer Feed-Forward dipecah menjadi beberapa "pakar" kecil. Router memilih pakar mana yang aktif untuk setiap token. Memungkinkan model memiliki kapasitas besar (banyak parameter) dengan biaya inferensi rendah.
 
-\section{Dataset & Benchmarks}
+\section{Dataset \& Benchmarks}
 
 \subsection{MMLU (Massive Multitask Language Understanding)}
 Benchmark paling populer saat ini untuk mengukur pengetahuan umum LLM. Terdiri dari soal pilihan ganda dari 57 subjek (matematika, sejarah, hukum, kedokteran, dll).

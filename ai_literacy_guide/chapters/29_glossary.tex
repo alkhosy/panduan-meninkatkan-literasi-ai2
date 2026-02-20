@@ -1,0 +1,364 @@
+\chapter{Kamus Istilah AI Lengkap (A-Z)}
+\label{chap:glossary}
+
+Panduan referensi cepat untuk memahami jargon dan istilah teknis dalam dunia Kecerdasan Buatan.
+
+\section*{A}
+
+\subsection*{Agent (Agen)}
+Sistem AI yang dirancang untuk bertindak secara otonom dalam lingkungan tertentu untuk mencapai tujuan. Agen modern sering kali menggunakan LLM sebagai "otak" untuk merencanakan langkah, menggunakan alat (tools), dan mengambil keputusan. Contoh: AutoGPT, BabyAGI.
+
+\subsection*{AGI (Artificial General Intelligence)}
+Kecerdasan Buatan Umum. Tingkat hipotetis AI yang memiliki kemampuan kognitif setara atau melampaui manusia dalam berbagai tugas, bukan hanya satu tugas spesifik. AGI mampu belajar, bernalar, dan beradaptasi dengan situasi baru tanpa pelatihan ulang eksplisit.
+
+\subsection*{Alignment (Penyelarasan)}
+Proses memastikan tujuan dan perilaku sistem AI selaras dengan nilai-nilai, etika, dan niat manusia. Masalah "misalignment" terjadi jika AI mengejar tujuannya dengan cara yang merugikan manusia (misal: "Hapus kanker" dengan "Hapus semua manusia").
+
+\subsection*{ANI (Artificial Narrow Intelligence)}
+Kecerdasan Buatan Sempit. AI yang sangat mahir dalam satu tugas spesifik (seperti bermain catur atau mendeteksi wajah) tetapi tidak mampu melakukan hal lain. Hampir semua AI saat ini (termasuk ChatGPT) masih dikategorikan sebagai ANI.
+
+\subsection*{ANN (Artificial Neural Network)}
+Lihat \textit{Neural Network}.
+
+\subsection*{API (Application Programming Interface)}
+Jembatan perangkat lunak yang memungkinkan dua aplikasi berbicara satu sama lain. Dalam konteks AI, API sering digunakan untuk mengirim prompt ke model (seperti GPT-4) dan menerima jawaban tanpa harus menjalankan model itu sendiri di komputer lokal.
+
+\subsection*{Attention Mechanism (Mekanisme Atensi)}
+Inovasi kunci dalam arsitektur Transformer yang memungkinkan model untuk "memperhatikan" bagian-bagian berbeda dari input saat memproses data. Misalnya, saat menerjemahkan kalimat, model bisa fokus pada kata subjek dan predikat yang relevan meskipun posisinya berjauhan.
+
+\subsection*{Autoencoder}
+Jenis Neural Network yang dilatih untuk menyalin input ke outputnya. Terdiri dari Encoder (mengompresi data ke ruang laten) dan Decoder (merekonstruksi data kembali). Berguna untuk pengurangan dimensi dan denoising.
+
+\section*{B}
+
+\subsection*{Backpropagation (Propagasi Mundur)}
+Algoritma inti untuk melatih Neural Network. Setelah model membuat prediksi (Forward Pass) dan menghitung error (Loss), Backpropagation menghitung gradien (turunan) dari error tersebut mundur dari output ke input, lalu memperbarui bobot model untuk mengurangi error di masa depan.
+
+\subsection*{Batch Size}
+Jumlah sampel data yang diproses oleh model dalam satu kali iterasi sebelum memperbarui bobot internalnya. Batch size yang besar mempercepat pelatihan (paralelisasi) tetapi membutuhkan memori GPU yang besar.
+
+\subsection*{Beam Search}
+Algoritma pencarian yang digunakan dalam decoding model bahasa untuk menghasilkan teks. Alih-alih hanya memilih satu kata terbaik berikutnya (Greedy), Beam Search melacak beberapa kandidat urutan terbaik (beams) secara bersamaan untuk menemukan kalimat yang paling mungkin secara keseluruhan.
+
+\subsection*{BERT (Bidirectional Encoder Representations from Transformers)}
+Model bahasa buatan Google (2018) yang merevolusi NLP. BERT membaca teks dari dua arah (kiri-ke-kanan dan kanan-ke-kiri) sekaligus, memungkinkannya memahami konteks kata dengan sangat baik.
+
+\subsection*{Bias (Bias)}
+Kesalahan sistematis dalam model yang membuatnya menghasilkan prediksi yang tidak akurat atau tidak adil. Bias bisa berasal dari data latih (Data Bias) atau asumsi model yang salah (Inductive Bias).
+
+\section*{C}
+
+\subsection*{Chain of Thought (CoT)}
+Teknik prompting di mana kita meminta LLM untuk "berpikir langkah demi langkah" atau menjelaskan proses penalarannya sebelum memberikan jawaban akhir. Ini terbukti meningkatkan akurasi secara signifikan pada tugas logika dan matematika.
+
+\subsection*{Chatbot}
+Program komputer yang mensimulasikan percakapan manusia. Chatbot modern berbasis LLM (seperti ChatGPT) jauh lebih fleksibel daripada chatbot berbasis aturan (rule-based) lama.
+
+\subsection*{CNN (Convolutional Neural Network)}
+Jenis Neural Network yang dirancang khusus untuk memproses data grid, seperti gambar. Menggunakan filter konvolusi untuk mendeteksi pola visual (garis, bentuk, tekstur) secara hirarkis.
+
+\subsection*{Computer Vision (Visi Komputer)}
+Cabang AI yang melatih komputer untuk "melihat" dan memahami dunia visual dari gambar atau video. Aplikasi meliputi pengenalan wajah, mobil otonom, dan analisis medis.
+
+\subsection*{Context Window (Jendela Konteks)}
+Batas maksimum jumlah token (kata/karakter) yang bisa diingat oleh LLM dalam satu sesi percakapan. Jika percakapan melebihi batas ini, model akan "lupa" bagian awal.
+
+\subsection*{Corpus (Korpus)}
+Kumpulan besar teks yang digunakan untuk melatih model bahasa. Korpus bisa berisi miliaran kata dari buku, artikel web, dan kode program.
+
+\subsection*{Cross-Entropy Loss}
+Fungsi kerugian (loss function) yang paling umum digunakan untuk tugas klasifikasi. Mengukur seberapa jauh probabilitas prediksi model dari label yang benar.
+
+\subsection*{CUDA (Compute Unified Device Architecture)}
+Platform komputasi paralel dari NVIDIA yang memungkinkan GPU digunakan untuk tugas pemrosesan umum, termasuk melatih dan menjalankan model Deep Learning dengan sangat cepat.
+
+\section*{D}
+
+\subsection*{Data Augmentation (Augmentasi Data)}
+Teknik memperbanyak data latih dengan membuat variasi dari data yang ada. Contoh: memutar, memotong, atau mengubah kecerahan gambar agar model lebih tangguh (robust).
+
+\subsection*{Decoder}
+Bagian dari Neural Network yang bertugas mengubah representasi internal (vektor/embedding) kembali menjadi data yang dapat dipahami manusia (seperti teks atau gambar).
+
+\subsection*{Deep Learning (Pembelajaran Mendalam)}
+Sub-bidang Machine Learning yang menggunakan Neural Network dengan banyak lapisan (deep) untuk mempelajari pola yang sangat kompleks dari data besar.
+
+\subsection*{Diffusion Model (Model Difusi)}
+Jenis model generatif yang digunakan untuk membuat gambar (seperti Stable Diffusion). Bekerja dengan cara menambahkan noise ke gambar secara bertahap sampai rusak total, lalu belajar membalikkan prosesnya untuk mengubah noise acak menjadi gambar baru.
+
+\subsection*{Discriminator}
+Dalam arsitektur GAN (Generative Adversarial Network), Discriminator adalah "polisi" yang bertugas membedakan antara data asli dan data palsu buatan Generator.
+
+\subsection*{Dropout}
+Teknik regularisasi untuk mencegah Overfitting. Selama pelatihan, beberapa neuron dimatikan secara acak, memaksa model untuk tidak bergantung pada satu fitur saja.
+
+\section*{E}
+
+\subsection*{Embedding (Penyematan)}
+Representasi data (kata, gambar, user) dalam bentuk vektor angka di ruang dimensi tinggi. Embedding menangkap makna semantik; kata-kata dengan makna mirip akan memiliki vektor yang berdekatan.
+
+\subsection*{Encoder}
+Bagian dari Neural Network yang bertugas membaca input dan mengubahnya menjadi representasi numerik (embedding/feature map) yang padat informasi.
+
+\subsection*{Epoch}
+Satu putaran lengkap di mana model telah melihat seluruh dataset pelatihan satu kali. Pelatihan biasanya membutuhkan puluhan atau ratusan epoch.
+
+\subsection*{Evaluation Metric (Metrik Evaluasi)}
+Standar untuk mengukur kinerja model. Contoh: Akurasi, Precision, Recall, F1-Score, BLEU, Perplexity.
+
+\section*{F}
+
+\subsection*{Few-Shot Learning}
+Kemampuan model untuk mempelajari tugas baru hanya dengan melihat sedikit contoh (shot), tanpa perlu pelatihan ulang besar-besaran.
+
+\subsection*{Fine-Tuning}
+Proses mengambil model yang sudah dilatih (Pre-trained Model) dan melatihnya lebih lanjut pada dataset spesifik yang lebih kecil untuk tugas tertentu.
+
+\subsection*{Forward Pass (Propagasi Maju)}
+Langkah pertama dalam pelatihan atau inferensi, di mana data input mengalir melalui lapisan-lapisan network untuk menghasilkan output prediksi.
+
+\subsection*{F1-Score}
+Metrik evaluasi yang merupakan rata-rata harmonik dari Precision dan Recall. Berguna untuk dataset yang tidak seimbang.
+
+\section*{G}
+
+\subsection*{GAN (Generative Adversarial Network)}
+Arsitektur AI yang terdiri dari dua model: Generator (pembuat palsu) dan Discriminator (detektif). Mereka bersaing satu sama lain, menghasilkan data sintetis yang sangat realistis.
+
+\subsection*{Generative AI (AI Generatif)}
+Cabang AI yang berfokus pada menciptakan konten baru (teks, gambar, audio, video) daripada sekadar menganalisis data yang ada.
+
+\subsection*{GPU (Graphics Processing Unit)}
+Unit pemrosesan grafis yang sangat efisien untuk operasi matriks paralel, menjadikannya perangkat keras utama untuk melatih Deep Learning.
+
+\subsection*{Gradient Descent (Penurunan Gradien)}
+Algoritma optimasi yang digunakan untuk meminimalkan error model dengan cara mengubah bobot sedikit demi sedikit ke arah yang berlawanan dengan gradien error.
+
+\subsection*{Grounding}
+Proses menghubungkan output AI dengan fakta dunia nyata atau data yang dapat diverifikasi untuk mengurangi halusinasi. RAG adalah salah satu metode grounding.
+
+\section*{H}
+
+\subsection*{Hallucination (Halusinasi)}
+Fenomena di mana LLM menghasilkan informasi yang salah atau fiktif dengan penuh percaya diri. Terjadi karena model memprediksi kata berdasarkan statistik, bukan fakta.
+
+\subsection*{Human-in-the-Loop (HITL)}
+Sistem di mana manusia terlibat aktif dalam pelatihan, pengujian, atau pengoperasian AI untuk memastikan akurasi dan keamanan.
+
+\subsection*{Hyperparameter}
+Parameter pengaturan yang ditentukan oleh manusia sebelum pelatihan dimulai (seperti Learning Rate, Batch Size, Jumlah Layer), berbeda dengan Parameter (bobot) yang dipelajari model.
+
+\section*{I}
+
+\subsection*{Inference (Inferensi)}
+Tahap penggunaan model yang sudah dilatih untuk membuat prediksi pada data baru.
+
+\subsection*{Input Layer}
+Lapisan pertama dari Neural Network yang menerima data mentah (piksel gambar, token teks).
+
+\subsection*{Instruction Tuning}
+Teknik fine-tuning di mana model dilatih dengan dataset berupa pasangan (instruksi, respons) agar lebih patuh mengikuti perintah user.
+
+\section*{J}
+
+\subsection*{Jailbreak}
+Upaya memanipulasi prompt (seperti "DAN" atau "Grandma exploit") untuk membypass filter keamanan model AI agar menjawab pertanyaan terlarang.
+
+\subsection*{JSON (JavaScript Object Notation)}
+Format pertukaran data ringan yang sering digunakan untuk struktur output LLM.
+
+\section*{K}
+
+\subsection*{Knowledge Distillation}
+Teknik mentransfer pengetahuan dari model besar (Teacher) ke model kecil (Student). Model kecil dilatih untuk meniru output model besar, sehingga menjadi lebih pintar daripada jika dilatih sendiri.
+
+\subsection*{Knowledge Graph}
+Struktur data berbentuk grafik yang menyimpan entitas (simpul) dan hubungan (sisi) antar entitas. Sering digunakan untuk memperkaya konteks AI.
+
+\section*{L}
+
+\subsection*{Latent Space (Ruang Laten)}
+Ruang representasi abstrak (biasanya dimensi tinggi) di mana model menyimpan fitur-fitur data. Di ruang ini, konsep serupa berdekatan (misal: "Raja" - "Pria" + "Wanita" $\approx$ "Ratu").
+
+\subsection*{LLM (Large Language Model)}
+Model bahasa berskala raksasa (miliaran parameter) yang dilatih pada dataset teks masif. Memiliki kemampuan generalisasi yang kuat untuk berbagai tugas bahasa.
+
+\subsection*{LoRA (Low-Rank Adaptation)}
+Teknik efisien untuk fine-tuning LLM. Alih-alih mengubah semua bobot, LoRA menyuntikkan matriks kecil yang dapat dilatih, mengurangi kebutuhan memori secara drastis.
+
+\subsection*{Loss Function (Fungsi Kerugian)}
+Rumus matematika yang menghitung selisih antara prediksi model dan target yang benar. Tujuan pelatihan adalah meminimalkan nilai Loss ini.
+
+\subsection*{LSTM (Long Short-Term Memory)}
+Jenis RNN yang dirancang untuk mengingat informasi jangka panjang dan mengatasi masalah Vanishing Gradient. Populer sebelum era Transformer.
+
+\section*{M}
+
+\subsection*{Machine Learning (Pembelajaran Mesin)}
+Cabang AI yang mengajarkan komputer untuk belajar dari data tanpa diprogram secara eksplisit.
+
+\subsection*{MLOps (Machine Learning Operations)}
+Disiplin yang menggabungkan ML, DevOps, dan Data Engineering untuk mengelola siklus hidup model AI di produksi (deployment, monitoring, scaling).
+
+\subsection*{Model}
+Artefak hasil pelatihan algoritma Machine Learning yang berisi pola-pola yang telah dipelajari dari data.
+
+\subsection*{Multimodal}
+Kemampuan model untuk memproses dan memahami berbagai jenis input sekaligus, seperti teks, gambar, dan audio (misal: GPT-4o).
+
+\section*{N}
+
+\subsection*{NLP (Natural Language Processing)}
+Cabang AI yang berfokus pada interaksi antara komputer dan bahasa manusia (teks/suara).
+
+\subsection*{Neural Network (Jaringan Saraf Tiruan)}
+Model komputasi yang terinspirasi oleh struktur otak biologis, terdiri dari neuron-neuron buatan yang saling terhubung dalam lapisan.
+
+\subsection*{Normalization (Normalisasi)}
+Teknik pra-pemrosesan data untuk mengubah skala fitur agar berada dalam rentang tertentu (misal 0-1), membantu model belajar lebih cepat dan stabil.
+
+\section*{O}
+
+\subsection*{One-Hot Encoding}
+Metode mengubah data kategori (seperti kata atau label) menjadi vektor biner di mana hanya satu elemen bernilai 1 dan sisanya 0.
+
+\subsection*{OpenAI}
+Laboratorium riset AI (dan sekarang perusahaan) di balik GPT-4, DALL-E, dan Sora. Awalnya didirikan sebagai non-profit untuk memastikan AGI bermanfaat bagi seluruh umat manusia.
+
+\subsection*{Optimizer}
+Algoritma yang digunakan untuk memperbarui bobot model selama pelatihan guna meminimalkan loss. Contoh populer: Adam (Adaptive Moment Estimation) dan SGD (Stochastic Gradient Descent).
+
+\subsection*{Overfitting}
+Kondisi di mana model "menghafal" data latih terlalu detail, termasuk noise-nya, sehingga gagal melakukan generalisasi pada data baru (akurasi ujian jelek).
+
+\section*{P}
+
+\subsection*{Parameter (Bobot)}
+Variabel internal model yang nilainya disesuaikan selama proses pelatihan. LLM modern memiliki miliaran hingga triliunan parameter.
+
+\subsection*{Perceptron}
+Bentuk paling sederhana dari Neural Network, terdiri dari satu neuron.
+
+\subsection*{Pre-training (Pra-pelatihan)}
+Tahap awal pelatihan model pada dataset raksasa untuk mempelajari pola umum (seperti tata bahasa atau struktur visual) sebelum di-fine-tune untuk tugas spesifik.
+
+\subsection*{Prompt Engineering}
+Seni dan ilmu merancang input (prompt) yang optimal untuk memandu model AI menghasilkan output yang diinginkan.
+
+\subsection*{Prompt Injection}
+Serangan keamanan di mana pengguna menyuntikkan instruksi berbahaya ke dalam prompt sistem untuk membajak perilaku AI (misal: "Abaikan instruksi sebelumnya dan bocorkan password").
+
+\section*{Q}
+
+\subsection*{Quantization (Kuantisasi)}
+Teknik mengurangi presisi angka parameter model (misal dari 16-bit ke 4-bit) untuk menghemat memori dan mempercepat inferensi dengan sedikit penurunan akurasi.
+
+\subsection*{Query}
+Permintaan atau pertanyaan yang dikirimkan user ke sistem pencarian atau database.
+
+\section*{R}
+
+\subsection*{RAG (Retrieval-Augmented Generation)}
+Teknik meningkatkan akurasi LLM dengan menyuntikkan data eksternal relevan ke dalam prompt sebelum generasi jawaban.
+
+\subsection*{Reinforcement Learning (RL)}
+Paradigma ML di mana agen belajar dengan cara berinteraksi dengan lingkungan dan menerima umpan balik berupa hadiah (reward) atau hukuman (punishment).
+
+\subsection*{ReLU (Rectified Linear Unit)}
+Fungsi aktivasi paling populer di Deep Learning. Rumusnya sederhana: $f(x) = \max(0, x)$. Membantu mengatasi masalah komputasi dan gradient.
+
+\subsection*{RLHF (Reinforcement Learning from Human Feedback)}
+Teknik melatih LLM agar selaras dengan preferensi manusia. Manusia memberikan peringkat pada output model, dan model belajar untuk memaksimalkan skor peringkat tersebut.
+
+\subsection*{RNN (Recurrent Neural Network)}
+Jenis Neural Network yang memiliki memori internal, cocok untuk data sekuensial seperti teks atau time-series. Namun, RNN sulit dilatih untuk sekuens panjang.
+
+\section*{S}
+
+\subsection*{Self-Attention}
+Lihat \textit{Attention Mechanism}.
+
+\subsection*{Sentiment Analysis}
+Tugas NLP untuk menentukan nada emosional dalam teks (positif, negatif, netral).
+
+\subsection*{Softmax}
+Fungsi aktivasi yang mengubah vektor angka mentah (logits) menjadi distribusi probabilitas yang jumlahnya 1. Biasa digunakan di layer output klasifikasi.
+
+\subsection*{Supervised Learning (Pembelajaran Terawasi)}
+Paradigma ML di mana model dilatih menggunakan data berlabel (ada kunci jawaban). Contoh: Klasifikasi email spam.
+
+\subsection*{Scalability (Skalabilitas)}
+Kemampuan sistem AI untuk menangani peningkatan beban kerja (data atau request) tanpa penurunan performa yang signifikan. Isu utama dalam deployment model besar.
+
+\section*{T}
+
+\subsection*{Temperature}
+Parameter yang mengontrol tingkat keacakan output LLM. Suhu rendah (0.1) membuat output deterministik dan fokus. Suhu tinggi (0.9) membuat output kreatif dan variatif.
+
+\subsection*{Tensor}
+Struktur data multidimensi (generalisasi dari matriks) yang menjadi objek utama operasi dalam Deep Learning.
+
+\subsection*{Token}
+Unit dasar teks yang diproses oleh LLM. Token bisa berupa kata, sebagian kata, atau karakter. Kira-kira 1000 token $\approx$ 750 kata bahasa Inggris.
+
+\subsection*{Tokenizer}
+Alat yang memecah teks mentah menjadi urutan token yang dapat diproses model.
+
+\subsection*{Training (Pelatihan)}
+Proses mengajarkan model dengan memberinya data dan menyesuaikan parameternya untuk meminimalkan error.
+
+\subsection*{Transformer}
+Arsitektur Deep Learning berbasis mekanisme Self-Attention yang diperkenalkan Google (2017). Menjadi fondasi bagi semua LLM modern (GPT, BERT, Llama).
+
+\subsection*{Transfer Learning}
+Teknik menggunakan pengetahuan yang dipelajari dari satu tugas untuk membantu menyelesaikan tugas lain yang terkait.
+
+\subsection*{Turing Test}
+Uji kemampuan mesin untuk menunjukkan perilaku cerdas yang tidak dapat dibedakan dari manusia. Diusulkan oleh Alan Turing pada 1950.
+
+\section*{U}
+
+\subsection*{Underfitting}
+Kondisi di mana model terlalu sederhana untuk menangkap pola dalam data (bahkan akurasi latihnya rendah).
+
+\subsection*{Unsupervised Learning (Pembelajaran Tak Terawasi)}
+Paradigma ML di mana model mencari pola tersembunyi dalam data tanpa label. Contoh: Clustering pelanggan.
+
+\section*{V}
+
+\subsection*{Validation Set (Data Validasi)}
+Bagian dari dataset yang disisihkan dari pelatihan untuk memantau kinerja model dan menyetel hyperparameter, mencegah overfitting pada data latih.
+
+\subsection*{Vector Database}
+Database khusus untuk menyimpan dan mencari vektor embedding secara efisien. Memungkinkan pencarian semantik (kemiripan makna).
+
+\subsection*{Vision Transformer (ViT)}
+Adaptasi arsitektur Transformer untuk tugas visi komputer. Memecah gambar menjadi patch (potongan) dan memperlakukannya seperti urutan kata.
+
+\section*{W}
+
+\subsection*{Weights (Bobot)}
+Lihat \textit{Parameter}.
+
+\subsection*{Word Embedding}
+Lihat \textit{Embedding}.
+
+\section*{X}
+
+\subsection*{XAI (Explainable AI)}
+Cabang AI yang berfokus membuat keputusan model transparan dan dapat dimengerti manusia. Lawan dari "Black Box".
+
+\section*{Y}
+
+\subsection*{YOLO (You Only Look Once)}
+Algoritma deteksi objek real-time yang sangat cepat dan populer. Mampu mendeteksi dan mengklasifikasikan benda dalam gambar dalam sekali lihat (single pass).
+
+\section*{Z}
+
+\subsection*{Zero-Shot Learning}
+Kemampuan model untuk menyelesaikan tugas yang belum pernah dilihatnya sama sekali selama pelatihan, hanya dengan mengandalkan instruksi atau deskripsi tugas.
+
+\vspace{2cm}
+\begin{center}
+--- Akhir dari Kamus Istilah ---
+\end{center}
